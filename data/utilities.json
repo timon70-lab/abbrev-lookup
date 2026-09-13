@@ -111,6 +111,18 @@
         "VVC"
       ],
       "note": "Like FLISR, VVO is a function inside a DMS or ADMS rather than its own product, supplied by the same ADMS vendors as an optional module."
+    },
+    {
+      "abbr": "E-TERRA",
+      "fullName": "e-terra (a product name, not an acronym)",
+      "gist": "Legacy Alstom/GE control-room software suite",
+      "description": "A family of SCADA, EMS and DMS/ADMS control-room software originally developed by Alstom Grid. Individual products in the suite include e-terraplatform (SCADA/EMS), e-terradistribution (DMS/ADMS) and e-terrasource (network modelling), used by transmission and distribution utilities worldwide, including several Nordic TSOs.",
+      "aliases": [
+        "eterra",
+        "e-terra platform",
+        "e-terra distribution"
+      ],
+      "note": "e-terra was built by Alstom Grid; GE acquired Alstom's power business in 2015, e-terra included. GE Vernova has since been folding it into its newer GridOS-branded product line (GridOS ADMS, GridOS AEMS), but many utilities still run — and refer to — their systems under the original e-terra name."
     }
   ]
 }
