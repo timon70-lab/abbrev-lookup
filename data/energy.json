@@ -29,7 +29,8 @@
       "aliases": [
         "emergency shutdown system",
         "ESDS"
-      ]
+      ],
+      "note": "The logic behind ESD usually runs on a Safety Instrumented System (SIS) — off-the-shelf, safety-certified hardware and software from vendors such as Honeywell, Schneider Electric (Triconex), ABB, Siemens and Yokogawa, configured for the specific platform or plant rather than built from scratch."
     },
     {
       "abbr": "EOR",

@@ -15,7 +15,8 @@
       "fullName": "Distribution Management System",
       "gist": "Software for operating the distribution network",
       "description": "Control-room software for operating the medium- and low-voltage distribution network — switching, load monitoring and network state estimation. An ADMS is a DMS with outage management and advanced analytics added.",
-      "aliases": []
+      "aliases": [],
+      "note": "Like ADMS and OMS, DMS is normally bought off the shelf. GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell DMS platforms — often the same product line that becomes an ADMS once outage management and analytics are added."
     },
     {
       "abbr": "OMS",
@@ -30,14 +31,16 @@
       "fullName": "Supervisory Control and Data Acquisition",
       "gist": "Real-time monitoring and control of grid equipment",
       "description": "Real-time system that collects measurements from substations and field devices and lets operators send control commands, such as opening or closing a breaker. It is the data backbone that DMS, ADMS and EMS sit on top of.",
-      "aliases": []
+      "aliases": [],
+      "note": "SCADA is off-the-shelf software too, usually chosen separately from DMS/ADMS since it's the base layer both connect to. Common vendors include GE, Schneider Electric (Wonderware), Honeywell, Siemens, ABB and OSI. Utilities tend to keep the same SCADA system for decades, since replacing it means changing how every substation talks to the control room."
     },
     {
       "abbr": "EMS",
       "fullName": "Energy Management System",
       "gist": "Control-room software for the transmission grid",
       "description": "Control-room software for the high-voltage transmission grid — generation dispatch, state estimation, contingency analysis and frequency control. The transmission-level counterpart to a DMS.",
-      "aliases": []
+      "aliases": [],
+      "note": "EMS platforms are sold by the same major vendors as DMS/ADMS — GE, Siemens, Hitachi Energy and ABB among them — plus specialists like OSI. Utilities buy and configure these rather than building them from scratch."
     },
     {
       "abbr": "DER",
@@ -54,7 +57,8 @@
       "fullName": "Distributed Energy Resource Management System",
       "gist": "Software that controls fleets of DERs",
       "description": "Software that monitors, forecasts and controls large numbers of DERs so the grid operator can use them as flexibility — for example curtailing solar or dispatching batteries to relieve a constraint.",
-      "aliases": []
+      "aliases": [],
+      "note": "DERMS is a newer category, so the vendor list is more fragmented than ADMS: GE, Schneider Electric, Itron, AutoGrid, Smarter Grid Solutions and Enbala all sell DERMS products, and some ADMS vendors now bundle a DERMS module rather than selling it standalone."
     },
     {
       "abbr": "DSO",
@@ -84,7 +88,8 @@
       "aliases": [
         "smart metering",
         "AMS"
-      ]
+      ],
+      "note": "AMI is usually bought as one integrated package — meters, communication network and head-end software from a single vendor such as Itron, Landis+Gyr, Sensus (Xylem) or Aclara. Mixing meters and head-end software from different vendors is possible but less common."
     },
     {
       "abbr": "FLISR",
@@ -93,7 +98,8 @@
       "description": "Automated ADMS function that pinpoints a fault on a feeder, opens switches to isolate the faulted section and closes tie switches to restore supply to unaffected customers, usually within a minute.",
       "aliases": [
         "self-healing grid"
-      ]
+      ],
+      "note": "FLISR isn't sold as a separate product — it's a function running inside a DMS or ADMS. Whichever vendor supplies the ADMS (GE, Siemens, Schneider Electric, Hitachi Energy, ABB) also supplies FLISR as a configurable module within it."
     },
     {
       "abbr": "VVO",
@@ -103,7 +109,8 @@
       "aliases": [
         "volt-VAR control",
         "VVC"
-      ]
+      ],
+      "note": "Like FLISR, VVO is a function inside a DMS or ADMS rather than its own product, supplied by the same ADMS vendors as an optional module."
     }
   ]
 }
