@@ -347,12 +347,30 @@
     const hit = dict.byAbbr.get(key) || dict.byAlias.get(key);
     if (hit) { render(hit, "dictionary", dict); return; }
 
-    // Not in the dictionary. Show near matches, then try the AI fallback if configured.
+    // Not in this sector's dictionary. Before asking AI to guess, check whether
+    // it's simply a term that belongs to a different sector — no point letting
+    // AI invent an Energy meaning for something that's already correctly
+    // defined as a Utilities term. Still worth logging as missing from *this*
+    // sector, since that's real signal about whether it belongs here too.
+    logMiss(raw, sector);
+    const elsewhere = [];
+    for (const sec of SECTORS) {
+      if (sec.id === sector) continue;
+      let odict;
+      try { odict = await loadSector(sec.id); } catch { continue; }
+      if (odict.byAbbr.get(key) || odict.byAlias.get(key)) elsewhere.push(sec.id);
+    }
+    if (norm(input.value) !== key) return; // user moved on while we checked
+    if (elsewhere.length) { renderElsewhere(raw, elsewhere); return; }
+
+    // Genuinely unknown everywhere: show near matches, then try the AI fallback.
+    askUnknown(raw, dict, key, sector);
+  }
+
+  async function askUnknown(raw, dict, key, sector) {
     const near = dict.entries.filter(e => norm(e.abbr).startsWith(key) || key.startsWith(norm(e.abbr))).slice(0, 6);
     const aiAvailable = SIMULATE_AI || Boolean(AI_ENDPOINT);
     renderMiss(raw, near, aiAvailable);
-    logMiss(raw, sector);
-
     if (!aiAvailable) return;
     try {
       const ai = SIMULATE_AI
@@ -367,6 +385,31 @@
     } catch (err) {
       renderMiss(raw, near, false, err.message);
     }
+  }
+
+  function renderElsewhere(raw, sectorIds) {
+    result.innerHTML = `
+      <div class="empty">
+        <p><strong>${esc(raw.toUpperCase())}</strong> isn't a ${esc(label(sectorSel.value))} term — it's defined in
+        ${sectorIds.map(id => esc(label(id))).join(" and ")}.</p>
+        <ul class="suggest">
+          ${sectorIds.map(id => `<li><button type="button" data-jump="${esc(id)}">View in ${esc(label(id))}</button></li>`).join("")}
+          <li><button type="button" data-anyway>Look up an ${esc(label(sectorSel.value))} meaning anyway</button></li>
+        </ul>
+      </div>`;
+    result.querySelectorAll("[data-jump]").forEach(b =>
+      b.addEventListener("click", () => jumpToSector(b.dataset.jump, raw)));
+    result.querySelector("[data-anyway]").addEventListener("click", async () => {
+      const dict = await loadSector(sectorSel.value);
+      askUnknown(raw, dict, norm(raw), sectorSel.value);
+    });
+  }
+
+  function jumpToSector(sectorId, term) {
+    sectorSel.value = sectorId;
+    applySector(sectorId, true);
+    input.value = term;
+    lookup();
   }
 
   // ---- rendering ------------------------------------------------------
