@@ -5,36 +5,42 @@
     {
       "abbr": "ADMS",
       "fullName": "Advanced Distribution Management System",
+      "gist": "Control-room software for running the distribution grid",
       "description": "Software platform used by distribution system operators to monitor, control and optimise the distribution grid. It combines SCADA, outage management and analytics such as fault location, isolation and service restoration (FLISR) and volt/VAR optimisation in one system.",
       "aliases": []
     },
     {
       "abbr": "DMS",
       "fullName": "Distribution Management System",
+      "gist": "Software for operating the distribution network",
       "description": "Control-room software for operating the medium- and low-voltage distribution network — switching, load monitoring and network state estimation. An ADMS is a DMS with outage management and advanced analytics added.",
       "aliases": []
     },
     {
       "abbr": "OMS",
       "fullName": "Outage Management System",
+      "gist": "System that finds and manages power outages",
       "description": "System that detects, locates and manages power outages, typically by combining customer trouble calls, smart meter events and network topology to predict which device has failed and to track restoration.",
       "aliases": []
     },
     {
       "abbr": "SCADA",
       "fullName": "Supervisory Control and Data Acquisition",
+      "gist": "Real-time monitoring and control of grid equipment",
       "description": "Real-time system that collects measurements from substations and field devices and lets operators send control commands, such as opening or closing a breaker. It is the data backbone that DMS, ADMS and EMS sit on top of.",
       "aliases": []
     },
     {
       "abbr": "EMS",
       "fullName": "Energy Management System",
+      "gist": "Control-room software for the transmission grid",
       "description": "Control-room software for the high-voltage transmission grid — generation dispatch, state estimation, contingency analysis and frequency control. The transmission-level counterpart to a DMS.",
       "aliases": []
     },
     {
       "abbr": "DER",
       "fullName": "Distributed Energy Resource",
+      "gist": "Small power source or flexible load on the grid",
       "description": "Small-scale power source or flexible load connected to the distribution grid rather than the transmission grid — rooftop solar, batteries, EV chargers, heat pumps and small wind.",
       "aliases": [
         "distributed generation",
@@ -44,12 +50,14 @@
     {
       "abbr": "DERMS",
       "fullName": "Distributed Energy Resource Management System",
+      "gist": "Software that controls fleets of DERs",
       "description": "Software that monitors, forecasts and controls large numbers of DERs so the grid operator can use them as flexibility — for example curtailing solar or dispatching batteries to relieve a constraint.",
       "aliases": []
     },
     {
       "abbr": "DSO",
       "fullName": "Distribution System Operator",
+      "gist": "The company that runs the local grid",
       "description": "The company that owns and operates the local distribution grid and connects end customers. In Norway the DSO is the nettselskap; the transmission grid is operated by the TSO (Statnett).",
       "aliases": [
         "nettselskap",
@@ -60,6 +68,7 @@
     {
       "abbr": "TSO",
       "fullName": "Transmission System Operator",
+      "gist": "The company that runs the national grid",
       "description": "The operator responsible for the high-voltage transmission grid and for keeping the whole power system in balance. Statnett in Norway.",
       "aliases": [
         "transmission operator"
@@ -68,6 +77,7 @@
     {
       "abbr": "AMI",
       "fullName": "Advanced Metering Infrastructure",
+      "gist": "Smart meters and the network behind them",
       "description": "The end-to-end smart metering system — meters, communication network and head-end system — that delivers interval consumption data and meter events to the utility.",
       "aliases": [
         "smart metering",
@@ -77,6 +87,7 @@
     {
       "abbr": "FLISR",
       "fullName": "Fault Location, Isolation and Service Restoration",
+      "gist": "Grid that isolates faults and restores power by itself",
       "description": "Automated ADMS function that pinpoints a fault on a feeder, opens switches to isolate the faulted section and closes tie switches to restore supply to unaffected customers, usually within a minute.",
       "aliases": [
         "self-healing grid"
@@ -85,6 +96,7 @@
     {
       "abbr": "VVO",
       "fullName": "Volt/VAR Optimisation",
+      "gist": "Automatic voltage and reactive power control",
       "description": "Coordinated control of voltage regulators, capacitor banks and inverters to keep voltage within limits while reducing losses or demand.",
       "aliases": [
         "volt-VAR control",

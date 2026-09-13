@@ -5,6 +5,7 @@
     {
       "abbr": "FPSO",
       "fullName": "Floating Production, Storage and Offloading",
+      "gist": "Ship that produces and stores oil at sea",
       "description": "A ship-shaped vessel moored over an offshore field that receives well fluids, separates oil, gas and water, stores the oil in its hull and offloads it to shuttle tankers. Used where a pipeline to shore is impractical.",
       "aliases": [
         "floater",
@@ -14,6 +15,7 @@
     {
       "abbr": "BOP",
       "fullName": "Blowout Preventer",
+      "gist": "Valve stack that stops a well blowing out",
       "description": "Stack of large valves on top of a well that can seal the wellbore and shut off uncontrolled flow of oil or gas during drilling. The last line of defence against a blowout.",
       "aliases": [
         "BOP stack"
@@ -22,6 +24,7 @@
     {
       "abbr": "ESD",
       "fullName": "Emergency Shutdown",
+      "gist": "Shuts the plant down when something goes wrong",
       "description": "Safety system that automatically or manually shuts down process equipment, isolates inventories and stops flow when a dangerous condition such as fire, gas leak or overpressure is detected.",
       "aliases": [
         "emergency shutdown system",
@@ -31,6 +34,7 @@
     {
       "abbr": "EOR",
       "fullName": "Enhanced Oil Recovery",
+      "gist": "Getting more oil out of an ageing field",
       "description": "Techniques used to recover oil that ordinary pressure depletion and water injection leave behind, such as gas injection, polymer flooding or CO2 injection. Also called tertiary recovery.",
       "aliases": [
         "tertiary recovery",
@@ -40,12 +44,14 @@
     {
       "abbr": "LNG",
       "fullName": "Liquefied Natural Gas",
+      "gist": "Natural gas chilled to liquid for shipping",
       "description": "Natural gas cooled to about minus 162 degrees Celsius so it becomes liquid and shrinks to roughly 1/600 of its volume, making it practical to ship in tankers rather than by pipeline.",
       "aliases": []
     },
     {
       "abbr": "NCS",
       "fullName": "Norwegian Continental Shelf",
+      "gist": "Norway’s offshore oil and gas area",
       "description": "The seabed areas under Norwegian jurisdiction where petroleum activity takes place — the North Sea, the Norwegian Sea and the Barents Sea. The term the industry uses for the Norwegian offshore province as a whole.",
       "aliases": [
         "norsk sokkel",
@@ -55,6 +61,7 @@
     {
       "abbr": "PDO",
       "fullName": "Plan for Development and Operation",
+      "gist": "The development plan authorities approve",
       "description": "The formal development plan an operator submits to Norwegian authorities for approval before building out a field — concept, facilities, cost, schedule and environmental impact. Approval is the go-ahead for the project.",
       "aliases": [
         "PUD",
@@ -64,6 +71,7 @@
     {
       "abbr": "HSE",
       "fullName": "Health, Safety and Environment",
+      "gist": "Keeping people and the environment safe",
       "description": "The discipline and organisation responsible for protecting people and the environment in operations — risk assessment, incident reporting, procedures and safety culture. Sometimes extended to HSEQ with quality.",
       "aliases": [
         "HMS",
@@ -74,6 +82,7 @@
     {
       "abbr": "SIMOPS",
       "fullName": "Simultaneous Operations",
+      "gist": "Risky activities happening at the same time",
       "description": "Two or more potentially conflicting activities carried out at the same time and place, such as drilling while producing or lifting near live process. Requires a dedicated risk assessment and coordination plan.",
       "aliases": [
         "simultaneous operations"
@@ -82,6 +91,7 @@
     {
       "abbr": "P&ID",
       "fullName": "Piping and Instrumentation Diagram",
+      "gist": "The master drawing of pipes and instruments",
       "description": "Detailed engineering drawing showing all pipes, valves, vessels, instruments and control loops in a process system. The primary reference document for operations, maintenance and modifications.",
       "aliases": [
         "PID",
@@ -91,6 +101,7 @@
     {
       "abbr": "HPHT",
       "fullName": "High Pressure, High Temperature",
+      "gist": "Wells with extreme pressure and temperature",
       "description": "Wells or reservoirs with pressure above about 690 bar or temperature above about 150 degrees Celsius. They require special materials, equipment ratings and drilling practices.",
       "aliases": [
         "high pressure high temperature well"
@@ -99,6 +110,7 @@
     {
       "abbr": "CCS",
       "fullName": "Carbon Capture and Storage",
+      "gist": "Capturing CO2 and storing it underground",
       "description": "Capturing CO2 from industrial or power sources, transporting it and injecting it into deep geological formations, often depleted reservoirs or saline aquifers, for permanent storage.",
       "aliases": [
         "carbon capture and sequestration",
