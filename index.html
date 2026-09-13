@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* Neutral defaults. Each domain overrides these via a theme (see DOMAINS in the script). */
+  /* Neutral defaults. Each sector overrides these via a theme (see SECTORS in the script). */
   :root {
     --paper: #f7f8f6;
     --ink: #1c2126;
@@ -26,7 +26,7 @@
   body { margin: 0; background: transparent; color: var(--ink); font-family: var(--font);
          display: flex; flex-direction: column; min-height: 100vh; position: relative;
          transition: color .5s ease; }
-  /* Domain texture sits behind everything, fades in/out on domain change. */
+  /* Sector scene sits behind everything, fades in/out on sector change. */
   body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
                  background: var(--texture); transition: opacity .5s ease; }
   body.switching::before { opacity: 0; }
@@ -36,7 +36,7 @@
   h1 { font-size: 1.05rem; font-weight: 500; margin: 0 0 2.2rem; color: var(--ink-soft); }
   h1 b { color: var(--ink); font-weight: 600; }
 
-  /* Search: the hero. One tall field, domain selector fused to its right edge. */
+  /* Search: the hero. One tall field, sector selector fused to its right edge. */
   .search { display: flex; border: 1.5px solid var(--line); border-radius: 12px; background: var(--field); overflow: hidden; transition: background-color .5s ease, border-color .5s ease; }
   .search:focus-within { border-color: var(--ink); }
   .search input {
@@ -94,28 +94,29 @@
 </head>
 <body>
 <main>
-  <h1><b>Abbrev</b> — type an abbreviation, pick the industry it came from.</h1>
+  <h1><b>Abbrev</b> — type an abbreviation, pick the sector it came from.</h1>
 
   <form class="search" id="form" autocomplete="off">
     <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autofocus>
-    <select id="domain" aria-label="Domain"></select>
+    <select id="sector" aria-label="Sector"></select>
   </form>
-  <p class="hint">Press Enter, or try <button type="button" data-try="ADMS">ADMS</button>, <button type="button" data-try="FLISR">FLISR</button> or <button type="button" data-try="DSO">DSO</button>.</p>
+  <p class="hint" id="hint"></p>
 
   <section id="result" aria-live="polite"></section>
 </main>
-<footer>Definitions are maintained in <code>data/&lt;domain&gt;.json</code>. Found a mistake? Open an issue on GitHub.</footer>
+<footer>Definitions are maintained in <code>data/&lt;sector&gt;.json</code>. Found a mistake? Open an issue on GitHub.</footer>
 
 <script>
   // ---- configuration --------------------------------------------------
-  // One JSON file per domain in data/. Add a domain here and create its file.
-  // Each domain carries its own theme: background, ink, accent and an optional
+  // One JSON file per sector in data/. Add a sector here and create its file.
+  // Each sector carries its own theme: background, ink, accent and an optional
   // texture — any CSS background value. The scenes live in img/<id>.svg; a photo
   // or PNG works the same way: url("img/finance.jpg") center bottom / cover no-repeat.
-  const DOMAINS = [
+  const SECTORS = [
     {
       id: "utilities",
-      label: "Utilities (power grids)",
+      label: "Utilities",
+      examples: ["ADMS", "FLISR", "DSO"],
       theme: {
         paper: "#f3f5f4",
         ink: "#1a2328",
@@ -129,8 +130,9 @@
       },
     },
     {
-      id: "oil-and-gas",
-      label: "Oil and gas",
+      id: "energy",
+      label: "Energy",
+      examples: ["FPSO", "PDO", "SIMOPS"],
       theme: {
         paper: "#1d2733",       // deep water
         ink: "#eef1f4",
@@ -140,24 +142,40 @@
         live: "#e8642a",        // flare orange
         liveSoft: "#4a2a1b",
         liveInk: "#ffc7ab",
-        texture: `url("img/oil-and-gas.svg") center bottom / max(1200px, 100%) auto no-repeat`,
+        texture: `url("img/energy.svg") center bottom / max(1200px, 100%) auto no-repeat`,
       },
     },
-    // Template for the next domain — copy, change the id/label/colours, create data/<id>.json:
-    // { id: "finance", label: "Finance", theme: { paper: "#f6f4ef", ink: "#1f1c17", inkSoft: "#6a6357",
+    // Template for the next sector — copy, change the id/label/colours, create data/<id>.json:
+    // { id: "finance", label: "Finance", examples: ["EBITDA"], theme: { paper: "#f6f4ef", ink: "#1f1c17", inkSoft: "#6a6357",
     //   line: "#d9d3c7", field: "#fffdf9", live: "#2f6f4f", liveSoft: "#e2efe7", liveInk: "#1d4a33", texture: "none" } },
   ];
 
   // Step 2: point this at your Cloudflare Worker / Vercel function.
-  // It should accept POST { abbr, domain } and return { fullName, description, aliases }.
+  // It should accept POST { abbr, sector } and return { fullName, description, aliases }.
   // Leave empty and the app is purely dictionary-based.
   const AI_ENDPOINT = "";
+
+  // ---- helpers --------------------------------------------------------
+  const label = (id) => (SECTORS.find(d => d.id === id) || {}).label || id;
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   // ---- theming --------------------------------------------------------
   const VAR_MAP = { paper: "--paper", ink: "--ink", inkSoft: "--ink-soft", line: "--line", field: "--field",
                     live: "--live", liveSoft: "--live-soft", liveInk: "--live-ink", texture: "--texture" };
+  function applySector(id, animate) {
+    renderHint(id);
+    applyTheme(id, animate);
+  }
+  function renderHint(id) {
+    const ex = (SECTORS.find(d => d.id === id) || {}).examples || [];
+    $("#hint").innerHTML = ex.length
+      ? `Press Enter, or try ${ex.map(e => `<button type="button" data-try="${esc(e)}">${esc(e)}</button>`).join(", ")}.`
+      : "Press Enter.";
+    $("#hint").querySelectorAll("[data-try]").forEach(b =>
+      b.addEventListener("click", () => { input.value = b.dataset.try; lookup(); }));
+  }
   function applyTheme(id, animate) {
-    const theme = (DOMAINS.find(d => d.id === id) || {}).theme || {};
+    const theme = (SECTORS.find(d => d.id === id) || {}).theme || {};
     const root = document.documentElement.style;
     const set = () => {
       for (const [k, v] of Object.entries(VAR_MAP)) v && (theme[k] != null ? root.setProperty(v, theme[k]) : root.removeProperty(v));
@@ -169,31 +187,29 @@
   }
 
   // ---- state ----------------------------------------------------------
-  const dictionaries = {};           // domainId -> { byAbbr: Map, byAlias: Map, entries: [] }
+  const dictionaries = {};           // sectorId -> { byAbbr: Map, byAlias: Map, entries: [] }
   const $ = (sel) => document.querySelector(sel);
-  const form = $("#form"), input = $("#q"), domainSel = $("#domain"), result = $("#result");
+  const form = $("#form"), input = $("#q"), sectorSel = $("#sector"), result = $("#result");
 
   // ---- setup ----------------------------------------------------------
-  for (const d of DOMAINS) {
+  for (const d of SECTORS) {
     const opt = document.createElement("option");
     opt.value = d.id; opt.textContent = d.label;
-    domainSel.appendChild(opt);
+    sectorSel.appendChild(opt);
   }
 
-  // Restore state from the URL so a lookup is shareable: ?d=utilities&q=ADMS
+  // Restore state from the URL so a lookup is shareable: ?s=utilities&q=ADMS
   const params = new URLSearchParams(location.search);
-  if (params.get("d") && DOMAINS.some(d => d.id === params.get("d"))) domainSel.value = params.get("d");
+  if (params.get("s") && SECTORS.some(d => d.id === params.get("s"))) sectorSel.value = params.get("s");
   if (params.get("q")) { input.value = params.get("q"); lookup(); }
 
-  applyTheme(domainSel.value, false);
+  applySector(sectorSel.value, false);
 
   form.addEventListener("submit", (e) => { e.preventDefault(); lookup(); });
-  domainSel.addEventListener("change", () => { applyTheme(domainSel.value, true); if (input.value.trim()) lookup(); });
-  document.querySelectorAll("[data-try]").forEach(b =>
-    b.addEventListener("click", () => { input.value = b.dataset.try; lookup(); }));
+  sectorSel.addEventListener("change", () => { applySector(sectorSel.value, true); if (input.value.trim()) lookup(); });
 
   // ---- data -----------------------------------------------------------
-  async function loadDomain(id) {
+  async function loadSector(id) {
     if (dictionaries[id]) return dictionaries[id];
     const res = await fetch(`data/${id}.json`);
     if (!res.ok) throw new Error(`Could not load data/${id}.json (${res.status})`);
@@ -211,13 +227,13 @@
   // ---- lookup ---------------------------------------------------------
   async function lookup() {
     const raw = input.value.trim();
-    const domain = domainSel.value;
+    const sector = sectorSel.value;
     if (!raw) { result.innerHTML = ""; return; }
 
-    history.replaceState(null, "", `?d=${encodeURIComponent(domain)}&q=${encodeURIComponent(raw)}`);
+    history.replaceState(null, "", `?s=${encodeURIComponent(sector)}&q=${encodeURIComponent(raw)}`);
 
     let dict;
-    try { dict = await loadDomain(domain); }
+    try { dict = await loadSector(sector); }
     catch (err) { result.innerHTML = `<p class="empty">${esc(err.message)}. If you opened this file directly, serve the folder over HTTP instead.</p>`; return; }
 
     const key = norm(raw);
@@ -232,7 +248,7 @@
     try {
       const res = await fetch(AI_ENDPOINT, {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ abbr: raw, domain }),
+        body: JSON.stringify({ abbr: raw, sector }),
       });
       if (!res.ok) throw new Error(`AI lookup failed (${res.status})`);
       const ai = await res.json();
@@ -262,7 +278,7 @@
   function renderMiss(raw, near, aiPending, error) {
     result.innerHTML = `
       <div class="empty">
-        <p><strong>${esc(raw.toUpperCase())}</strong> isn't in the ${esc(label(domainSel.value))} dictionary yet.
+        <p><strong>${esc(raw.toUpperCase())}</strong> isn't in the ${esc(label(sectorSel.value))} dictionary yet.
         ${error ? `<br>${esc(error)}` : ""}
         ${aiPending ? `<br><span class="pending">Asking AI…</span>` : ""}</p>
         ${near.length ? `<p>Did you mean:</p><ul class="suggest">${near.map(e =>
@@ -272,8 +288,6 @@
       b.addEventListener("click", () => { input.value = b.dataset.go; lookup(); }));
   }
 
-  const label = (id) => (DOMAINS.find(d => d.id === id) || {}).label || id;
-  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 </script>
 </body>
 </html>
