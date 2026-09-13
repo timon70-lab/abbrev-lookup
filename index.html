@@ -7,19 +7,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* Neutral defaults. Each domain overrides these via a theme (see DOMAINS in the script). */
   :root {
     --paper: #f7f8f6;
     --ink: #1c2126;
     --ink-soft: #5c6670;
     --line: #d5dad8;
-    --live: #d4880f;       /* amber: the "energised" colour on a switchboard */
+    --live: #d4880f;
     --live-soft: #fbf1dd;
+    --live-ink: #6b4406;
     --field: #ffffff;
+    --texture: none;
     --font: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); }
-  body { display: flex; flex-direction: column; min-height: 100vh; }
+  body { display: flex; flex-direction: column; min-height: 100vh; position: relative;
+         transition: background-color .5s ease, color .5s ease; }
+  /* Domain texture sits behind everything, fades in/out on domain change. */
+  body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+                 background: var(--texture); transition: opacity .5s ease; }
+  body.switching::before { opacity: 0; }
 
   main { width: min(680px, 100% - 2.5rem); margin: 0 auto; padding: 4.5rem 0 3rem; flex: 1; }
 
@@ -27,7 +35,7 @@
   h1 b { color: var(--ink); font-weight: 600; }
 
   /* Search: the hero. One tall field, domain selector fused to its right edge. */
-  .search { display: flex; border: 1.5px solid var(--line); border-radius: 12px; background: var(--field); overflow: hidden; }
+  .search { display: flex; border: 1.5px solid var(--line); border-radius: 12px; background: var(--field); overflow: hidden; transition: background-color .5s ease, border-color .5s ease; }
   .search:focus-within { border-color: var(--ink); }
   .search input {
     flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
@@ -38,7 +46,7 @@
   .search select {
     border: 0; border-left: 1.5px solid var(--line); outline: 0; background: transparent;
     font: inherit; font-size: .95rem; color: var(--ink-soft); padding: 0 1rem; cursor: pointer;
-    max-width: 44%;
+    max-width: 44%; transition: border-color .5s ease;
   }
   .search select:focus { color: var(--ink); background: var(--paper); }
 
@@ -53,7 +61,7 @@
   .entry .abbr { font-weight: 500; color: var(--ink-soft); margin: .15rem 0 1.1rem; }
   .entry p.desc { font-size: 1.05rem; line-height: 1.55; margin: 0; max-width: 62ch; }
   .entry .aliases { margin: 1.4rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .4rem .5rem; }
-  .entry .aliases li { background: var(--live-soft); color: #6b4406; padding: .25rem .65rem; border-radius: 999px; font-size: .9rem; }
+  .entry .aliases li { background: var(--live-soft); color: var(--live-ink); padding: .25rem .65rem; border-radius: 999px; font-size: .9rem; }
   .entry .aliases li.label { background: none; color: var(--ink-soft); padding-left: 0; }
   .entry .source { margin-top: 1.6rem; font-size: .8rem; color: var(--ink-soft); }
 
@@ -72,6 +80,9 @@
     .search { flex-direction: column; }
     .search input { font-size: 1.6rem; }
     .search select { border-left: 0; border-top: 1.5px solid var(--line); padding: .7rem 1rem; max-width: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body, body::before, .search, .search select { transition: none; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .entry { animation: in .18s ease-out; }
@@ -96,8 +107,36 @@
 <script>
   // ---- configuration --------------------------------------------------
   // One JSON file per domain in data/. Add a domain here and create its file.
+  // Each domain carries its own theme: background, ink, accent and an optional
+  // texture (any CSS background value — a gradient, an inline SVG, an image URL).
   const DOMAINS = [
-    { id: "utilities", label: "Utilities (power grids)" },
+    {
+      id: "utilities",
+      label: "Utilities (power grids)",
+      theme: {
+        paper: "#f3f5f4",
+        ink: "#1a2328",
+        inkSoft: "#5a6870",
+        line: "#cdd5d3",
+        field: "#ffffff",
+        live: "#d4880f",        // amber, the energised colour on a switchboard
+        liveSoft: "#fbf1dd",
+        liveInk: "#6b4406",
+        // Faint one-line diagram: a horizontal busbar with feeder drops.
+        texture: `url("data:image/svg+xml,${encodeURIComponent(`
+          <svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'>
+            <g fill='none' stroke='#1a2328' stroke-opacity='.07' stroke-width='1.5'>
+              <path d='M0 80H320M0 240H320'/>
+              <path d='M60 80V150M160 80V150M260 80V150M110 240V180M210 240V180'/>
+              <circle cx='60' cy='158' r='8'/><circle cx='160' cy='158' r='8'/><circle cx='260' cy='158' r='8'/>
+              <circle cx='110' cy='172' r='8'/><circle cx='210' cy='172' r='8'/>
+            </g>
+          </svg>`)}") 0 0 / 320px 320px repeat`,
+      },
+    },
+    // Template for the next domain — copy, change the id/label/colours, create data/<id>.json:
+    // { id: "finance", label: "Finance", theme: { paper: "#f6f4ef", ink: "#1f1c17", inkSoft: "#6a6357",
+    //   line: "#d9d3c7", field: "#fffdf9", live: "#2f6f4f", liveSoft: "#e2efe7", liveInk: "#1d4a33", texture: "none" } },
   ];
 
   // Step 2: point this at your Cloudflare Worker / Vercel function.
@@ -122,8 +161,10 @@
   if (params.get("d") && DOMAINS.some(d => d.id === params.get("d"))) domainSel.value = params.get("d");
   if (params.get("q")) { input.value = params.get("q"); lookup(); }
 
+  applyTheme(domainSel.value, false);
+
   form.addEventListener("submit", (e) => { e.preventDefault(); lookup(); });
-  domainSel.addEventListener("change", () => { if (input.value.trim()) lookup(); });
+  domainSel.addEventListener("change", () => { applyTheme(domainSel.value, true); if (input.value.trim()) lookup(); });
   document.querySelectorAll("[data-try]").forEach(b =>
     b.addEventListener("click", () => { input.value = b.dataset.try; lookup(); }));
 
@@ -205,6 +246,21 @@
       </div>`;
     result.querySelectorAll("[data-go]").forEach(b =>
       b.addEventListener("click", () => { input.value = b.dataset.go; lookup(); }));
+  }
+
+  // ---- theming --------------------------------------------------------
+  const VAR_MAP = { paper: "--paper", ink: "--ink", inkSoft: "--ink-soft", line: "--line", field: "--field",
+                    live: "--live", liveSoft: "--live-soft", liveInk: "--live-ink", texture: "--texture" };
+  function applyTheme(id, animate) {
+    const theme = (DOMAINS.find(d => d.id === id) || {}).theme || {};
+    const root = document.documentElement.style;
+    const set = () => {
+      for (const [k, v] of Object.entries(VAR_MAP)) v && (theme[k] != null ? root.setProperty(v, theme[k]) : root.removeProperty(v));
+      document.body.classList.remove("switching");
+    };
+    if (!animate) return set();
+    document.body.classList.add("switching");      // fade texture out…
+    setTimeout(set, 250);                           // …swap colours mid-fade, texture fades back in
   }
 
   const label = (id) => (DOMAINS.find(d => d.id === id) || {}).label || id;
