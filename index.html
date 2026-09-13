@@ -42,7 +42,7 @@
     font: inherit; font-size: 2rem; font-weight: 500; letter-spacing: .01em;
     padding: .7rem 1.1rem; text-transform: uppercase;
   }
-  .search input::placeholder { color: #b6bcc0; text-transform: none; font-weight: 400; }
+  .search input::placeholder { color: var(--ink-soft); opacity: .6; text-transform: none; font-weight: 400; }
   .search select {
     border: 0; border-left: 1.5px solid var(--line); outline: 0; background: transparent;
     font: inherit; font-size: .95rem; color: var(--ink-soft); padding: 0 1rem; cursor: pointer;
@@ -132,6 +132,30 @@
               <circle cx='110' cy='172' r='8'/><circle cx='210' cy='172' r='8'/>
             </g>
           </svg>`)}") 0 0 / 320px 320px repeat`,
+      },
+    },
+    {
+      id: "oil-and-gas",
+      label: "Oil and gas",
+      theme: {
+        paper: "#1d2733",       // deep water
+        ink: "#eef1f4",
+        inkSoft: "#a3aeb9",
+        line: "#3a4756",
+        field: "#27333f",
+        live: "#e8642a",        // flare orange
+        liveSoft: "#4a2a1b",
+        liveInk: "#ffc7ab",
+        // Faint seismic section: stacked wiggle traces.
+        texture: `url("data:image/svg+xml,${encodeURIComponent(`
+          <svg xmlns='http://www.w3.org/2000/svg' width='360' height='240' viewBox='0 0 360 240'>
+            <g fill='none' stroke='#eef1f4' stroke-opacity='.06' stroke-width='1.2'>
+              <path d='M0 40 Q30 10 60 40 T120 40 T180 40 T240 40 T300 40 T360 40'/>
+              <path d='M0 100 Q30 130 60 100 T120 100 T180 100 T240 100 T300 100 T360 100'/>
+              <path d='M0 160 Q30 135 60 160 T120 160 T180 160 T240 160 T300 160 T360 160'/>
+              <path d='M0 220 Q30 245 60 220 T120 220 T180 220 T240 220 T300 220 T360 220'/>
+            </g>
+          </svg>`)}") 0 0 / 360px 240px repeat`,
       },
     },
     // Template for the next domain — copy, change the id/label/colours, create data/<id>.json:
