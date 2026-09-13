@@ -148,11 +148,11 @@
       label: "Utilities",
       examples: ["ADMS", "FLISR", "DSO"],
       theme: {
-        paper: "#f3f5f4",
+        paper: "#eaf1f6",
         ink: "#1a2328",
         inkSoft: "#5a6870",
-        line: "#cdd5d3",
-        field: "#ffffff",
+        line: "#c9d7de",
+        field: "#f6fafc",
         live: "#d4880f",        // amber, the energised colour on a switchboard
         liveSoft: "#fbf1dd",
         liveInk: "#6b4406",
@@ -190,9 +190,6 @@
   // of a real network call, so the layout and flow can be reviewed before
   // step 2 (the real Vercel function) is wired up. Set to false, and set
   // AI_ENDPOINT above, to go live.
-  // Repo that "Challenge" reports go to, as a pre-filled GitHub issue.
-  const REPORT_REPO = "timon70-lab/abbrev-lookup";
-
   const SIMULATE_AI = true;
   function simulateAiLookup(term) {
     return new Promise((resolve) => setTimeout(() => resolve({
@@ -353,22 +350,13 @@
     if (source === "ai") result.querySelector("[data-challenge]").addEventListener("click", onChallenge);
   }
 
+  // What happens on a challenge isn't decided yet (no backend, no issue filing —
+  // that comes later). For now this just acknowledges the click so the button
+  // feels real; onChallenge is the one place to wire up real behaviour later.
   function onChallenge(e) {
     const b = e.currentTarget;
-    const title = `Wrong AI answer: ${b.dataset.abbr} (${label(b.dataset.sector)})`;
-    const body = [
-      `**Abbreviation:** ${b.dataset.abbr}`,
-      `**Sector:** ${label(b.dataset.sector)}`,
-      `**AI said it means:** ${b.dataset.fullname}`,
-      `**AI description:** ${b.dataset.desc}`,
-      "",
-      "**What's wrong / what it should say:**",
-      "_(please describe)_",
-    ].join("\n");
-    const url = `https://github.com/${REPORT_REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=dictionary`;
-    window.open(url, "_blank", "noopener");
     b.setAttribute("data-reported", "");
-    b.innerHTML = "Reported — thanks";
+    b.innerHTML = "Thanks for the feedback!";
   }
 
   function renderMiss(raw, near, aiPending, error) {
