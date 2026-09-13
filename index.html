@@ -168,6 +168,21 @@
   // Leave empty and the app is purely dictionary-based.
   const AI_ENDPOINT = "";
 
+  // ---- theming --------------------------------------------------------
+  const VAR_MAP = { paper: "--paper", ink: "--ink", inkSoft: "--ink-soft", line: "--line", field: "--field",
+                    live: "--live", liveSoft: "--live-soft", liveInk: "--live-ink", texture: "--texture" };
+  function applyTheme(id, animate) {
+    const theme = (DOMAINS.find(d => d.id === id) || {}).theme || {};
+    const root = document.documentElement.style;
+    const set = () => {
+      for (const [k, v] of Object.entries(VAR_MAP)) v && (theme[k] != null ? root.setProperty(v, theme[k]) : root.removeProperty(v));
+      document.body.classList.remove("switching");
+    };
+    if (!animate) return set();
+    document.body.classList.add("switching");      // fade texture out…
+    setTimeout(set, 250);                           // …swap colours mid-fade, texture fades back in
+  }
+
   // ---- state ----------------------------------------------------------
   const dictionaries = {};           // domainId -> { byAbbr: Map, byAlias: Map, entries: [] }
   const $ = (sel) => document.querySelector(sel);
@@ -270,21 +285,6 @@
       </div>`;
     result.querySelectorAll("[data-go]").forEach(b =>
       b.addEventListener("click", () => { input.value = b.dataset.go; lookup(); }));
-  }
-
-  // ---- theming --------------------------------------------------------
-  const VAR_MAP = { paper: "--paper", ink: "--ink", inkSoft: "--ink-soft", line: "--line", field: "--field",
-                    live: "--live", liveSoft: "--live-soft", liveInk: "--live-ink", texture: "--texture" };
-  function applyTheme(id, animate) {
-    const theme = (DOMAINS.find(d => d.id === id) || {}).theme || {};
-    const root = document.documentElement.style;
-    const set = () => {
-      for (const [k, v] of Object.entries(VAR_MAP)) v && (theme[k] != null ? root.setProperty(v, theme[k]) : root.removeProperty(v));
-      document.body.classList.remove("switching");
-    };
-    if (!animate) return set();
-    document.body.classList.add("switching");      // fade texture out…
-    setTimeout(set, 250);                           // …swap colours mid-fade, texture fades back in
   }
 
   const label = (id) => (DOMAINS.find(d => d.id === id) || {}).label || id;
