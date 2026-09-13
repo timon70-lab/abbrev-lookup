@@ -21,9 +21,11 @@
     --font: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); }
-  body { display: flex; flex-direction: column; min-height: 100vh; position: relative;
-         transition: background-color .5s ease, color .5s ease; }
+  html { background: var(--paper); transition: background-color .5s ease; }
+  /* body stays transparent so the fixed scene layer (z-index -1) shows through. */
+  body { margin: 0; background: transparent; color: var(--ink); font-family: var(--font);
+         display: flex; flex-direction: column; min-height: 100vh; position: relative;
+         transition: color .5s ease; }
   /* Domain texture sits behind everything, fades in/out on domain change. */
   body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
                  background: var(--texture); transition: opacity .5s ease; }
@@ -82,7 +84,7 @@
     .search select { border-left: 0; border-top: 1.5px solid var(--line); padding: .7rem 1rem; max-width: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    body, body::before, .search, .search select { transition: none; }
+    html, body, body::before, .search, .search select { transition: none; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .entry { animation: in .18s ease-out; }
