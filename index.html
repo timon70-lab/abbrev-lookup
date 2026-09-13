@@ -44,8 +44,8 @@
   main { width: min(680px, 100% - 2.5rem); margin: 0 auto; flex: 1;
          padding: max(4.5rem, env(safe-area-inset-top) + 2rem) 0 calc(3rem + env(safe-area-inset-bottom)); }
 
-  h1 { font-size: 1.05rem; font-weight: 500; margin: 0 0 2.2rem; color: var(--ink-soft); }
-  h1 b { color: var(--ink); font-weight: 600; }
+  h1.title { font-size: 1.9rem; font-weight: 700; margin: 0 0 .4rem; text-align: center; color: var(--ink); }
+  .subtitle { font-size: 1.05rem; font-weight: 400; margin: 0 0 2.2rem; text-align: center; color: var(--ink-soft); }
 
   /* Search: the hero. One tall field, sector selector fused to its right edge. */
   .search { display: flex; border: 1.5px solid var(--line); border-radius: 12px; background: var(--field); overflow: hidden; transition: background-color .5s ease, border-color .5s ease; }
@@ -115,11 +115,13 @@
   .suggest li button { all: unset; cursor: pointer; border: 1px solid var(--line); border-radius: 6px; padding: .55rem .8rem; font-size: .9rem; min-height: 2.4rem; display: inline-flex; align-items: center; }
   .suggest li button:hover, .suggest li button:focus-visible { border-color: var(--ink); outline: none; }
 
-  footer { width: min(680px, 100% - 2.5rem); margin: 0 auto; padding: 1.5rem 0; font-size: .8rem; color: var(--ink-soft); }
+  footer { width: min(680px, 100% - 2.5rem); margin: 0 auto; padding: 1.5rem 0; font-size: .8rem; color: var(--ink-soft); text-align: center; }
+  footer .version { font-size: .7rem; font-style: italic; opacity: .65; margin-left: .4rem; }
 
   @media (max-width: 520px) {
     main { padding-top: max(2.5rem, env(safe-area-inset-top) + 1rem); }
-    h1 { font-size: 1rem; margin-bottom: 1.6rem; }
+    h1.title { font-size: 1.4rem; }
+    .subtitle { margin-bottom: 1.6rem; }
     .search { flex-wrap: wrap; border-radius: 14px; }
     .search input { flex: 1 1 0; font-size: 1.6rem; padding: .9rem 1rem; }
     .search .go { flex: 0 0 auto; padding: 0 .9rem; }
@@ -139,7 +141,8 @@
 </head>
 <body>
 <main>
-  <h1><b>Abbrev</b> — type an abbreviation, pick the sector it came from.</h1>
+  <h1 class="title">Abbrev Lookup</h1>
+  <p class="subtitle">Type an abbreviation</p>
 
   <form class="search" id="form" autocomplete="off">
     <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autocapitalize="characters" autocorrect="off" enterkeyhint="search">
@@ -162,7 +165,7 @@
     <p id="note-body"></p>
   </div>
 </dialog>
-<footer>&copy; <span id="year"></span> Per Lasse Brønstad. All rights reserved.</footer>
+<footer>&copy; <span id="year"></span> Per Lasse Brønstad. All rights reserved. <span class="version" id="version"></span></footer>
 
 <script>
   // ---- configuration --------------------------------------------------
@@ -299,7 +302,11 @@
   // On touch devices, popping the keyboard on load hides the sector choice and examples.
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
+  // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
+  const APP_VERSION = "v0.025";
+
   document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("version").textContent = APP_VERSION;
 
   form.addEventListener("submit", (e) => { e.preventDefault(); lookup(); });
   // Belt and braces: some mobile keyboards send Enter without a submit event.
