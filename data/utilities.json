@@ -1,0 +1,78 @@
+{
+  "domain": "utilities",
+  "label": "Utilities (power grids)",
+  "entries": [
+    {
+      "abbr": "ADMS",
+      "fullName": "Advanced Distribution Management System",
+      "description": "Software platform used by distribution system operators to monitor, control and optimise the distribution grid. It combines SCADA, outage management and analytics such as fault location, isolation and service restoration (FLISR) and volt/VAR optimisation in one system.",
+      "aliases": []
+    },
+    {
+      "abbr": "DMS",
+      "fullName": "Distribution Management System",
+      "description": "Control-room software for operating the medium- and low-voltage distribution network — switching, load monitoring and network state estimation. An ADMS is a DMS with outage management and advanced analytics added.",
+      "aliases": []
+    },
+    {
+      "abbr": "OMS",
+      "fullName": "Outage Management System",
+      "description": "System that detects, locates and manages power outages, typically by combining customer trouble calls, smart meter events and network topology to predict which device has failed and to track restoration.",
+      "aliases": []
+    },
+    {
+      "abbr": "SCADA",
+      "fullName": "Supervisory Control and Data Acquisition",
+      "description": "Real-time system that collects measurements from substations and field devices and lets operators send control commands, such as opening or closing a breaker. It is the data backbone that DMS, ADMS and EMS sit on top of.",
+      "aliases": []
+    },
+    {
+      "abbr": "EMS",
+      "fullName": "Energy Management System",
+      "description": "Control-room software for the high-voltage transmission grid — generation dispatch, state estimation, contingency analysis and frequency control. The transmission-level counterpart to a DMS.",
+      "aliases": []
+    },
+    {
+      "abbr": "DER",
+      "fullName": "Distributed Energy Resource",
+      "description": "Small-scale power source or flexible load connected to the distribution grid rather than the transmission grid — rooftop solar, batteries, EV chargers, heat pumps and small wind.",
+      "aliases": ["distributed generation", "DG"]
+    },
+    {
+      "abbr": "DERMS",
+      "fullName": "Distributed Energy Resource Management System",
+      "description": "Software that monitors, forecasts and controls large numbers of DERs so the grid operator can use them as flexibility — for example curtailing solar or dispatching batteries to relieve a constraint.",
+      "aliases": []
+    },
+    {
+      "abbr": "DSO",
+      "fullName": "Distribution System Operator",
+      "description": "The company that owns and operates the local distribution grid and connects end customers. In Norway the DSO is the nettselskap; the transmission grid is operated by the TSO (Statnett).",
+      "aliases": ["nettselskap", "distribution network operator", "DNO"]
+    },
+    {
+      "abbr": "TSO",
+      "fullName": "Transmission System Operator",
+      "description": "The operator responsible for the high-voltage transmission grid and for keeping the whole power system in balance. Statnett in Norway.",
+      "aliases": ["transmission operator"]
+    },
+    {
+      "abbr": "AMI",
+      "fullName": "Advanced Metering Infrastructure",
+      "description": "The end-to-end smart metering system — meters, communication network and head-end system — that delivers interval consumption data and meter events to the utility.",
+      "aliases": ["smart metering", "AMS"]
+    },
+    {
+      "abbr": "FLISR",
+      "fullName": "Fault Location, Isolation and Service Restoration",
+      "description": "Automated ADMS function that pinpoints a fault on a feeder, opens switches to isolate the faulted section and closes tie switches to restore supply to unaffected customers, usually within a minute.",
+      "aliases": ["self-healing grid"]
+    },
+    {
+      "abbr": "VVO",
+      "fullName": "Volt/VAR Optimisation",
+      "description": "Coordinated control of voltage regulators, capacitor banks and inverters to keep voltage within limits while reducing losses or demand.",
+      "aliases": ["volt-VAR control", "VVC"]
+    }
+  ]
+}

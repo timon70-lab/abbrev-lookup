@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abbrev — what does that stand for?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f7f8f6;
+    --ink: #1c2126;
+    --ink-soft: #5c6670;
+    --line: #d5dad8;
+    --live: #d4880f;       /* amber: the "energised" colour on a switchboard */
+    --live-soft: #fbf1dd;
+    --field: #ffffff;
+    --font: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); }
+  body { display: flex; flex-direction: column; min-height: 100vh; }
+
+  main { width: min(680px, 100% - 2.5rem); margin: 0 auto; padding: 4.5rem 0 3rem; flex: 1; }
+
+  h1 { font-size: 1.05rem; font-weight: 500; margin: 0 0 2.2rem; color: var(--ink-soft); }
+  h1 b { color: var(--ink); font-weight: 600; }
+
+  /* Search: the hero. One tall field, domain selector fused to its right edge. */
+  .search { display: flex; border: 1.5px solid var(--line); border-radius: 12px; background: var(--field); overflow: hidden; }
+  .search:focus-within { border-color: var(--ink); }
+  .search input {
+    flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+    font: inherit; font-size: 2rem; font-weight: 500; letter-spacing: .01em;
+    padding: .7rem 1.1rem; text-transform: uppercase;
+  }
+  .search input::placeholder { color: #b6bcc0; text-transform: none; font-weight: 400; }
+  .search select {
+    border: 0; border-left: 1.5px solid var(--line); outline: 0; background: transparent;
+    font: inherit; font-size: .95rem; color: var(--ink-soft); padding: 0 1rem; cursor: pointer;
+    max-width: 44%;
+  }
+  .search select:focus { color: var(--ink); background: var(--paper); }
+
+  .hint { margin: .8rem .2rem 0; font-size: .85rem; color: var(--ink-soft); }
+  .hint button { all: unset; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .hint button:focus-visible { outline: 2px solid var(--live); border-radius: 2px; }
+
+  /* Result reads like a glossary entry, not a card. */
+  #result { margin-top: 3rem; }
+  .entry { border-top: 3px solid var(--live); padding-top: 1.2rem; }
+  .entry .full { font-size: 1.6rem; font-weight: 600; line-height: 1.2; margin: 0; }
+  .entry .abbr { font-weight: 500; color: var(--ink-soft); margin: .15rem 0 1.1rem; }
+  .entry p.desc { font-size: 1.05rem; line-height: 1.55; margin: 0; max-width: 62ch; }
+  .entry .aliases { margin: 1.4rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .4rem .5rem; }
+  .entry .aliases li { background: var(--live-soft); color: #6b4406; padding: .25rem .65rem; border-radius: 999px; font-size: .9rem; }
+  .entry .aliases li.label { background: none; color: var(--ink-soft); padding-left: 0; }
+  .entry .source { margin-top: 1.6rem; font-size: .8rem; color: var(--ink-soft); }
+
+  .empty { color: var(--ink-soft); line-height: 1.55; max-width: 62ch; }
+  .empty strong { color: var(--ink); }
+  .empty .pending { display: inline-block; margin-top: .6rem; }
+
+  .suggest { margin: 0 0 0; list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .suggest li button { all: unset; cursor: pointer; border: 1px solid var(--line); border-radius: 6px; padding: .3rem .6rem; font-size: .9rem; }
+  .suggest li button:hover, .suggest li button:focus-visible { border-color: var(--ink); outline: none; }
+
+  footer { width: min(680px, 100% - 2.5rem); margin: 0 auto; padding: 1.5rem 0; font-size: .8rem; color: var(--ink-soft); }
+
+  @media (max-width: 520px) {
+    main { padding-top: 2.5rem; }
+    .search { flex-direction: column; }
+    .search input { font-size: 1.6rem; }
+    .search select { border-left: 0; border-top: 1.5px solid var(--line); padding: .7rem 1rem; max-width: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .entry { animation: in .18s ease-out; }
+    @keyframes in { from { opacity: 0; transform: translateY(4px); } }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1><b>Abbrev</b> — type an abbreviation, pick the industry it came from.</h1>
+
+  <form class="search" id="form" autocomplete="off">
+    <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autofocus>
+    <select id="domain" aria-label="Domain"></select>
+  </form>
+  <p class="hint">Press Enter, or try <button type="button" data-try="ADMS">ADMS</button>, <button type="button" data-try="FLISR">FLISR</button> or <button type="button" data-try="DSO">DSO</button>.</p>
+
+  <section id="result" aria-live="polite"></section>
+</main>
+<footer>Definitions are maintained in <code>data/&lt;domain&gt;.json</code>. Found a mistake? Open an issue on GitHub.</footer>
+
+<script>
+  // ---- configuration --------------------------------------------------
+  // One JSON file per domain in data/. Add a domain here and create its file.
+  const DOMAINS = [
+    { id: "utilities", label: "Utilities (power grids)" },
+  ];
+
+  // Step 2: point this at your Cloudflare Worker / Vercel function.
+  // It should accept POST { abbr, domain } and return { fullName, description, aliases }.
+  // Leave empty and the app is purely dictionary-based.
+  const AI_ENDPOINT = "";
+
+  // ---- state ----------------------------------------------------------
+  const dictionaries = {};           // domainId -> { byAbbr: Map, byAlias: Map, entries: [] }
+  const $ = (sel) => document.querySelector(sel);
+  const form = $("#form"), input = $("#q"), domainSel = $("#domain"), result = $("#result");
+
+  // ---- setup ----------------------------------------------------------
+  for (const d of DOMAINS) {
+    const opt = document.createElement("option");
+    opt.value = d.id; opt.textContent = d.label;
+    domainSel.appendChild(opt);
+  }
+
+  // Restore state from the URL so a lookup is shareable: ?d=utilities&q=ADMS
+  const params = new URLSearchParams(location.search);
+  if (params.get("d") && DOMAINS.some(d => d.id === params.get("d"))) domainSel.value = params.get("d");
+  if (params.get("q")) { input.value = params.get("q"); lookup(); }
+
+  form.addEventListener("submit", (e) => { e.preventDefault(); lookup(); });
+  domainSel.addEventListener("change", () => { if (input.value.trim()) lookup(); });
+  document.querySelectorAll("[data-try]").forEach(b =>
+    b.addEventListener("click", () => { input.value = b.dataset.try; lookup(); }));
+
+  // ---- data -----------------------------------------------------------
+  async function loadDomain(id) {
+    if (dictionaries[id]) return dictionaries[id];
+    const res = await fetch(`data/${id}.json`);
+    if (!res.ok) throw new Error(`Could not load data/${id}.json (${res.status})`);
+    const json = await res.json();
+    const byAbbr = new Map(), byAlias = new Map();
+    for (const e of json.entries) {
+      byAbbr.set(norm(e.abbr), e);
+      for (const a of e.aliases || []) byAlias.set(norm(a), e);
+    }
+    return (dictionaries[id] = { byAbbr, byAlias, entries: json.entries });
+  }
+
+  const norm = (s) => s.trim().toUpperCase().replace(/[\s.\-_/]/g, "");
+
+  // ---- lookup ---------------------------------------------------------
+  async function lookup() {
+    const raw = input.value.trim();
+    const domain = domainSel.value;
+    if (!raw) { result.innerHTML = ""; return; }
+
+    history.replaceState(null, "", `?d=${encodeURIComponent(domain)}&q=${encodeURIComponent(raw)}`);
+
+    let dict;
+    try { dict = await loadDomain(domain); }
+    catch (err) { result.innerHTML = `<p class="empty">${esc(err.message)}. If you opened this file directly, serve the folder over HTTP instead.</p>`; return; }
+
+    const key = norm(raw);
+    const hit = dict.byAbbr.get(key) || dict.byAlias.get(key);
+    if (hit) { render(hit, "dictionary"); return; }
+
+    // Not in the dictionary. Show near matches, then try the AI fallback if configured.
+    const near = dict.entries.filter(e => norm(e.abbr).startsWith(key) || key.startsWith(norm(e.abbr))).slice(0, 6);
+    renderMiss(raw, near, Boolean(AI_ENDPOINT));
+
+    if (!AI_ENDPOINT) return;
+    try {
+      const res = await fetch(AI_ENDPOINT, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ abbr: raw, domain }),
+      });
+      if (!res.ok) throw new Error(`AI lookup failed (${res.status})`);
+      const ai = await res.json();
+      // Guard against the user having typed something else while we waited.
+      if (norm(input.value) !== key) return;
+      render({ abbr: raw.toUpperCase(), ...ai }, "ai");
+    } catch (err) {
+      renderMiss(raw, near, false, err.message);
+    }
+  }
+
+  // ---- rendering ------------------------------------------------------
+  function render(e, source) {
+    const aliases = (e.aliases || []).filter(Boolean);
+    result.innerHTML = `
+      <article class="entry">
+        <h2 class="full">${esc(e.fullName)}</h2>
+        <p class="abbr">${esc(e.abbr)}</p>
+        <p class="desc">${esc(e.description)}</p>
+        ${aliases.length ? `<ul class="aliases"><li class="label">Also called</li>${aliases.map(a => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
+        <p class="source">${source === "ai"
+          ? "Generated by AI because this term isn't in the dictionary yet — verify before relying on it."
+          : "From the curated dictionary."}</p>
+      </article>`;
+  }
+
+  function renderMiss(raw, near, aiPending, error) {
+    result.innerHTML = `
+      <div class="empty">
+        <p><strong>${esc(raw.toUpperCase())}</strong> isn't in the ${esc(label(domainSel.value))} dictionary yet.
+        ${error ? `<br>${esc(error)}` : ""}
+        ${aiPending ? `<br><span class="pending">Asking AI…</span>` : ""}</p>
+        ${near.length ? `<p>Did you mean:</p><ul class="suggest">${near.map(e =>
+          `<li><button type="button" data-go="${esc(e.abbr)}">${esc(e.abbr)}</button></li>`).join("")}</ul>` : ""}
+      </div>`;
+    result.querySelectorAll("[data-go]").forEach(b =>
+      b.addEventListener("click", () => { input.value = b.dataset.go; lookup(); }));
+  }
+
+  const label = (id) => (DOMAINS.find(d => d.id === id) || {}).label || id;
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+</script>
+</body>
+</html>
