@@ -181,6 +181,22 @@
   // Leave empty and the app is purely dictionary-based.
   const AI_ENDPOINT = "";
 
+  // --- SIMULATION MODE ---------------------------------------------------
+  // While true, a miss is answered with placeholder Lorem ipsum text instead
+  // of a real network call, so the layout and flow can be reviewed before
+  // step 2 (the real Vercel function) is wired up. Set to false, and set
+  // AI_ENDPOINT above, to go live.
+  const SIMULATE_AI = true;
+  function simulateAiLookup(term) {
+    return new Promise((resolve) => setTimeout(() => resolve({
+      fullName: "Lorem Ipsum Dolor Sit Amet",
+      gist: "Lorem ipsum dolor sit amet",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.",
+      aliases: ["Lorem Ipsum", "LI"],
+    }), 700)); // artificial delay so the "Asking AI…" state is visible
+  }
+  // ------------------------------------------------------------------------
+
   // ---- helpers --------------------------------------------------------
   const label = (id) => (SECTORS.find(d => d.id === id) || {}).label || id;
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -282,16 +298,17 @@
 
     // Not in the dictionary. Show near matches, then try the AI fallback if configured.
     const near = dict.entries.filter(e => norm(e.abbr).startsWith(key) || key.startsWith(norm(e.abbr))).slice(0, 6);
-    renderMiss(raw, near, Boolean(AI_ENDPOINT));
+    const aiAvailable = SIMULATE_AI || Boolean(AI_ENDPOINT);
+    renderMiss(raw, near, aiAvailable);
 
-    if (!AI_ENDPOINT) return;
+    if (!aiAvailable) return;
     try {
-      const res = await fetch(AI_ENDPOINT, {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ abbr: raw, sector }),
-      });
-      if (!res.ok) throw new Error(`AI lookup failed (${res.status})`);
-      const ai = await res.json();
+      const ai = SIMULATE_AI
+        ? await simulateAiLookup(raw)
+        : await fetch(AI_ENDPOINT, {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ abbr: raw, sector }),
+          }).then(res => { if (!res.ok) throw new Error(`AI lookup failed (${res.status})`); return res.json(); });
       // Guard against the user having typed something else while we waited.
       if (norm(input.value) !== key) return;
       render({ abbr: raw.toUpperCase(), ...ai }, "ai");
