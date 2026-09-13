@@ -286,6 +286,10 @@
     const sector = sectorSel.value;
     if (!raw) { result.innerHTML = ""; return; }
 
+    // On touch devices, close the on-screen keyboard once a search runs so it
+    // doesn't sit over the result. Desktop keeps focus (no keyboard to hide).
+    if (!matchMedia("(pointer: fine)").matches) input.blur();
+
     history.replaceState(null, "", `?s=${encodeURIComponent(sector)}&q=${encodeURIComponent(raw)}`);
 
     let dict;
