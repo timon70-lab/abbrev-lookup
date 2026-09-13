@@ -62,6 +62,7 @@
   .entry { border-top: 3px solid var(--live); padding-top: 1.2rem; }
   .entry .full { font-size: 1.6rem; font-weight: 600; line-height: 1.2; margin: 0; }
   .entry .abbr { font-weight: 500; color: var(--ink-soft); margin: .15rem 0 1.1rem; }
+  .entry .gist { font-size: 1.2rem; font-weight: 500; line-height: 1.35; margin: 0 0 .6rem; max-width: 40ch; color: var(--live-ink); }
   .entry p.desc { font-size: 1.05rem; line-height: 1.55; margin: 0; max-width: 62ch; }
   .entry .aliases { margin: 1.4rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .4rem .5rem; }
   .entry .aliases li { background: var(--live-soft); color: var(--live-ink); padding: .25rem .65rem; border-radius: 999px; font-size: .9rem; }
@@ -152,7 +153,7 @@
   ];
 
   // Step 2: point this at your Cloudflare Worker / Vercel function.
-  // It should accept POST { abbr, sector } and return { fullName, description, aliases }.
+  // It should accept POST { abbr, sector } and return { fullName, gist, description, aliases }.
   // Leave empty and the app is purely dictionary-based.
   const AI_ENDPOINT = "";
 
@@ -273,6 +274,7 @@
       <article class="entry">
         <h2 class="full">${esc(e.fullName)}</h2>
         <p class="abbr">${esc(e.abbr)}</p>
+        ${e.gist ? `<p class="gist">${esc(e.gist)}</p>` : ""}
         <p class="desc">${esc(e.description)}</p>
         ${aliases.length ? `<ul class="aliases"><li class="label">Also called</li>${aliases.map(a => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
         <p class="source">${source === "ai"
