@@ -2,7 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1a2328" id="theme-color-meta">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Abbrev">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
 <title>Abbrev — what does that stand for?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,17 +29,20 @@
     --font: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { background: var(--paper); transition: background-color .5s ease; }
+  html { background: var(--paper); transition: background-color .5s ease; overscroll-behavior-y: contain; }
+  /* Prevent iOS Safari auto-zoom: any focusable control needs a >=16px font. */
+  input, select, button { font-size: 16px; }
   /* body stays transparent so the fixed scene layer (z-index -1) shows through. */
   body { margin: 0; background: transparent; color: var(--ink); font-family: var(--font);
-         display: flex; flex-direction: column; min-height: 100vh; position: relative;
-         transition: color .5s ease; }
+         display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; position: relative;
+         transition: color .5s ease; -webkit-tap-highlight-color: transparent; }
   /* Sector scene sits behind everything, fades in/out on sector change. */
   body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
                  background: var(--texture); transition: opacity .5s ease; }
   body.switching::before { opacity: 0; }
 
-  main { width: min(680px, 100% - 2.5rem); margin: 0 auto; padding: 4.5rem 0 3rem; flex: 1; }
+  main { width: min(680px, 100% - 2.5rem); margin: 0 auto; flex: 1;
+         padding: max(4.5rem, env(safe-area-inset-top) + 2rem) 0 calc(3rem + env(safe-area-inset-bottom)); }
 
   h1 { font-size: 1.05rem; font-weight: 500; margin: 0 0 2.2rem; color: var(--ink-soft); }
   h1 b { color: var(--ink); font-weight: 600; }
@@ -40,21 +51,26 @@
   .search { display: flex; border: 1.5px solid var(--line); border-radius: 12px; background: var(--field); overflow: hidden; transition: background-color .5s ease, border-color .5s ease; }
   .search:focus-within { border-color: var(--ink); }
   .search input {
-    flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+    flex: 1; min-width: 0; min-height: 3.2rem; border: 0; outline: 0; background: transparent;
     font: inherit; font-size: 2rem; font-weight: 500; letter-spacing: .01em; color: var(--ink);
     padding: .7rem 1.1rem; text-transform: uppercase; transition: color .5s ease;
   }
   .search input::placeholder { color: var(--ink-soft); opacity: .6; text-transform: none; font-weight: 400; }
+  .search .go {
+    border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center;
+    min-width: 3rem; padding: 0 .5rem;
+  }
+  .search .go:hover, .search .go:focus-visible { color: var(--live); outline: none; }
   .search select {
     border: 0; border-left: 1.5px solid var(--line); outline: 0; background: transparent;
     font: inherit; font-size: .95rem; color: var(--ink-soft); padding: 0 1rem; cursor: pointer;
-    max-width: 44%; transition: border-color .5s ease;
+    max-width: 44%; min-height: 3.2rem; transition: border-color .5s ease;
   }
   .search select:focus { color: var(--ink); background: var(--paper); }
   .search select option { color: #1c2126; background: #ffffff; }
 
   .hint { margin: .8rem .2rem 0; font-size: .85rem; color: var(--ink-soft); }
-  .hint button { all: unset; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .hint button { all: unset; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: .3rem 0; display: inline-block; }
   .hint button:focus-visible { outline: 2px solid var(--live); border-radius: 2px; }
 
   /* Result reads like a glossary entry, not a card. */
@@ -74,16 +90,21 @@
   .empty .pending { display: inline-block; margin-top: .6rem; }
 
   .suggest { margin: 0 0 0; list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
-  .suggest li button { all: unset; cursor: pointer; border: 1px solid var(--line); border-radius: 6px; padding: .3rem .6rem; font-size: .9rem; }
+  .suggest li button { all: unset; cursor: pointer; border: 1px solid var(--line); border-radius: 6px; padding: .55rem .8rem; font-size: .9rem; min-height: 2.4rem; display: inline-flex; align-items: center; }
   .suggest li button:hover, .suggest li button:focus-visible { border-color: var(--ink); outline: none; }
 
   footer { width: min(680px, 100% - 2.5rem); margin: 0 auto; padding: 1.5rem 0; font-size: .8rem; color: var(--ink-soft); }
 
   @media (max-width: 520px) {
-    main { padding-top: 2.5rem; }
-    .search { flex-direction: column; }
-    .search input { font-size: 1.6rem; }
-    .search select { border-left: 0; border-top: 1.5px solid var(--line); padding: .7rem 1rem; max-width: none; }
+    main { padding-top: max(2.5rem, env(safe-area-inset-top) + 1rem); }
+    h1 { font-size: 1rem; margin-bottom: 1.6rem; }
+    .search { flex-wrap: wrap; border-radius: 14px; }
+    .search input { flex: 1 1 0; font-size: 1.6rem; padding: .9rem 1rem; }
+    .search .go { flex: 0 0 auto; padding: 0 .9rem; }
+    .search select { flex: 1 1 100%; border-left: 0; border-top: 1.5px solid var(--line); padding: .8rem 1rem; max-width: none; }
+    .entry .full { font-size: 1.4rem; }
+    .entry .gist { font-size: 1.1rem; }
+    footer { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
   }
   @media (prefers-reduced-motion: reduce) {
     html, body, body::before, .search, .search select { transition: none; }
@@ -99,14 +120,17 @@
   <h1><b>Abbrev</b> — type an abbreviation, pick the sector it came from.</h1>
 
   <form class="search" id="form" autocomplete="off">
-    <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autofocus>
+    <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autocapitalize="characters" autocorrect="off" enterkeyhint="search">
+    <button type="submit" class="go" aria-label="Look up">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+    </button>
     <select id="sector" aria-label="Sector"></select>
   </form>
   <p class="hint" id="hint"></p>
 
   <section id="result" aria-live="polite"></section>
 </main>
-<footer>Definitions are maintained in <code>data/&lt;sector&gt;.json</code>. Found a mistake? Open an issue on GitHub.</footer>
+<footer>&copy; <span id="year"></span> Per Lasse Brønstad. All rights reserved.</footer>
 
 <script>
   // ---- configuration --------------------------------------------------
@@ -181,6 +205,8 @@
     const root = document.documentElement.style;
     const set = () => {
       for (const [k, v] of Object.entries(VAR_MAP)) v && (theme[k] != null ? root.setProperty(v, theme[k]) : root.removeProperty(v));
+      const meta = document.getElementById("theme-color-meta");
+      if (meta && theme.paper) meta.setAttribute("content", theme.paper);
       document.body.classList.remove("switching");
     };
     if (!animate) return set();
@@ -206,8 +232,15 @@
   if (params.get("q")) { input.value = params.get("q"); lookup(); }
 
   applySector(sectorSel.value, false);
+  // Only grab the keyboard automatically on devices with a real pointer (desktop).
+  // On touch devices, popping the keyboard on load hides the sector choice and examples.
+  if (matchMedia("(pointer: fine)").matches) input.focus();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
 
   form.addEventListener("submit", (e) => { e.preventDefault(); lookup(); });
+  // Belt and braces: some mobile keyboards send Enter without a submit event.
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); lookup(); } });
   sectorSel.addEventListener("change", () => {
     applySector(sectorSel.value, true);
     input.value = ""; result.innerHTML = "";          // fresh start in the new sector
