@@ -7,7 +7,8 @@
       "fullName": "Advanced Distribution Management System",
       "gist": "Control-room software for running the distribution grid",
       "description": "Software platform used by distribution system operators to monitor, control and optimise the distribution grid. It combines SCADA, outage management and analytics such as fault location, isolation and service restoration (FLISR) and volt/VAR optimisation in one system.",
-      "aliases": []
+      "aliases": [],
+      "note": "Like OMS, ADMS is normally bought off the shelf rather than built in-house. The same vendor landscape applies — GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell ADMS platforms — since ADMS is typically DMS, OMS and analytics sold together as one integrated product."
     },
     {
       "abbr": "DMS",
@@ -21,7 +22,8 @@
       "fullName": "Outage Management System",
       "gist": "System that finds and manages power outages",
       "description": "System that detects, locates and manages power outages, typically by combining customer trouble calls, smart meter events and network topology to predict which device has failed and to track restoration.",
-      "aliases": []
+      "aliases": [],
+      "note": "OMS is a category, not one specific product. Utilities buy it off the shelf from vendors such as GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB — either as a standalone system integrated with SCADA and GIS, or bundled as a module inside a broader ADMS platform. Fully custom-built systems exist but are the exception, usually only at very large utilities with unusual requirements."
     },
     {
       "abbr": "SCADA",
