@@ -1,6 +1,6 @@
 {
-  "domain": "utilities",
-  "label": "Utilities (power grids)",
+  "sector": "utilities",
+  "label": "Utilities",
   "entries": [
     {
       "abbr": "ADMS",
@@ -36,7 +36,10 @@
       "abbr": "DER",
       "fullName": "Distributed Energy Resource",
       "description": "Small-scale power source or flexible load connected to the distribution grid rather than the transmission grid — rooftop solar, batteries, EV chargers, heat pumps and small wind.",
-      "aliases": ["distributed generation", "DG"]
+      "aliases": [
+        "distributed generation",
+        "DG"
+      ]
     },
     {
       "abbr": "DERMS",
@@ -48,31 +51,45 @@
       "abbr": "DSO",
       "fullName": "Distribution System Operator",
       "description": "The company that owns and operates the local distribution grid and connects end customers. In Norway the DSO is the nettselskap; the transmission grid is operated by the TSO (Statnett).",
-      "aliases": ["nettselskap", "distribution network operator", "DNO"]
+      "aliases": [
+        "nettselskap",
+        "distribution network operator",
+        "DNO"
+      ]
     },
     {
       "abbr": "TSO",
       "fullName": "Transmission System Operator",
       "description": "The operator responsible for the high-voltage transmission grid and for keeping the whole power system in balance. Statnett in Norway.",
-      "aliases": ["transmission operator"]
+      "aliases": [
+        "transmission operator"
+      ]
     },
     {
       "abbr": "AMI",
       "fullName": "Advanced Metering Infrastructure",
       "description": "The end-to-end smart metering system — meters, communication network and head-end system — that delivers interval consumption data and meter events to the utility.",
-      "aliases": ["smart metering", "AMS"]
+      "aliases": [
+        "smart metering",
+        "AMS"
+      ]
     },
     {
       "abbr": "FLISR",
       "fullName": "Fault Location, Isolation and Service Restoration",
       "description": "Automated ADMS function that pinpoints a fault on a feeder, opens switches to isolate the faulted section and closes tie switches to restore supply to unaffected customers, usually within a minute.",
-      "aliases": ["self-healing grid"]
+      "aliases": [
+        "self-healing grid"
+      ]
     },
     {
       "abbr": "VVO",
       "fullName": "Volt/VAR Optimisation",
       "description": "Coordinated control of voltage regulators, capacitor banks and inverters to keep voltage within limits while reducing losses or demand.",
-      "aliases": ["volt-VAR control", "VVC"]
+      "aliases": [
+        "volt-VAR control",
+        "VVC"
+      ]
     }
   ]
 }
