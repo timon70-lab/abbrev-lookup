@@ -218,6 +218,20 @@
   // of a real network call, so the layout and flow can be reviewed before
   // step 2 (the real Vercel function) is wired up. Set to false, and set
   // AI_ENDPOINT above, to go live.
+  // Google Apps Script Web App URL that logs a search miss to a Google Sheet
+  // (see tools/miss-logger.gs). Leave empty to disable logging entirely.
+  const MISS_LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbyN5cpI-6CP8DFg5qPfJn7J7GUbwWBowHKOoE1BFrT5PfbGC4FFm_8Mite8lVUXc3pT/exec";
+  function logMiss(abbr, sector) {
+    if (!MISS_LOG_ENDPOINT) return;
+    // Fire-and-forget: never blocks the UI, and a failure here is silent —
+    // logging is a nice-to-have, not something that should ever break lookup.
+    // text/plain avoids a CORS preflight; Apps Script reads the raw body regardless.
+    fetch(MISS_LOG_ENDPOINT, {
+      method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ abbr, sector, page: location.href, ts: new Date().toISOString() }),
+    }).catch(() => {});
+  }
+
   const SIMULATE_AI = true;
   function simulateAiLookup(term) {
     return new Promise((resolve) => setTimeout(() => resolve({
@@ -336,6 +350,7 @@
     const near = dict.entries.filter(e => norm(e.abbr).startsWith(key) || key.startsWith(norm(e.abbr))).slice(0, 6);
     const aiAvailable = SIMULATE_AI || Boolean(AI_ENDPOINT);
     renderMiss(raw, near, aiAvailable);
+    logMiss(raw, sector);
 
     if (!aiAvailable) return;
     try {
