@@ -41,8 +41,8 @@
   .search:focus-within { border-color: var(--ink); }
   .search input {
     flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
-    font: inherit; font-size: 2rem; font-weight: 500; letter-spacing: .01em;
-    padding: .7rem 1.1rem; text-transform: uppercase;
+    font: inherit; font-size: 2rem; font-weight: 500; letter-spacing: .01em; color: var(--ink);
+    padding: .7rem 1.1rem; text-transform: uppercase; transition: color .5s ease;
   }
   .search input::placeholder { color: var(--ink-soft); opacity: .6; text-transform: none; font-weight: 400; }
   .search select {
@@ -51,6 +51,7 @@
     max-width: 44%; transition: border-color .5s ease;
   }
   .search select:focus { color: var(--ink); background: var(--paper); }
+  .search select option { color: #1c2126; background: #ffffff; }
 
   .hint { margin: .8rem .2rem 0; font-size: .85rem; color: var(--ink-soft); }
   .hint button { all: unset; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
@@ -206,7 +207,12 @@
   applySector(sectorSel.value, false);
 
   form.addEventListener("submit", (e) => { e.preventDefault(); lookup(); });
-  sectorSel.addEventListener("change", () => { applySector(sectorSel.value, true); if (input.value.trim()) lookup(); });
+  sectorSel.addEventListener("change", () => {
+    applySector(sectorSel.value, true);
+    input.value = ""; result.innerHTML = "";          // fresh start in the new sector
+    history.replaceState(null, "", `?s=${encodeURIComponent(sectorSel.value)}`);
+    input.focus();
+  });
 
   // ---- data -----------------------------------------------------------
   async function loadSector(id) {
