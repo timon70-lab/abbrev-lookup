@@ -69,6 +69,20 @@
   .search select:focus { color: var(--ink); background: var(--paper); }
   .search select option { color: #1c2126; background: #ffffff; }
 
+  .search-wrap { position: relative; }
+  .suggestions {
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 5; margin: 0; padding: .3rem;
+    list-style: none; background: var(--field); border: 1.5px solid var(--line); border-top: 0;
+    border-radius: 0 0 12px 12px; box-shadow: 0 14px 28px rgba(0,0,0,.14); max-height: 60vh; overflow-y: auto;
+  }
+  .suggestions li button {
+    all: unset; display: flex; align-items: baseline; gap: .5rem; width: 100%; box-sizing: border-box;
+    padding: .55rem .7rem; border-radius: 8px; cursor: pointer; font-family: var(--font);
+  }
+  .suggestions li button .s-abbr { font-weight: 600; letter-spacing: .01em; color: var(--ink); }
+  .suggestions li button .s-gist { font-size: .85rem; color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .suggestions li button:hover, .suggestions li button.active { background: var(--live-soft); }
+
   .hint { margin: .8rem .2rem 0; font-size: .85rem; color: var(--ink-soft); }
   .hint button { all: unset; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: .3rem 0; display: inline-block; }
   .hint button:focus-visible { outline: 2px solid var(--live); border-radius: 2px; }
@@ -144,13 +158,17 @@
   <h1 class="title">Abbrev Lookup</h1>
   <p class="subtitle">Type an abbreviation</p>
 
-  <form class="search" id="form" autocomplete="off">
-    <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autocapitalize="characters" autocorrect="off" enterkeyhint="search">
-    <button type="submit" class="go" aria-label="Look up">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-    </button>
-    <select id="sector" aria-label="Sector"></select>
-  </form>
+  <div class="search-wrap">
+    <form class="search" id="form" autocomplete="off">
+      <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autocapitalize="characters" autocorrect="off" enterkeyhint="search"
+             autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list">
+      <button type="submit" class="go" aria-label="Look up">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+      </button>
+      <select id="sector" aria-label="Sector"></select>
+    </form>
+    <ul class="suggestions" id="suggestions" role="listbox" hidden></ul>
+  </div>
   <p class="hint" id="hint"></p>
 
   <section id="result" aria-live="polite"></section>
@@ -282,6 +300,8 @@
 
   // ---- state ----------------------------------------------------------
   const dictionaries = {};           // sectorId -> { byAbbr: Map, byAlias: Map, entries: [] }
+  let currentDict = null;             // preloaded dict for the active sector, for autocomplete
+  function refreshCurrentDict() { loadSector(sectorSel.value).then(d => currentDict = d).catch(() => {}); }
   const $ = (sel) => document.querySelector(sel);
   const form = $("#form"), input = $("#q"), sectorSel = $("#sector"), result = $("#result");
 
@@ -298,25 +318,87 @@
   if (params.get("q")) { input.value = params.get("q"); lookup(); }
 
   applySector(sectorSel.value, false);
+  refreshCurrentDict();
   // Only grab the keyboard automatically on devices with a real pointer (desktop).
   // On touch devices, popping the keyboard on load hides the sector choice and examples.
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.025";
+  const APP_VERSION = "v0.026";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
 
   form.addEventListener("submit", (e) => { e.preventDefault(); lookup(); });
   // Belt and braces: some mobile keyboards send Enter without a submit event.
-  input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); lookup(); } });
+  // Enter selects a highlighted suggestion if there is one, otherwise runs a normal lookup.
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (activeIndex >= 0 && suggestionMatches[activeIndex]) chooseSuggestion(suggestionMatches[activeIndex]);
+      else lookup();
+    } else if (e.key === "ArrowDown" && suggestionMatches.length) {
+      e.preventDefault(); moveActive(1);
+    } else if (e.key === "ArrowUp" && suggestionMatches.length) {
+      e.preventDefault(); moveActive(-1);
+    } else if (e.key === "Escape") {
+      hideSuggestions();
+    }
+  });
+  input.addEventListener("input", () => updateSuggestions());
+  input.addEventListener("blur", () => setTimeout(hideSuggestions, 100));
   sectorSel.addEventListener("change", () => {
     applySector(sectorSel.value, true);
     input.value = ""; result.innerHTML = "";          // fresh start in the new sector
+    hideSuggestions();
+    refreshCurrentDict();
     history.replaceState(null, "", `?s=${encodeURIComponent(sectorSel.value)}`);
     if (matchMedia("(pointer: fine)").matches) input.focus();
   });
+
+  // ---- autocomplete -----------------------------------------------------
+  const suggestionsEl = $("#suggestions");
+  let suggestionMatches = [];
+  let activeIndex = -1;
+
+  function updateSuggestions() {
+    const raw = input.value.trim();
+    if (!raw || !currentDict) { hideSuggestions(); return; }
+    const key = norm(raw);
+    suggestionMatches = currentDict.entries.filter(e =>
+      norm(e.abbr).startsWith(key) || (e.aliases || []).some(a => norm(a).startsWith(key))
+    ).slice(0, 6);
+    activeIndex = -1;
+    if (!suggestionMatches.length) { hideSuggestions(); return; }
+    suggestionsEl.innerHTML = suggestionMatches.map((e, i) =>
+      `<li role="presentation"><button type="button" role="option" id="sugg-${i}" data-i="${i}">
+        <span class="s-abbr">${esc(e.abbr)}</span><span class="s-gist">${esc(e.gist || e.fullName)}</span>
+      </button></li>`
+    ).join("");
+    suggestionsEl.hidden = false;
+    input.setAttribute("aria-expanded", "true");
+    suggestionsEl.querySelectorAll("[data-i]").forEach(b =>
+      b.addEventListener("mousedown", (e) => { e.preventDefault(); chooseSuggestion(suggestionMatches[Number(b.dataset.i)]); }));
+  }
+
+  function moveActive(delta) {
+    activeIndex = (activeIndex + delta + suggestionMatches.length) % suggestionMatches.length;
+    suggestionsEl.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", i === activeIndex));
+    input.setAttribute("aria-activedescendant", `sugg-${activeIndex}`);
+  }
+
+  function chooseSuggestion(entry) {
+    input.value = entry.abbr;
+    hideSuggestions();
+    lookup();
+  }
+
+  function hideSuggestions() {
+    suggestionMatches = []; activeIndex = -1;
+    suggestionsEl.hidden = true; suggestionsEl.innerHTML = "";
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+  }
 
   // ---- data -----------------------------------------------------------
   async function loadSector(id) {
@@ -339,6 +421,7 @@
     const raw = input.value.trim();
     const sector = sectorSel.value;
     if (!raw) { result.innerHTML = ""; return; }
+    hideSuggestions();
 
     // On touch devices, close the on-screen keyboard once a search runs so it
     // doesn't sit over the result. Desktop keeps focus (no keyboard to hide).
