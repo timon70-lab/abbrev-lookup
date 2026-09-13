@@ -29,7 +29,7 @@
     --font: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { background: var(--paper); transition: background-color .5s ease; overscroll-behavior-y: contain; }
+  html { background: var(--paper); transition: background-color .5s ease; }
   /* Prevent iOS Safari auto-zoom: any focusable control needs a >=16px font. */
   input, select, button { font-size: 16px; }
   /* body stays transparent so the fixed scene layer (z-index -1) shows through. */
@@ -261,7 +261,7 @@
     applySector(sectorSel.value, true);
     input.value = ""; result.innerHTML = "";          // fresh start in the new sector
     history.replaceState(null, "", `?s=${encodeURIComponent(sectorSel.value)}`);
-    input.focus();
+    if (matchMedia("(pointer: fine)").matches) input.focus();
   });
 
   // ---- data -----------------------------------------------------------
