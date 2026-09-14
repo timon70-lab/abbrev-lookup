@@ -277,7 +277,7 @@
       gist: "Lorem ipsum dolor sit amet",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.",
       aliases: ["Lorem Ipsum", "LI"],
-    }), 700)); // artificial delay so the "Asking AI…" state is visible
+    }), 2000)); // artificial delay so the "Asking AI…" state is visible
   }
   // ------------------------------------------------------------------------
 
@@ -340,7 +340,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.027";
+  const APP_VERSION = "v0.028";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
