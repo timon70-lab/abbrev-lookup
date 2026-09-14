@@ -224,6 +224,22 @@
         texture: `url("img/energy.svg") center bottom / max(1200px, 100%) auto no-repeat`,
       },
     },
+    {
+      id: "information-technology",
+      label: "Information Technology",
+      examples: ["API", "SIEM", "SSO"],
+      theme: {
+        paper: "#eef0fb",
+        ink: "#1c2233",
+        inkSoft: "#5b5f7a",
+        line: "#d6d9f0",
+        field: "#f7f8fd",
+        live: "#0ea5b7",        // cyan/teal accent
+        liveSoft: "#dff5f7",
+        liveInk: "#0b6572",
+        texture: `url("img/information-technology.svg") center bottom / max(1200px, 100%) auto no-repeat`,
+      },
+    },
     // Template for the next sector — copy, change the id/label/colours, create data/<id>.json:
     // { id: "finance", label: "Finance", examples: ["EBITDA"], theme: { paper: "#f6f4ef", ink: "#1f1c17", inkSoft: "#6a6357",
     //   line: "#d9d3c7", field: "#fffdf9", live: "#2f6f4f", liveSoft: "#e2efe7", liveInk: "#1d4a33", texture: "none" } },
@@ -324,7 +340,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.026";
+  const APP_VERSION = "v0.027";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
