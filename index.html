@@ -195,7 +195,6 @@
     {
       id: "utilities",
       label: "Utilities",
-      examples: ["ADMS", "FLISR", "DSO"],
       theme: {
         paper: "#eaf1f6",
         ink: "#1a2328",
@@ -211,7 +210,6 @@
     {
       id: "energy",
       label: "Energy",
-      examples: ["FPSO", "PDO", "SIMOPS"],
       theme: {
         paper: "#1d2733",       // deep water
         ink: "#eef1f4",
@@ -227,7 +225,6 @@
     {
       id: "information-technology",
       label: "Information Technology",
-      examples: ["API", "SIEM", "SSO"],
       theme: {
         paper: "#eef0fb",
         ink: "#1c2233",
@@ -241,7 +238,7 @@
       },
     },
     // Template for the next sector — copy, change the id/label/colours, create data/<id>.json:
-    // { id: "finance", label: "Finance", examples: ["EBITDA"], theme: { paper: "#f6f4ef", ink: "#1f1c17", inkSoft: "#6a6357",
+    // { id: "finance", label: "Finance", theme: { paper: "#f6f4ef", ink: "#1f1c17", inkSoft: "#6a6357",
     //   line: "#d9d3c7", field: "#fffdf9", live: "#2f6f4f", liveSoft: "#e2efe7", liveInk: "#1d4a33", texture: "none" } },
   ];
 
@@ -293,13 +290,24 @@
     renderHint(id);
     applyTheme(id, animate);
   }
-  function renderHint(id) {
-    const ex = (SECTORS.find(d => d.id === id) || {}).examples || [];
+  async function renderHint(id) {
+    const dict = await loadSector(id).catch(() => null);
+    const ex = dict ? pickRandom(dict.entries.map(e2 => e2.abbr), 3) : [];
     $("#hint").innerHTML = ex.length
-      ? `Press Enter, or try ${ex.map(e => `<button type="button" data-try="${esc(e)}">${esc(e)}</button>`).join(", ")}.`
-      : "Press Enter.";
+      ? `Or try ${ex.map(e => `<button type="button" data-try="${esc(e)}">${esc(e)}</button>`).join(", ")}.`
+      : "";
     $("#hint").querySelectorAll("[data-try]").forEach(b =>
       b.addEventListener("click", () => { input.value = b.dataset.try; lookup(); }));
+  }
+
+  // Fisher–Yates shuffle, then take the first n — used to pick random hint terms.
+  function pickRandom(arr, n) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a.slice(0, n);
   }
   function applyTheme(id, animate) {
     const theme = (SECTORS.find(d => d.id === id) || {}).theme || {};
@@ -341,7 +349,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.030";
+  const APP_VERSION = "v0.031";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
