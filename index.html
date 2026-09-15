@@ -160,7 +160,7 @@
 
   <div class="search-wrap">
     <form class="search" id="form" autocomplete="off">
-      <input id="q" type="text" placeholder="e.g. ADMS" aria-label="Abbreviation" spellcheck="false" autocapitalize="characters" autocorrect="off" enterkeyhint="search"
+      <input id="q" type="text" aria-label="Abbreviation" spellcheck="false" autocapitalize="characters" autocorrect="off" enterkeyhint="search"
              autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list">
       <button type="submit" class="go" aria-label="Look up">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
@@ -349,7 +349,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.031";
+  const APP_VERSION = "v0.032";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
