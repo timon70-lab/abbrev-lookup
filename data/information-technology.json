@@ -7,66 +7,80 @@
       "fullName": "Application Programming Interface",
       "gist": "Rules letting two programs talk to each other",
       "description": "A defined set of rules and endpoints that lets one piece of software request data or functionality from another, without needing to know how that other system works internally. Almost every modern app and integration is built on APIs.",
-      "aliases": []
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "SaaS",
       "fullName": "Software as a Service",
       "gist": "Software you use online, not install",
       "description": "A delivery model where an application runs on the vendor's servers and is accessed over the internet, usually by subscription, instead of being installed and run locally. Gmail, Salesforce and Slack are all SaaS.",
-      "aliases": []
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "IaaS",
       "fullName": "Infrastructure as a Service",
       "gist": "Rented servers, storage and networking",
-      "description": "A cloud model where a provider rents out raw computing infrastructure \u2014 virtual servers, storage and networking \u2014 and the customer installs and manages their own operating systems and software on top of it. AWS EC2 and Azure Virtual Machines are IaaS.",
-      "aliases": []
+      "description": "A cloud model where a provider rents out raw computing infrastructure — virtual servers, storage and networking — and the customer installs and manages their own operating systems and software on top of it. AWS EC2 and Azure Virtual Machines are IaaS.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "SSO",
       "fullName": "Single Sign-On",
       "gist": "One login for multiple systems",
       "description": "Lets a user log in once and gain access to several separate applications without logging in again for each one. Reduces password fatigue and centralises access control for IT teams.",
-      "aliases": []
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "MFA",
       "fullName": "Multi-Factor Authentication",
       "gist": "More than a password to log in",
-      "description": "Requires a user to prove their identity with two or more independent factors \u2014 typically a password plus a code, app approval or biometric check \u2014 before granting access. Significantly cuts the risk of a stolen password alone leading to a breach.",
-      "aliases": ["2FA", "two-factor authentication"]
+      "description": "Requires a user to prove their identity with two or more independent factors — typically a password plus a code, app approval or biometric check — before granting access. Significantly cuts the risk of a stolen password alone leading to a breach.",
+      "aliases": [
+        "2FA",
+        "two-factor authentication"
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "IAM",
       "fullName": "Identity and Access Management",
       "gist": "Who can access what, and how",
       "description": "The systems and policies that manage digital identities and control what each user or service is allowed to access. Covers provisioning accounts, assigning permissions, and enforcing sign-in requirements like SSO and MFA.",
-      "aliases": ["identity management"],
-      "note": "IAM is normally bought off the shelf rather than built in-house. Common vendors include Okta, Microsoft Entra ID (formerly Azure AD), Ping Identity and SailPoint."
+      "aliases": [
+        "identity management"
+      ],
+      "note": "IAM is normally bought off the shelf rather than built in-house. Common vendors include Okta, Microsoft Entra ID (formerly Azure AD), Ping Identity and SailPoint.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "VPN",
       "fullName": "Virtual Private Network",
       "gist": "A private, encrypted tunnel over the internet",
       "description": "Creates an encrypted connection between a device and a private network over the public internet, so traffic looks like it originates inside that network and can't easily be read in transit. Used for remote access to company systems and for privacy.",
-      "aliases": []
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "SIEM",
       "fullName": "Security Information and Event Management",
       "gist": "Collects and flags security alerts",
-      "description": "Software that collects log and event data from across an organisation's systems, correlates it, and flags patterns that look like a security incident \u2014 such as repeated failed logins or unusual data transfers. Central to a security team's day-to-day monitoring.",
+      "description": "Software that collects log and event data from across an organisation's systems, correlates it, and flags patterns that look like a security incident — such as repeated failed logins or unusual data transfers. Central to a security team's day-to-day monitoring.",
       "aliases": [],
-      "note": "SIEM is sold as off-the-shelf software by vendors such as Splunk, Microsoft Sentinel, IBM QRadar and Exabeam, though the detection rules are usually tuned in-house for each organisation."
+      "note": "SIEM is sold as off-the-shelf software by vendors such as Splunk, Microsoft Sentinel, IBM QRadar and Exabeam, though the detection rules are usually tuned in-house for each organisation.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "ITSM",
       "fullName": "IT Service Management",
       "gist": "How IT requests and incidents get handled",
-      "description": "The processes and software used to manage IT services end to end \u2014 logging incidents, fulfilling requests, tracking changes, and keeping a record of what equipment and software the organisation runs.",
+      "description": "The processes and software used to manage IT services end to end — logging incidents, fulfilling requests, tracking changes, and keeping a record of what equipment and software the organisation runs.",
       "aliases": [],
-      "note": "ITSM normally runs on off-the-shelf platforms \u2014 ServiceNow, Jira Service Management and BMC Helix are the most common \u2014 rather than being built internally."
+      "note": "ITSM normally runs on off-the-shelf platforms — ServiceNow, Jira Service Management and BMC Helix are the most common — rather than being built internally.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "CDN",
@@ -74,22 +88,25 @@
       "gist": "Copies of your content served from nearby",
       "description": "A network of servers spread across many locations that caches and delivers website content from whichever server is physically closest to the visitor, making pages load faster and adding some protection against traffic spikes and attacks.",
       "aliases": [],
-      "note": "CDN is bought as a service from providers such as Cloudflare, Akamai, Fastly and AWS CloudFront rather than built by the customer."
+      "note": "CDN is bought as a service from providers such as Cloudflare, Akamai, Fastly and AWS CloudFront rather than built by the customer.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "ERP",
       "fullName": "Enterprise Resource Planning",
       "gist": "One system running finance, HR, supply chain",
-      "description": "A single software platform that ties together core business processes \u2014 finance, procurement, inventory, HR and often manufacturing \u2014 so they share one common set of data instead of running in separate, disconnected systems.",
+      "description": "A single software platform that ties together core business processes — finance, procurement, inventory, HR and often manufacturing — so they share one common set of data instead of running in separate, disconnected systems.",
       "aliases": [],
-      "note": "ERP is almost always bought off the shelf and configured, not built from scratch. SAP, Oracle, Microsoft Dynamics 365 and NetSuite are the major vendors."
+      "note": "ERP is almost always bought off the shelf and configured, not built from scratch. SAP, Oracle, Microsoft Dynamics 365 and NetSuite are the major vendors.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "DNS",
       "fullName": "Domain Name System",
       "gist": "Translates domain names into IP addresses",
       "description": "The system that converts human-readable domain names like example.com into the numerical IP addresses computers use to find each other on a network. Without it, you'd have to remember a string of numbers for every website.",
-      "aliases": []
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     }
   ]
 }

@@ -10,7 +10,8 @@
       "aliases": [
         "floater",
         "production ship"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "BOP",
@@ -19,7 +20,8 @@
       "description": "Stack of large valves on top of a well that can seal the wellbore and shut off uncontrolled flow of oil or gas during drilling. The last line of defence against a blowout.",
       "aliases": [
         "BOP stack"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "ESD",
@@ -30,7 +32,8 @@
         "emergency shutdown system",
         "ESDS"
       ],
-      "note": "The logic behind ESD usually runs on a Safety Instrumented System (SIS) — off-the-shelf, safety-certified hardware and software from vendors such as Honeywell, Schneider Electric (Triconex), ABB, Siemens and Yokogawa, configured for the specific platform or plant rather than built from scratch."
+      "note": "The logic behind ESD usually runs on a Safety Instrumented System (SIS) — off-the-shelf, safety-certified hardware and software from vendors such as Honeywell, Schneider Electric (Triconex), ABB, Siemens and Yokogawa, configured for the specific platform or plant rather than built from scratch.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "EOR",
@@ -40,14 +43,16 @@
       "aliases": [
         "tertiary recovery",
         "IOR"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "LNG",
       "fullName": "Liquefied Natural Gas",
       "gist": "Natural gas chilled to liquid for shipping",
       "description": "Natural gas cooled to about minus 162 degrees Celsius so it becomes liquid and shrinks to roughly 1/600 of its volume, making it practical to ship in tankers rather than by pipeline.",
-      "aliases": []
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "NCS",
@@ -57,7 +62,8 @@
       "aliases": [
         "norsk sokkel",
         "Norwegian shelf"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "PDO",
@@ -67,7 +73,8 @@
       "aliases": [
         "PUD",
         "plan for utbygging og drift"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "HSE",
@@ -78,7 +85,8 @@
         "HMS",
         "HSEQ",
         "EHS"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "SIMOPS",
@@ -87,7 +95,8 @@
       "description": "Two or more potentially conflicting activities carried out at the same time and place, such as drilling while producing or lifting near live process. Requires a dedicated risk assessment and coordination plan.",
       "aliases": [
         "simultaneous operations"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "P&ID",
@@ -97,7 +106,8 @@
       "aliases": [
         "PID",
         "piping and instrument diagram"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "HPHT",
@@ -106,7 +116,8 @@
       "description": "Wells or reservoirs with pressure above about 690 bar or temperature above about 150 degrees Celsius. They require special materials, equipment ratings and drilling practices.",
       "aliases": [
         "high pressure high temperature well"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "CCS",
@@ -116,7 +127,8 @@
       "aliases": [
         "carbon capture and sequestration",
         "CCUS"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     }
   ]
 }

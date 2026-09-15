@@ -8,7 +8,8 @@
       "gist": "Control-room software for running the distribution grid",
       "description": "Software platform used by distribution system operators to monitor, control and optimise the distribution grid. It combines SCADA, outage management and analytics such as fault location, isolation and service restoration (FLISR) and volt/VAR optimisation in one system.",
       "aliases": [],
-      "note": "Like OMS, ADMS is normally bought off the shelf rather than built in-house. The same vendor landscape applies — GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell ADMS platforms — since ADMS is typically DMS, OMS and analytics sold together as one integrated product."
+      "note": "Like OMS, ADMS is normally bought off the shelf rather than built in-house. The same vendor landscape applies — GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell ADMS platforms — since ADMS is typically DMS, OMS and analytics sold together as one integrated product.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "DMS",
@@ -16,7 +17,8 @@
       "gist": "Software for operating the distribution network",
       "description": "Control-room software for operating the medium- and low-voltage distribution network — switching, load monitoring and network state estimation. An ADMS is a DMS with outage management and advanced analytics added.",
       "aliases": [],
-      "note": "Like ADMS and OMS, DMS is normally bought off the shelf. GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell DMS platforms — often the same product line that becomes an ADMS once outage management and analytics are added."
+      "note": "Like ADMS and OMS, DMS is normally bought off the shelf. GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell DMS platforms — often the same product line that becomes an ADMS once outage management and analytics are added.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "OMS",
@@ -24,7 +26,8 @@
       "gist": "System that finds and manages power outages",
       "description": "System that detects, locates and manages power outages, typically by combining customer trouble calls, smart meter events and network topology to predict which device has failed and to track restoration.",
       "aliases": [],
-      "note": "OMS is a category, not one specific product. Utilities buy it off the shelf from vendors such as GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB — either as a standalone system integrated with SCADA and GIS, or bundled as a module inside a broader ADMS platform. Fully custom-built systems exist but are the exception, usually only at very large utilities with unusual requirements."
+      "note": "OMS is a category, not one specific product. Utilities buy it off the shelf from vendors such as GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB — either as a standalone system integrated with SCADA and GIS, or bundled as a module inside a broader ADMS platform. Fully custom-built systems exist but are the exception, usually only at very large utilities with unusual requirements.",
+      "_source": "Web research: OMS vendor market, Sept 2026"
     },
     {
       "abbr": "SCADA",
@@ -32,7 +35,8 @@
       "gist": "Real-time monitoring and control of grid equipment",
       "description": "Real-time system that collects measurements from substations and field devices and lets operators send control commands, such as opening or closing a breaker. It is the data backbone that DMS, ADMS and EMS sit on top of.",
       "aliases": [],
-      "note": "SCADA is off-the-shelf software too, usually chosen separately from DMS/ADMS since it's the base layer both connect to. Common vendors include GE, Schneider Electric (Wonderware), Honeywell, Siemens, ABB and OSI. Utilities tend to keep the same SCADA system for decades, since replacing it means changing how every substation talks to the control room."
+      "note": "SCADA is off-the-shelf software too, usually chosen separately from DMS/ADMS since it's the base layer both connect to. Common vendors include GE, Schneider Electric (Wonderware), Honeywell, Siemens, ABB and OSI. Utilities tend to keep the same SCADA system for decades, since replacing it means changing how every substation talks to the control room.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "EMS",
@@ -40,7 +44,8 @@
       "gist": "Control-room software for the transmission grid",
       "description": "Control-room software for the high-voltage transmission grid — generation dispatch, state estimation, contingency analysis and frequency control. The transmission-level counterpart to a DMS.",
       "aliases": [],
-      "note": "EMS platforms are sold by the same major vendors as DMS/ADMS — GE, Siemens, Hitachi Energy and ABB among them — plus specialists like OSI. Utilities buy and configure these rather than building them from scratch."
+      "note": "EMS platforms are sold by the same major vendors as DMS/ADMS — GE, Siemens, Hitachi Energy and ABB among them — plus specialists like OSI. Utilities buy and configure these rather than building them from scratch.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "DER",
@@ -50,7 +55,8 @@
       "aliases": [
         "distributed generation",
         "DG"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "DERMS",
@@ -58,7 +64,8 @@
       "gist": "Software that controls fleets of DERs",
       "description": "Software that monitors, forecasts and controls large numbers of DERs so the grid operator can use them as flexibility — for example curtailing solar or dispatching batteries to relieve a constraint.",
       "aliases": [],
-      "note": "DERMS is a newer category, so the vendor list is more fragmented than ADMS: GE, Schneider Electric, Itron, AutoGrid, Smarter Grid Solutions and Enbala all sell DERMS products, and some ADMS vendors now bundle a DERMS module rather than selling it standalone."
+      "note": "DERMS is a newer category, so the vendor list is more fragmented than ADMS: GE, Schneider Electric, Itron, AutoGrid, Smarter Grid Solutions and Enbala all sell DERMS products, and some ADMS vendors now bundle a DERMS module rather than selling it standalone.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "DSO",
@@ -69,7 +76,8 @@
         "nettselskap",
         "distribution network operator",
         "DNO"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "TSO",
@@ -78,7 +86,8 @@
       "description": "The operator responsible for the high-voltage transmission grid and for keeping the whole power system in balance. Statnett in Norway.",
       "aliases": [
         "transmission operator"
-      ]
+      ],
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "AMI",
@@ -89,7 +98,8 @@
         "smart metering",
         "AMS"
       ],
-      "note": "AMI is usually bought as one integrated package — meters, communication network and head-end software from a single vendor such as Itron, Landis+Gyr, Sensus (Xylem) or Aclara. Mixing meters and head-end software from different vendors is possible but less common."
+      "note": "AMI is usually bought as one integrated package — meters, communication network and head-end software from a single vendor such as Itron, Landis+Gyr, Sensus (Xylem) or Aclara. Mixing meters and head-end software from different vendors is possible but less common.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "FLISR",
@@ -99,7 +109,8 @@
       "aliases": [
         "self-healing grid"
       ],
-      "note": "FLISR isn't sold as a separate product — it's a function running inside a DMS or ADMS. Whichever vendor supplies the ADMS (GE, Siemens, Schneider Electric, Hitachi Energy, ABB) also supplies FLISR as a configurable module within it."
+      "note": "FLISR isn't sold as a separate product — it's a function running inside a DMS or ADMS. Whichever vendor supplies the ADMS (GE, Siemens, Schneider Electric, Hitachi Energy, ABB) also supplies FLISR as a configurable module within it.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "VVO",
@@ -110,7 +121,8 @@
         "volt-VAR control",
         "VVC"
       ],
-      "note": "Like FLISR, VVO is a function inside a DMS or ADMS rather than its own product, supplied by the same ADMS vendors as an optional module."
+      "note": "Like FLISR, VVO is a function inside a DMS or ADMS rather than its own product, supplied by the same ADMS vendors as an optional module.",
+      "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "E-TERRA",
@@ -122,7 +134,8 @@
         "e-terra platform",
         "e-terra distribution"
       ],
-      "note": "e-terra was built by Alstom Grid; GE acquired Alstom's power business in 2015, e-terra included. GE Vernova has since been folding it into its newer GridOS-branded product line (GridOS ADMS, GridOS AEMS), but many utilities still run — and refer to — their systems under the original e-terra name."
+      "note": "e-terra was built by Alstom Grid; GE acquired Alstom's power business in 2015, e-terra included. GE Vernova has since been folding it into its newer GridOS-branded product line (GridOS ADMS, GridOS AEMS), but many utilities still run — and refer to — their systems under the original e-terra name.",
+      "_source": "Web research: Alstom Grid / GE Grid Solutions / GE Vernova GridOS history, Sept 2026"
     }
   ]
 }
