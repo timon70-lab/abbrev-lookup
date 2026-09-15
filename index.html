@@ -258,17 +258,18 @@
   // Google Apps Script Web App URL that logs a search miss to a Google Sheet
   // (see tools/miss-logger.gs). Leave empty to disable logging entirely.
   const MISS_LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbyN5cpI-6CP8DFg5qPfJn7J7GUbwWBowHKOoE1BFrT5PfbGC4FFm_8Mite8lVUXc3pT/exec";
-  function logMiss(abbr, sector) {
+  // Fire-and-forget: never blocks the UI, and a failure here is silent —
+  // logging is a nice-to-have, not something that should ever break lookup.
+  // GET with query params, not POST with a body: Apps Script Web Apps answer
+  // every request with a 302 redirect to script.googleusercontent.com, and
+  // browsers turn a POST into a bodyless GET when following a 302 — so a
+  // POST body silently never arrives. A GET has no body to lose.
+  function logToSheet(params) {
     if (!MISS_LOG_ENDPOINT) return;
-    // Fire-and-forget: never blocks the UI, and a failure here is silent —
-    // logging is a nice-to-have, not something that should ever break lookup.
-    // GET with query params, not POST with a body: Apps Script Web Apps answer
-    // every request with a 302 redirect to script.googleusercontent.com, and
-    // browsers turn a POST into a bodyless GET when following a 302 — so a
-    // POST body silently never arrives. A GET has no body to lose.
-    const qs = new URLSearchParams({ abbr, sector, page: location.href, ts: new Date().toISOString() });
+    const qs = new URLSearchParams({ page: location.href, ts: new Date().toISOString(), ...params });
     fetch(`${MISS_LOG_ENDPOINT}?${qs}`, { mode: "no-cors" }).catch(() => {});
   }
+  function logMiss(abbr, sector) { logToSheet({ abbr, sector }); }
 
   const SIMULATE_AI = false;
   function simulateAiLookup(term) {
@@ -340,7 +341,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.029";
+  const APP_VERSION = "v0.030";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
@@ -575,11 +576,16 @@
     if (!inside) noteDialog.close();   // click landed on the backdrop
   });
 
-  // What happens on a challenge isn't decided yet (no backend, no issue filing —
-  // that comes later). For now this just acknowledges the click so the button
-  // feels real; onChallenge is the one place to wire up real behaviour later.
+  // What happens on a challenge beyond this isn't decided yet — no review
+  // queue or auto-fix — but every click is logged to the same Sheet as
+  // misses, in its own "Challenges" tab, with the AI answer that was
+  // disputed for context.
   function onChallenge(e) {
     const b = e.currentTarget;
+    logToSheet({
+      type: "challenge", abbr: b.dataset.abbr, sector: b.dataset.sector,
+      fullname: b.dataset.fullname, desc: b.dataset.desc,
+    });
     b.setAttribute("data-reported", "");
     b.innerHTML = "Thanks for the feedback!";
   }
