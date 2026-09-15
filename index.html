@@ -248,7 +248,7 @@
   // Step 2: point this at your Cloudflare Worker / Vercel function.
   // It should accept POST { abbr, sector } and return { fullName, gist, description, aliases }.
   // Leave empty and the app is purely dictionary-based.
-  const AI_ENDPOINT = "";
+  const AI_ENDPOINT = "https://abbrev-api.vercel.app/api/lookup";
 
   // --- SIMULATION MODE ---------------------------------------------------
   // While true, a miss is answered with placeholder Lorem ipsum text instead
@@ -270,7 +270,7 @@
     fetch(`${MISS_LOG_ENDPOINT}?${qs}`, { mode: "no-cors" }).catch(() => {});
   }
 
-  const SIMULATE_AI = true;
+  const SIMULATE_AI = false;
   function simulateAiLookup(term) {
     return new Promise((resolve) => setTimeout(() => resolve({
       fullName: "Lorem Ipsum Dolor Sit Amet",
@@ -340,7 +340,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.028";
+  const APP_VERSION = "v0.029";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
