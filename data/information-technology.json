@@ -107,6 +107,22 @@
       "description": "The system that converts human-readable domain names like example.com into the numerical IP addresses computers use to find each other on a network. Without it, you'd have to remember a string of numbers for every website.",
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "MCP",
+      "fullName": "Model Context Protocol",
+      "gist": "Open standard connecting AI to tools and data",
+      "description": "An open protocol that lets an AI model connect to external tools, data sources and services in a standardised way, instead of every integration being built one-off. Introduced by Anthropic; now used more broadly across the industry.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "MCP",
+      "fullName": "Microsoft Certified Professional",
+      "gist": "A Microsoft technical certification",
+      "description": "A certification earned by passing a Microsoft exam demonstrating proficiency with a specific Microsoft product or technology. One of Microsoft's oldest certification tracks, later joined by role-based certifications such as Azure Administrator.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
     }
   ]
 }
