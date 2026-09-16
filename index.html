@@ -349,7 +349,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.032";
+  const APP_VERSION = "v0.033";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
@@ -390,11 +390,19 @@
     const raw = input.value.trim();
     if (!raw || !currentDict) { hideSuggestions(); return; }
     const key = norm(raw);
-    suggestionMatches = currentDict.entries.filter(e =>
+    const matches = currentDict.entries.filter(e =>
       norm(e.abbr).startsWith(key) || (e.aliases || []).some(a => norm(a).startsWith(key))
     ).slice(0, 6);
+    if (!matches.length) { hideSuggestions(); return; }
+    showSuggestionList(matches);
+  }
+
+  // Shared by two callers: live "as you type" filtering, and an exact search
+  // that matches more than one entry (same abbreviation, different meanings) —
+  // in both cases the person picks the right one by its gist, from this list.
+  function showSuggestionList(matches) {
+    suggestionMatches = matches;
     activeIndex = -1;
-    if (!suggestionMatches.length) { hideSuggestions(); return; }
     suggestionsEl.innerHTML = suggestionMatches.map((e, i) =>
       `<li role="presentation"><button type="button" role="option" id="sugg-${i}" data-i="${i}">
         <span class="s-abbr">${esc(e.abbr)}</span><span class="s-gist">${esc(e.gist || e.fullName)}</span>
@@ -415,7 +423,9 @@
   function chooseSuggestion(entry) {
     input.value = entry.abbr;
     hideSuggestions();
-    lookup();
+    if (!matchMedia("(pointer: fine)").matches) input.blur();
+    history.replaceState(null, "", `?s=${encodeURIComponent(sectorSel.value)}&q=${encodeURIComponent(entry.abbr)}`);
+    render(entry, "dictionary", currentDict);
   }
 
   function hideSuggestions() {
@@ -432,9 +442,10 @@
     if (!res.ok) throw new Error(`Could not load data/${id}.json (${res.status})`);
     const json = await res.json();
     const byAbbr = new Map(), byAlias = new Map();
+    const push = (map, key, entry) => { if (!map.has(key)) map.set(key, []); map.get(key).push(entry); };
     for (const e of json.entries) {
-      byAbbr.set(norm(e.abbr), e);
-      for (const a of e.aliases || []) byAlias.set(norm(a), e);
+      push(byAbbr, norm(e.abbr), e);
+      for (const a of e.aliases || []) push(byAlias, norm(a), e);
     }
     return (dictionaries[id] = { byAbbr, byAlias, entries: json.entries });
   }
@@ -460,7 +471,12 @@
 
     const key = norm(raw);
     const hit = dict.byAbbr.get(key) || dict.byAlias.get(key);
-    if (hit) { render(hit, "dictionary", dict); return; }
+    if (hit && hit.length === 1) { render(hit[0], "dictionary", dict); return; }
+    if (hit && hit.length > 1) {
+      result.innerHTML = `<p class="empty"><strong>${esc(raw.toUpperCase())}</strong> has ${hit.length} meanings in ${esc(label(sector))} — pick the one you mean below.</p>`;
+      showSuggestionList(hit);
+      return;
+    }
 
     // Not in this sector's dictionary. Before asking AI to guess, check whether
     // it's simply a term that belongs to a different sector — no point letting
@@ -473,7 +489,7 @@
       if (sec.id === sector) continue;
       let odict;
       try { odict = await loadSector(sec.id); } catch { continue; }
-      if (odict.byAbbr.get(key) || odict.byAlias.get(key)) elsewhere.push(sec.id);
+      if ((odict.byAbbr.get(key) || []).length || (odict.byAlias.get(key) || []).length) elsewhere.push(sec.id);
     }
     if (norm(input.value) !== key) return; // user moved on while we checked
     if (elsewhere.length) { renderElsewhere(raw, elsewhere); return; }
