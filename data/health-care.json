@@ -1,0 +1,107 @@
+{
+  "sector": "health-care",
+  "label": "Health Care",
+  "entries": [
+    {
+      "abbr": "EHR",
+      "fullName": "Electronic Health Record",
+      "gist": "Digital patient record, shared across providers",
+      "description": "A digital version of a patient's medical history designed to be shared across different healthcare providers and settings, not just one practice \u2014 the interoperable successor to the older EMR.",
+      "aliases": [],
+      "note": "EHR software is normally bought off the shelf. Epic and Oracle Health (formerly Cerner) dominate the US hospital market, with MEDITECH a strong third, especially in community hospitals.",
+      "_source": "Web research: EHR vendor market share, Sept 2026"
+    },
+    {
+      "abbr": "EMR",
+      "fullName": "Electronic Medical Record",
+      "gist": "Digital chart within a single practice",
+      "description": "A digital version of the paper chart within one practice or organisation. The record generally isn't designed to be shared outside that practice, which is the main thing that distinguishes it from an EHR.",
+      "aliases": [],
+      "note": "EMR is the older term historically; the industry has largely moved on to interoperable EHR systems, though the two words are still often used interchangeably in casual conversation.",
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "HIPAA",
+      "fullName": "Health Insurance Portability and Accountability Act",
+      "gist": "US law protecting patient data privacy",
+      "description": "US federal law setting standards for protecting patient health information and giving patients rights over their own records. Breaching it can carry serious fines, so it comes up constantly in any US-facing health IT or data project.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "PHI",
+      "fullName": "Protected Health Information",
+      "gist": "Patient data protected under privacy law",
+      "description": "Any patient information that could identify an individual and relates to their health, treatment or payment for care. Handling PHI correctly is what HIPAA compliance is actually about in practice.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "FDA",
+      "fullName": "Food and Drug Administration",
+      "gist": "US regulator for drugs and medical devices",
+      "description": "The US government agency responsible for approving new drugs and medical devices before they can be sold, and for regulating their safety afterwards. Its decisions influence pharma and med-tech timelines worldwide, not just in the US.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "CMS",
+      "fullName": "Centers for Medicare & Medicaid Services",
+      "gist": "US agency running Medicare and Medicaid",
+      "description": "The US federal agency that runs Medicare and Medicaid and sets many of the billing and quality rules the rest of the US healthcare industry follows. Not to be confused with a content management system \u2014 a different CMS entirely, in IT.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "RCM",
+      "fullName": "Revenue Cycle Management",
+      "gist": "Getting paid for care that was delivered",
+      "description": "The end-to-end process of billing for healthcare services \u2014 from checking a patient's insurance eligibility, through coding and submitting claims, to collecting payment. A major cost centre for any provider.",
+      "aliases": [],
+      "note": "RCM software is usually bought rather than built \u2014 Epic, Oracle Health, Waystar and R1 RCM are common vendors \u2014 and the work itself is often outsourced entirely to a specialist billing company.",
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "CDS",
+      "fullName": "Clinical Decision Support",
+      "gist": "Alerts and guidance built into clinical software",
+      "description": "Software features that give clinicians guidance at the point of care \u2014 flagging a drug interaction, suggesting a diagnosis, or reminding them of a guideline.",
+      "aliases": [],
+      "note": "Like FLISR inside an ADMS, CDS is typically a feature bundled inside an EHR (Epic, Oracle Health, etc.) rather than something bought as its own separate system.",
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "PBM",
+      "fullName": "Pharmacy Benefit Manager",
+      "gist": "Middleman that negotiates drug prices",
+      "description": "A company that sits between drug manufacturers, insurers and pharmacies, negotiating prices and deciding which drugs an insurance plan will cover. A major, and often controversial, player in US drug pricing.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "HMO",
+      "fullName": "Health Maintenance Organization",
+      "gist": "Insurance plan with a limited provider network",
+      "description": "A health insurance plan that only covers care from a specific network of doctors and hospitals, usually via a primary care gatekeeper who refers patients to specialists. Typically cheaper than plans with a wider network.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "ACO",
+      "fullName": "Accountable Care Organization",
+      "gist": "Providers sharing responsibility for cost and quality",
+      "description": "A group of doctors, hospitals and other providers who voluntarily coordinate care for a defined patient population and share in any savings \u2014 or losses \u2014 against a cost target, rewarding quality over volume of care.",
+      "aliases": [],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "ICD-10",
+      "fullName": "International Classification of Diseases, 10th Revision",
+      "gist": "The standard codes for diagnoses",
+      "description": "The coding system used to classify diagnoses and health conditions for billing, statistics and research \u2014 every diagnosis on a claim or medical record maps to an ICD-10 code.",
+      "aliases": [],
+      "note": "Maintained by the World Health Organization. A successor, ICD-11, was published in 2019, but adoption has been slow \u2014 the US and many other countries were still on ICD-10 as of the most recent reporting.",
+      "_source": "Web research: ICD-11 adoption status, Sept 2026"
+    }
+  ]
+}
