@@ -237,6 +237,21 @@
         texture: `url("img/information-technology.svg") center bottom / max(1200px, 100%) auto no-repeat`,
       },
     },
+    {
+      id: "health-care",
+      label: "Health Care",
+      theme: {
+        paper: "#eef6f0",
+        ink: "#1c2b23",
+        inkSoft: "#5b6b61",
+        line: "#cfe3d3",
+        field: "#f6fbf7",
+        live: "#1f9d5c",        // soft, clinical green
+        liveSoft: "#dcf3e3",
+        liveInk: "#136b3d",
+        texture: `url("img/health-care.svg") center bottom / max(1200px, 100%) auto no-repeat`,
+      },
+    },
     // Template for the next sector — copy, change the id/label/colours, create data/<id>.json:
     // { id: "finance", label: "Finance", theme: { paper: "#f6f4ef", ink: "#1f1c17", inkSoft: "#6a6357",
     //   line: "#d9d3c7", field: "#fffdf9", live: "#2f6f4f", liveSoft: "#e2efe7", liveInk: "#1d4a33", texture: "none" } },
@@ -349,7 +364,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.033";
+  const APP_VERSION = "v0.034";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
