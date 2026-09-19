@@ -396,7 +396,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.035";
+  const APP_VERSION = "v0.036";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
@@ -520,7 +520,7 @@
     const hit = dict.byAbbr.get(key) || dict.byAlias.get(key);
     if (hit && hit.length === 1) { render(hit[0], "dictionary", dict); return; }
     if (hit && hit.length > 1) {
-      result.innerHTML = `<p class="empty"><strong>${esc(raw.toUpperCase())}</strong> has ${hit.length} meanings in ${esc(label(sector))} — pick the one you mean below.</p>`;
+      result.innerHTML = `<p class="empty"><strong>${esc(raw.toUpperCase())}</strong> has ${hit.length} meanings in ${esc(label(sector))} — pick the one you mean.</p>`;
       showSuggestionList(hit);
       return;
     }
