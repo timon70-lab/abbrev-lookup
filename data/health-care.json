@@ -4,103 +4,213 @@
   "entries": [
     {
       "abbr": "EHR",
-      "fullName": "Electronic Health Record",
-      "gist": "Digital patient record, shared across providers",
-      "description": "A digital version of a patient's medical history designed to be shared across different healthcare providers and settings, not just one practice \u2014 the interoperable successor to the older EMR.",
-      "aliases": [],
+      "fullName": {
+        "en": "Electronic Health Record",
+        "no": "Elektronisk pasientjournal"
+      },
+      "gist": {
+        "en": "Digital patient record, shared across providers",
+        "no": "Digital pasientjournal, delt mellom aktører"
+      },
+      "description": {
+        "en": "A digital version of a patient's medical history designed to be shared across different healthcare providers and settings, not just one practice — the interoperable successor to the older EMR.",
+        "no": "En digital versjon av en pasients sykehistorie, laget for å kunne deles mellom ulike behandlere og virksomheter — ikke bare én praksis. I Norge brukes gjerne fellesbetegnelsen EPJ om både EHR og EMR, uten det samme skillet som i USA."
+      },
+      "aliases": [
+        "EPJ"
+      ],
       "note": "EHR software is normally bought off the shelf. Epic and Oracle Health (formerly Cerner) dominate the US hospital market, with MEDITECH a strong third, especially in community hospitals.",
       "_source": "Web research: EHR vendor market share, Sept 2026"
     },
     {
       "abbr": "EMR",
-      "fullName": "Electronic Medical Record",
-      "gist": "Digital chart within a single practice",
-      "description": "A digital version of the paper chart within one practice or organisation. The record generally isn't designed to be shared outside that practice, which is the main thing that distinguishes it from an EHR.",
+      "fullName": {
+        "en": "Electronic Medical Record",
+        "no": "Elektronisk journal (én virksomhet)"
+      },
+      "gist": {
+        "en": "Digital chart within a single practice",
+        "no": "Digital journal innenfor én praksis"
+      },
+      "description": {
+        "en": "A digital version of the paper chart within one practice or organisation. The record generally isn't designed to be shared outside that practice, which is the main thing that distinguishes it from an EHR.",
+        "no": "En digital versjon av papirjournalen innenfor én praksis eller virksomhet. Journalen er som regel ikke laget for å deles utenfor den praksisen, som er det som skiller den fra en EHR. I Norge kalles begge vanligvis bare EPJ."
+      },
       "aliases": [],
       "note": "EMR is the older term historically; the industry has largely moved on to interoperable EHR systems, though the two words are still often used interchangeably in casual conversation.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "HIPAA",
-      "fullName": "Health Insurance Portability and Accountability Act",
-      "gist": "US law protecting patient data privacy",
-      "description": "US federal law setting standards for protecting patient health information and giving patients rights over their own records. Breaching it can carry serious fines, so it comes up constantly in any US-facing health IT or data project.",
+      "fullName": {
+        "en": "Health Insurance Portability and Accountability Act",
+        "no": "Health Insurance Portability and Accountability Act"
+      },
+      "gist": {
+        "en": "US law protecting patient data privacy",
+        "no": "Amerikansk lov om personvern for pasientdata"
+      },
+      "description": {
+        "en": "US federal law setting standards for protecting patient health information and giving patients rights over their own records. Breaching it can carry serious fines, so it comes up constantly in any US-facing health IT or data project.",
+        "no": "Amerikansk føderal lov som setter standarder for å beskytte pasientinformasjon og gir pasienter rettigheter over egne journaler. Brudd kan gi store bøter, så loven er sentral i ethvert USA-rettet helse-IT- eller dataprosjekt. Det nærmeste norske/europeiske motstykket er GDPR."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "PHI",
-      "fullName": "Protected Health Information",
-      "gist": "Patient data protected under privacy law",
-      "description": "Any patient information that could identify an individual and relates to their health, treatment or payment for care. Handling PHI correctly is what HIPAA compliance is actually about in practice.",
+      "fullName": {
+        "en": "Protected Health Information",
+        "no": "Beskyttet helseinformasjon"
+      },
+      "gist": {
+        "en": "Patient data protected under privacy law",
+        "no": "Pasientdata beskyttet av personvernlovgivning"
+      },
+      "description": {
+        "en": "Any patient information that could identify an individual and relates to their health, treatment or payment for care. Handling PHI correctly is what HIPAA compliance is actually about in practice.",
+        "no": "All pasientinformasjon som kan identifisere en person og som gjelder helse, behandling eller betaling for helsehjelp. Riktig håndtering av PHI er i praksis det HIPAA-etterlevelse handler om."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "FDA",
-      "fullName": "Food and Drug Administration",
-      "gist": "US regulator for drugs and medical devices",
-      "description": "The US government agency responsible for approving new drugs and medical devices before they can be sold, and for regulating their safety afterwards. Its decisions influence pharma and med-tech timelines worldwide, not just in the US.",
+      "fullName": {
+        "en": "Food and Drug Administration",
+        "no": "Det amerikanske legemiddel- og mattilsynet"
+      },
+      "gist": {
+        "en": "US regulator for drugs and medical devices",
+        "no": "Amerikansk tilsyn for legemidler og medisinsk utstyr"
+      },
+      "description": {
+        "en": "The US government agency responsible for approving new drugs and medical devices before they can be sold, and for regulating their safety afterwards. Its decisions influence pharma and med-tech timelines worldwide, not just in the US.",
+        "no": "Det amerikanske statlige organet som godkjenner nye legemidler og medisinsk utstyr før de kan selges, og som regulerer sikkerheten deres i ettertid. Beslutningene påvirker tidslinjer for legemidler og medisinteknologi globalt, ikke bare i USA. Det norske motstykket er Legemiddelverket."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "CMS",
-      "fullName": "Centers for Medicare & Medicaid Services",
-      "gist": "US agency running Medicare and Medicaid",
-      "description": "The US federal agency that runs Medicare and Medicaid and sets many of the billing and quality rules the rest of the US healthcare industry follows. Not to be confused with a content management system \u2014 a different CMS entirely, in IT.",
+      "fullName": {
+        "en": "Centers for Medicare & Medicaid Services",
+        "no": "Centers for Medicare & Medicaid Services"
+      },
+      "gist": {
+        "en": "US agency running Medicare and Medicaid",
+        "no": "Amerikansk etat som drifter Medicare og Medicaid"
+      },
+      "description": {
+        "en": "The US federal agency that runs Medicare and Medicaid and sets many of the billing and quality rules the rest of the US healthcare industry follows. Not to be confused with a content management system — a different CMS entirely, in IT.",
+        "no": "Den amerikanske føderale etaten som drifter Medicare og Medicaid, og som setter mange av faktura- og kvalitetsreglene resten av amerikansk helsevesen følger. Ikke å forveksle med et content management system — en helt annen CMS, i IT."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "RCM",
-      "fullName": "Revenue Cycle Management",
-      "gist": "Getting paid for care that was delivered",
-      "description": "The end-to-end process of billing for healthcare services \u2014 from checking a patient's insurance eligibility, through coding and submitting claims, to collecting payment. A major cost centre for any provider.",
+      "fullName": {
+        "en": "Revenue Cycle Management",
+        "no": "Inntektssyklusstyring"
+      },
+      "gist": {
+        "en": "Getting paid for care that was delivered",
+        "no": "Å få betalt for helsehjelp som er gitt"
+      },
+      "description": {
+        "en": "The end-to-end process of billing for healthcare services — from checking a patient's insurance eligibility, through coding and submitting claims, to collecting payment. A major cost centre for any provider.",
+        "no": "Hele prosessen med å fakturere for helsetjenester — fra å sjekke en pasients forsikringsdekning, via koding og innsending av krav, til innkreving av betaling. En stor kostnadspost for enhver tjenesteyter."
+      },
       "aliases": [],
-      "note": "RCM software is usually bought rather than built \u2014 Epic, Oracle Health, Waystar and R1 RCM are common vendors \u2014 and the work itself is often outsourced entirely to a specialist billing company.",
+      "note": "RCM software is usually bought rather than built — Epic, Oracle Health, Waystar and R1 RCM are common vendors — and the work itself is often outsourced entirely to a specialist billing company.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "CDS",
-      "fullName": "Clinical Decision Support",
-      "gist": "Alerts and guidance built into clinical software",
-      "description": "Software features that give clinicians guidance at the point of care \u2014 flagging a drug interaction, suggesting a diagnosis, or reminding them of a guideline.",
+      "fullName": {
+        "en": "Clinical Decision Support",
+        "no": "Klinisk beslutningsstøtte"
+      },
+      "gist": {
+        "en": "Alerts and guidance built into clinical software",
+        "no": "Varsler og veiledning bygget inn i klinisk programvare"
+      },
+      "description": {
+        "en": "Software features that give clinicians guidance at the point of care — flagging a drug interaction, suggesting a diagnosis, or reminding them of a guideline.",
+        "no": "Programvarefunksjoner som gir klinikere veiledning der og da — flagger en legemiddelinteraksjon, foreslår en diagnose, eller minner om en retningslinje."
+      },
       "aliases": [],
       "note": "Like FLISR inside an ADMS, CDS is typically a feature bundled inside an EHR (Epic, Oracle Health, etc.) rather than something bought as its own separate system.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "PBM",
-      "fullName": "Pharmacy Benefit Manager",
-      "gist": "Middleman that negotiates drug prices",
-      "description": "A company that sits between drug manufacturers, insurers and pharmacies, negotiating prices and deciding which drugs an insurance plan will cover. A major, and often controversial, player in US drug pricing.",
+      "fullName": {
+        "en": "Pharmacy Benefit Manager",
+        "no": "Mellomledd for legemiddelfordeler"
+      },
+      "gist": {
+        "en": "Middleman that negotiates drug prices",
+        "no": "Mellomledd som forhandler legemiddelpriser"
+      },
+      "description": {
+        "en": "A company that sits between drug manufacturers, insurers and pharmacies, negotiating prices and deciding which drugs an insurance plan will cover. A major, and often controversial, player in US drug pricing.",
+        "no": "Et selskap som sitter mellom legemiddelprodusenter, forsikringsselskaper og apotek, og som forhandler priser og avgjør hvilke legemidler en forsikringsplan skal dekke. En stor, og ofte omstridt, aktør i amerikansk legemiddelprising. Konseptet har ikke noe direkte motstykke i det norske systemet."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "HMO",
-      "fullName": "Health Maintenance Organization",
-      "gist": "Insurance plan with a limited provider network",
-      "description": "A health insurance plan that only covers care from a specific network of doctors and hospitals, usually via a primary care gatekeeper who refers patients to specialists. Typically cheaper than plans with a wider network.",
+      "fullName": {
+        "en": "Health Maintenance Organization",
+        "no": "Helseforsikringsordning med begrenset nettverk"
+      },
+      "gist": {
+        "en": "Insurance plan with a limited provider network",
+        "no": "Forsikringsplan med et begrenset behandlernettverk"
+      },
+      "description": {
+        "en": "A health insurance plan that only covers care from a specific network of doctors and hospitals, usually via a primary care gatekeeper who refers patients to specialists. Typically cheaper than plans with a wider network.",
+        "no": "En amerikansk helseforsikringsplan som bare dekker behandling fra et bestemt nettverk av leger og sykehus, vanligvis via en fastlege som henviser videre til spesialister. Vanligvis billigere enn planer med et bredere nettverk."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "ACO",
-      "fullName": "Accountable Care Organization",
-      "gist": "Providers sharing responsibility for cost and quality",
-      "description": "A group of doctors, hospitals and other providers who voluntarily coordinate care for a defined patient population and share in any savings \u2014 or losses \u2014 against a cost target, rewarding quality over volume of care.",
+      "fullName": {
+        "en": "Accountable Care Organization",
+        "no": "Organisasjon med felles ansvar for behandlingskvalitet"
+      },
+      "gist": {
+        "en": "Providers sharing responsibility for cost and quality",
+        "no": "Behandlere som deler ansvar for kostnad og kvalitet"
+      },
+      "description": {
+        "en": "A group of doctors, hospitals and other providers who voluntarily coordinate care for a defined patient population and share in any savings — or losses — against a cost target, rewarding quality over volume of care.",
+        "no": "En gruppe leger, sykehus og andre behandlere som frivillig koordinerer behandlingen av en definert pasientgruppe og deler eventuelle besparelser — eller tap — mot et kostnadsmål, som en modell for å belønne kvalitet fremfor volum."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "ICD-10",
-      "fullName": "International Classification of Diseases, 10th Revision",
-      "gist": "The standard codes for diagnoses",
-      "description": "The coding system used to classify diagnoses and health conditions for billing, statistics and research \u2014 every diagnosis on a claim or medical record maps to an ICD-10 code.",
+      "fullName": {
+        "en": "International Classification of Diseases, 10th Revision",
+        "no": "Den internasjonale statistiske klassifikasjonen av sykdommer, 10. revisjon"
+      },
+      "gist": {
+        "en": "The standard codes for diagnoses",
+        "no": "Standardkodene for diagnoser"
+      },
+      "description": {
+        "en": "The coding system used to classify diagnoses and health conditions for billing, statistics and research — every diagnosis on a claim or medical record maps to an ICD-10 code.",
+        "no": "Kodesystemet som brukes til å klassifisere diagnoser og helsetilstander for fakturering, statistikk og forskning — hver diagnose på et krav eller i en journal tilsvarer en ICD-10-kode."
+      },
       "aliases": [],
-      "note": "Maintained by the World Health Organization. A successor, ICD-11, was published in 2019, but adoption has been slow \u2014 the US and many other countries were still on ICD-10 as of the most recent reporting.",
+      "note": "Maintained by the World Health Organization. A successor, ICD-11, was published in 2019, but adoption has been slow — the US and many other countries were still on ICD-10 as of the most recent reporting.",
       "_source": "Web research: ICD-11 adoption status, Sept 2026"
     }
   ]

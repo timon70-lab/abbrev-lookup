@@ -4,41 +4,86 @@
   "entries": [
     {
       "abbr": "API",
-      "fullName": "Application Programming Interface",
-      "gist": "Rules letting two programs talk to each other",
-      "description": "A defined set of rules and endpoints that lets one piece of software request data or functionality from another, without needing to know how that other system works internally. Almost every modern app and integration is built on APIs.",
+      "fullName": {
+        "en": "Application Programming Interface",
+        "no": "Programmeringsgrensesnitt"
+      },
+      "gist": {
+        "en": "Rules letting two programs talk to each other",
+        "no": "Regler som lar to programmer snakke sammen"
+      },
+      "description": {
+        "en": "A defined set of rules and endpoints that lets one piece of software request data or functionality from another, without needing to know how that other system works internally. Almost every modern app and integration is built on APIs.",
+        "no": "Et definert sett med regler og endepunkter som lar én programvare hente data eller funksjonalitet fra en annen, uten å måtte vite hvordan det andre systemet fungerer internt. Nesten all moderne programvare og integrasjon er bygget på API-er."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "SaaS",
-      "fullName": "Software as a Service",
-      "gist": "Software you use online, not install",
-      "description": "A delivery model where an application runs on the vendor's servers and is accessed over the internet, usually by subscription, instead of being installed and run locally. Gmail, Salesforce and Slack are all SaaS.",
+      "fullName": {
+        "en": "Software as a Service",
+        "no": "Programvare som tjeneste"
+      },
+      "gist": {
+        "en": "Software you use online, not install",
+        "no": "Programvare du bruker på nett, ikke installerer"
+      },
+      "description": {
+        "en": "A delivery model where an application runs on the vendor's servers and is accessed over the internet, usually by subscription, instead of being installed and run locally. Gmail, Salesforce and Slack are all SaaS.",
+        "no": "En leveransemodell der en applikasjon kjører på leverandørens servere og brukes over internett, vanligvis mot abonnement, i stedet for å installeres lokalt. Gmail, Salesforce og Slack er alle SaaS."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "IaaS",
-      "fullName": "Infrastructure as a Service",
-      "gist": "Rented servers, storage and networking",
-      "description": "A cloud model where a provider rents out raw computing infrastructure — virtual servers, storage and networking — and the customer installs and manages their own operating systems and software on top of it. AWS EC2 and Azure Virtual Machines are IaaS.",
+      "fullName": {
+        "en": "Infrastructure as a Service",
+        "no": "Infrastruktur som tjeneste"
+      },
+      "gist": {
+        "en": "Rented servers, storage and networking",
+        "no": "Leide servere, lagring og nettverk"
+      },
+      "description": {
+        "en": "A cloud model where a provider rents out raw computing infrastructure — virtual servers, storage and networking — and the customer installs and manages their own operating systems and software on top of it. AWS EC2 and Azure Virtual Machines are IaaS.",
+        "no": "En skymodell der en leverandør leier ut rå databehandlingsinfrastruktur — virtuelle servere, lagring og nettverk — og kunden installerer og drifter sine egne operativsystemer og programvare på toppen. AWS EC2 og Azure Virtual Machines er IaaS."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "SSO",
-      "fullName": "Single Sign-On",
-      "gist": "One login for multiple systems",
-      "description": "Lets a user log in once and gain access to several separate applications without logging in again for each one. Reduces password fatigue and centralises access control for IT teams.",
+      "fullName": {
+        "en": "Single Sign-On",
+        "no": "Enkel pålogging"
+      },
+      "gist": {
+        "en": "One login for multiple systems",
+        "no": "Én innlogging for flere systemer"
+      },
+      "description": {
+        "en": "Lets a user log in once and gain access to several separate applications without logging in again for each one. Reduces password fatigue and centralises access control for IT teams.",
+        "no": "Lar en bruker logge inn én gang og få tilgang til flere separate applikasjoner uten å logge inn på nytt for hver av dem. Reduserer passordtretthet og sentraliserer tilgangsstyringen for IT-avdelingen."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "MFA",
-      "fullName": "Multi-Factor Authentication",
-      "gist": "More than a password to log in",
-      "description": "Requires a user to prove their identity with two or more independent factors — typically a password plus a code, app approval or biometric check — before granting access. Significantly cuts the risk of a stolen password alone leading to a breach.",
+      "fullName": {
+        "en": "Multi-Factor Authentication",
+        "no": "Flerfaktorautentisering"
+      },
+      "gist": {
+        "en": "More than a password to log in",
+        "no": "Mer enn bare passord for å logge inn"
+      },
+      "description": {
+        "en": "Requires a user to prove their identity with two or more independent factors — typically a password plus a code, app approval or biometric check — before granting access. Significantly cuts the risk of a stolen password alone leading to a breach.",
+        "no": "Krever at en bruker bekrefter identiteten sin med to eller flere uavhengige faktorer — typisk et passord pluss en kode, en app-godkjenning eller biometrisk sjekk — før tilgang gis. Reduserer risikoen betraktelig for at et stjålet passord alene fører til et innbrudd."
+      },
       "aliases": [
         "2FA",
         "two-factor authentication"
@@ -47,9 +92,18 @@
     },
     {
       "abbr": "IAM",
-      "fullName": "Identity and Access Management",
-      "gist": "Who can access what, and how",
-      "description": "The systems and policies that manage digital identities and control what each user or service is allowed to access. Covers provisioning accounts, assigning permissions, and enforcing sign-in requirements like SSO and MFA.",
+      "fullName": {
+        "en": "Identity and Access Management",
+        "no": "Identitets- og tilgangsstyring"
+      },
+      "gist": {
+        "en": "Who can access what, and how",
+        "no": "Hvem som har tilgang til hva, og hvordan"
+      },
+      "description": {
+        "en": "The systems and policies that manage digital identities and control what each user or service is allowed to access. Covers provisioning accounts, assigning permissions, and enforcing sign-in requirements like SSO and MFA.",
+        "no": "Systemene og retningslinjene som styrer digitale identiteter og kontrollerer hva hver bruker eller tjeneste har lov til å få tilgang til. Dekker opprettelse av kontoer, tildeling av rettigheter, og håndheving av pålogginskrav som SSO og MFA."
+      },
       "aliases": [
         "identity management"
       ],
@@ -58,69 +112,141 @@
     },
     {
       "abbr": "VPN",
-      "fullName": "Virtual Private Network",
-      "gist": "A private, encrypted tunnel over the internet",
-      "description": "Creates an encrypted connection between a device and a private network over the public internet, so traffic looks like it originates inside that network and can't easily be read in transit. Used for remote access to company systems and for privacy.",
+      "fullName": {
+        "en": "Virtual Private Network",
+        "no": "Virtuelt privat nettverk"
+      },
+      "gist": {
+        "en": "A private, encrypted tunnel over the internet",
+        "no": "En privat, kryptert tunnel over internett"
+      },
+      "description": {
+        "en": "Creates an encrypted connection between a device and a private network over the public internet, so traffic looks like it originates inside that network and can't easily be read in transit. Used for remote access to company systems and for privacy.",
+        "no": "Oppretter en kryptert forbindelse mellom en enhet og et privat nettverk over det offentlige internettet, slik at trafikken ser ut som om den kommer innenfra det nettverket og ikke enkelt kan leses underveis. Brukes til fjerntilgang til bedriftssystemer og for personvern."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "SIEM",
-      "fullName": "Security Information and Event Management",
-      "gist": "Collects and flags security alerts",
-      "description": "Software that collects log and event data from across an organisation's systems, correlates it, and flags patterns that look like a security incident — such as repeated failed logins or unusual data transfers. Central to a security team's day-to-day monitoring.",
+      "fullName": {
+        "en": "Security Information and Event Management",
+        "no": "Sikkerhetsinformasjon og hendelseshåndtering"
+      },
+      "gist": {
+        "en": "Collects and flags security alerts",
+        "no": "Samler inn og flagger sikkerhetsvarsler"
+      },
+      "description": {
+        "en": "Software that collects log and event data from across an organisation's systems, correlates it, and flags patterns that look like a security incident — such as repeated failed logins or unusual data transfers. Central to a security team's day-to-day monitoring.",
+        "no": "Programvare som samler inn logg- og hendelsesdata fra hele organisasjonens systemer, korrelerer dem, og flagger mønstre som ligner på en sikkerhetshendelse — som gjentatte mislykkede innlogginger eller uvanlige dataoverføringer. Sentralt i sikkerhetsteamets daglige overvåking."
+      },
       "aliases": [],
       "note": "SIEM is sold as off-the-shelf software by vendors such as Splunk, Microsoft Sentinel, IBM QRadar and Exabeam, though the detection rules are usually tuned in-house for each organisation.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "ITSM",
-      "fullName": "IT Service Management",
-      "gist": "How IT requests and incidents get handled",
-      "description": "The processes and software used to manage IT services end to end — logging incidents, fulfilling requests, tracking changes, and keeping a record of what equipment and software the organisation runs.",
+      "fullName": {
+        "en": "IT Service Management",
+        "no": "IT-tjenestestyring"
+      },
+      "gist": {
+        "en": "How IT requests and incidents get handled",
+        "no": "Hvordan IT-henvendelser og hendelser håndteres"
+      },
+      "description": {
+        "en": "The processes and software used to manage IT services end to end — logging incidents, fulfilling requests, tracking changes, and keeping a record of what equipment and software the organisation runs.",
+        "no": "Prosessene og programvaren som brukes til å håndtere IT-tjenester fra ende til annen — registrere hendelser, håndtere forespørsler, spore endringer, og holde oversikt over hvilket utstyr og hvilken programvare organisasjonen har."
+      },
       "aliases": [],
       "note": "ITSM normally runs on off-the-shelf platforms — ServiceNow, Jira Service Management and BMC Helix are the most common — rather than being built internally.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "CDN",
-      "fullName": "Content Delivery Network",
-      "gist": "Copies of your content served from nearby",
-      "description": "A network of servers spread across many locations that caches and delivers website content from whichever server is physically closest to the visitor, making pages load faster and adding some protection against traffic spikes and attacks.",
+      "fullName": {
+        "en": "Content Delivery Network",
+        "no": "Innholdsleveringsnettverk"
+      },
+      "gist": {
+        "en": "Copies of your content served from nearby",
+        "no": "Kopier av innholdet ditt levert fra nærheten"
+      },
+      "description": {
+        "en": "A network of servers spread across many locations that caches and delivers website content from whichever server is physically closest to the visitor, making pages load faster and adding some protection against traffic spikes and attacks.",
+        "no": "Et nettverk av servere spredt over mange lokasjoner som mellomlagrer og leverer nettstedinnhold fra den serveren som fysisk ligger nærmest besøkende, slik at sider laster raskere og noe beskyttelse mot trafikktopper og angrep."
+      },
       "aliases": [],
       "note": "CDN is bought as a service from providers such as Cloudflare, Akamai, Fastly and AWS CloudFront rather than built by the customer.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "ERP",
-      "fullName": "Enterprise Resource Planning",
-      "gist": "One system running finance, HR, supply chain",
-      "description": "A single software platform that ties together core business processes — finance, procurement, inventory, HR and often manufacturing — so they share one common set of data instead of running in separate, disconnected systems.",
+      "fullName": {
+        "en": "Enterprise Resource Planning",
+        "no": "Helhetlig virksomhetsstyring"
+      },
+      "gist": {
+        "en": "One system running finance, HR, supply chain",
+        "no": "Ett system for økonomi, HR og forsyningskjede"
+      },
+      "description": {
+        "en": "A single software platform that ties together core business processes — finance, procurement, inventory, HR and often manufacturing — so they share one common set of data instead of running in separate, disconnected systems.",
+        "no": "Én samlet programvareplattform som binder sammen kjerneprosesser i virksomheten — økonomi, innkjøp, lager, HR og ofte produksjon — slik at de deler ett felles datagrunnlag i stedet for å kjøre i separate, frakoblede systemer."
+      },
       "aliases": [],
       "note": "ERP is almost always bought off the shelf and configured, not built from scratch. SAP, Oracle, Microsoft Dynamics 365 and NetSuite are the major vendors.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "DNS",
-      "fullName": "Domain Name System",
-      "gist": "Translates domain names into IP addresses",
-      "description": "The system that converts human-readable domain names like example.com into the numerical IP addresses computers use to find each other on a network. Without it, you'd have to remember a string of numbers for every website.",
+      "fullName": {
+        "en": "Domain Name System",
+        "no": "Domenenavnsystem"
+      },
+      "gist": {
+        "en": "Translates domain names into IP addresses",
+        "no": "Oversetter domenenavn til IP-adresser"
+      },
+      "description": {
+        "en": "The system that converts human-readable domain names like example.com into the numerical IP addresses computers use to find each other on a network. Without it, you'd have to remember a string of numbers for every website.",
+        "no": "Systemet som oversetter lesbare domenenavn som example.com til de numeriske IP-adressene datamaskiner bruker for å finne hverandre på et nettverk. Uten det måtte du huske en tallrekke for hvert nettsted."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "MCP",
-      "fullName": "Model Context Protocol",
-      "gist": "Open standard connecting AI to tools and data",
-      "description": "An open protocol that lets an AI model connect to external tools, data sources and services in a standardised way, instead of every integration being built one-off. Introduced by Anthropic; now used more broadly across the industry.",
+      "fullName": {
+        "en": "Model Context Protocol",
+        "no": "Model Context Protocol"
+      },
+      "gist": {
+        "en": "Open standard connecting AI to tools and data",
+        "no": "Åpen standard som kobler AI til verktøy og data"
+      },
+      "description": {
+        "en": "An open protocol that lets an AI model connect to external tools, data sources and services in a standardised way, instead of every integration being built one-off. Introduced by Anthropic; now used more broadly across the industry.",
+        "no": "En åpen protokoll som lar en AI-modell koble seg til eksterne verktøy, datakilder og tjenester på en standardisert måte, i stedet for at hver integrasjon bygges separat. Introdusert av Anthropic; nå brukt bredere i bransjen."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "MCP",
-      "fullName": "Microsoft Certified Professional",
-      "gist": "A Microsoft technical certification",
-      "description": "A certification earned by passing a Microsoft exam demonstrating proficiency with a specific Microsoft product or technology. One of Microsoft's oldest certification tracks, later joined by role-based certifications such as Azure Administrator.",
+      "fullName": {
+        "en": "Microsoft Certified Professional",
+        "no": "Microsoft-sertifisert fagperson"
+      },
+      "gist": {
+        "en": "A Microsoft technical certification",
+        "no": "En teknisk Microsoft-sertifisering"
+      },
+      "description": {
+        "en": "A certification earned by passing a Microsoft exam demonstrating proficiency with a specific Microsoft product or technology. One of Microsoft's oldest certification tracks, later joined by role-based certifications such as Azure Administrator.",
+        "no": "En sertifisering man oppnår ved å bestå en Microsoft-eksamen som viser kompetanse innenfor et bestemt Microsoft-produkt eller -teknologi. Ett av Microsofts eldste sertifiseringsløp, senere supplert med rollebaserte sertifiseringer som Azure Administrator."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     }

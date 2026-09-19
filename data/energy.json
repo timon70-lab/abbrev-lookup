@@ -4,9 +4,18 @@
   "entries": [
     {
       "abbr": "FPSO",
-      "fullName": "Floating Production, Storage and Offloading",
-      "gist": "Ship that produces and stores oil at sea",
-      "description": "A ship-shaped vessel moored over an offshore field that receives well fluids, separates oil, gas and water, stores the oil in its hull and offloads it to shuttle tankers. Used where a pipeline to shore is impractical.",
+      "fullName": {
+        "en": "Floating Production, Storage and Offloading",
+        "no": "Flytende produksjons-, lagrings- og losseskip"
+      },
+      "gist": {
+        "en": "Ship that produces and stores oil at sea",
+        "no": "Skip som produserer og lagrer olje til havs"
+      },
+      "description": {
+        "en": "A ship-shaped vessel moored over an offshore field that receives well fluids, separates oil, gas and water, stores the oil in its hull and offloads it to shuttle tankers. Used where a pipeline to shore is impractical.",
+        "no": "Et skipsformet fartøy forankret over et havfelt som mottar brønnstrømmer, separerer olje, gass og vann, lagrer oljen i skroget og losser den over til skytteltankere. Brukes der rørledning til land ikke er praktisk."
+      },
       "aliases": [
         "floater",
         "production ship"
@@ -15,9 +24,18 @@
     },
     {
       "abbr": "BOP",
-      "fullName": "Blowout Preventer",
-      "gist": "Valve stack that stops a well blowing out",
-      "description": "Stack of large valves on top of a well that can seal the wellbore and shut off uncontrolled flow of oil or gas during drilling. The last line of defence against a blowout.",
+      "fullName": {
+        "en": "Blowout Preventer",
+        "no": "Utblåsningssikring"
+      },
+      "gist": {
+        "en": "Valve stack that stops a well blowing out",
+        "no": "Ventilstabel som stopper en brønn i å blåse ut"
+      },
+      "description": {
+        "en": "Stack of large valves on top of a well that can seal the wellbore and shut off uncontrolled flow of oil or gas during drilling. The last line of defence against a blowout.",
+        "no": "Stabel av store ventiler på toppen av en brønn som kan tette brønnhullet og stanse ukontrollert utstrømning av olje eller gass under boring. Siste forsvarslinje mot en utblåsning."
+      },
       "aliases": [
         "BOP stack"
       ],
@@ -25,9 +43,18 @@
     },
     {
       "abbr": "ESD",
-      "fullName": "Emergency Shutdown",
-      "gist": "Shuts the plant down when something goes wrong",
-      "description": "Safety system that automatically or manually shuts down process equipment, isolates inventories and stops flow when a dangerous condition such as fire, gas leak or overpressure is detected.",
+      "fullName": {
+        "en": "Emergency Shutdown",
+        "no": "Nødavstengning"
+      },
+      "gist": {
+        "en": "Shuts the plant down when something goes wrong",
+        "no": "Stenger anlegget ved feil eller fare"
+      },
+      "description": {
+        "en": "Safety system that automatically or manually shuts down process equipment, isolates inventories and stops flow when a dangerous condition such as fire, gas leak or overpressure is detected.",
+        "no": "Sikkerhetssystem som automatisk eller manuelt stenger ned prosessutstyr, isolerer beholdninger og stopper strømning når en farlig tilstand som brann, gasslekkasje eller overtrykk oppdages."
+      },
       "aliases": [
         "emergency shutdown system",
         "ESDS"
@@ -37,9 +64,18 @@
     },
     {
       "abbr": "EOR",
-      "fullName": "Enhanced Oil Recovery",
-      "gist": "Getting more oil out of an ageing field",
-      "description": "Techniques used to recover oil that ordinary pressure depletion and water injection leave behind, such as gas injection, polymer flooding or CO2 injection. Also called tertiary recovery.",
+      "fullName": {
+        "en": "Enhanced Oil Recovery",
+        "no": "Forbedret oljeutvinning"
+      },
+      "gist": {
+        "en": "Getting more oil out of an ageing field",
+        "no": "Å hente ut mer olje fra et modent felt"
+      },
+      "description": {
+        "en": "Techniques used to recover oil that ordinary pressure depletion and water injection leave behind, such as gas injection, polymer flooding or CO2 injection. Also called tertiary recovery.",
+        "no": "Teknikker for å utvinne olje som vanlig trykkavlastning og vanninjeksjon lar bli igjen, som gassinjeksjon, polymerflømming eller CO2-injeksjon. Også kalt tertiærutvinning."
+      },
       "aliases": [
         "tertiary recovery",
         "IOR"
@@ -48,17 +84,35 @@
     },
     {
       "abbr": "LNG",
-      "fullName": "Liquefied Natural Gas",
-      "gist": "Natural gas chilled to liquid for shipping",
-      "description": "Natural gas cooled to about minus 162 degrees Celsius so it becomes liquid and shrinks to roughly 1/600 of its volume, making it practical to ship in tankers rather than by pipeline.",
+      "fullName": {
+        "en": "Liquefied Natural Gas",
+        "no": "Flytende naturgass"
+      },
+      "gist": {
+        "en": "Natural gas chilled to liquid for shipping",
+        "no": "Naturgass nedkjølt til væske for skipsfrakt"
+      },
+      "description": {
+        "en": "Natural gas cooled to about minus 162 degrees Celsius so it becomes liquid and shrinks to roughly 1/600 of its volume, making it practical to ship in tankers rather than by pipeline.",
+        "no": "Naturgass nedkjølt til rundt minus 162 grader celsius slik at den blir flytende og krymper til omtrent 1/600 av volumet, noe som gjør den praktisk å frakte med tankskip i stedet for rørledning."
+      },
       "aliases": [],
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "NCS",
-      "fullName": "Norwegian Continental Shelf",
-      "gist": "Norway’s offshore oil and gas area",
-      "description": "The seabed areas under Norwegian jurisdiction where petroleum activity takes place — the North Sea, the Norwegian Sea and the Barents Sea. The term the industry uses for the Norwegian offshore province as a whole.",
+      "fullName": {
+        "en": "Norwegian Continental Shelf",
+        "no": "Norsk kontinentalsokkel"
+      },
+      "gist": {
+        "en": "Norway’s offshore oil and gas area",
+        "no": "Norges olje- og gassområde til havs"
+      },
+      "description": {
+        "en": "The seabed areas under Norwegian jurisdiction where petroleum activity takes place — the North Sea, the Norwegian Sea and the Barents Sea. The term the industry uses for the Norwegian offshore province as a whole.",
+        "no": "Havbunnsområdene under norsk jurisdiksjon hvor petroleumsvirksomhet foregår — Nordsjøen, Norskehavet og Barentshavet. Begrepet bransjen bruker om den norske sokkelen som helhet."
+      },
       "aliases": [
         "norsk sokkel",
         "Norwegian shelf"
@@ -67,9 +121,18 @@
     },
     {
       "abbr": "PDO",
-      "fullName": "Plan for Development and Operation",
-      "gist": "The development plan authorities approve",
-      "description": "The formal development plan an operator submits to Norwegian authorities for approval before building out a field — concept, facilities, cost, schedule and environmental impact. Approval is the go-ahead for the project.",
+      "fullName": {
+        "en": "Plan for Development and Operation",
+        "no": "Plan for utbygging og drift"
+      },
+      "gist": {
+        "en": "The development plan authorities approve",
+        "no": "Utbyggingsplanen myndighetene godkjenner"
+      },
+      "description": {
+        "en": "The formal development plan an operator submits to Norwegian authorities for approval before building out a field — concept, facilities, cost, schedule and environmental impact. Approval is the go-ahead for the project.",
+        "no": "Den formelle utbyggingsplanen en operatør sender til norske myndigheter for godkjenning før et felt bygges ut — konsept, anlegg, kostnad, fremdrift og miljøkonsekvenser. Godkjenning er klarsignalet for prosjektet."
+      },
       "aliases": [
         "PUD",
         "plan for utbygging og drift"
@@ -78,9 +141,18 @@
     },
     {
       "abbr": "HSE",
-      "fullName": "Health, Safety and Environment",
-      "gist": "Keeping people and the environment safe",
-      "description": "The discipline and organisation responsible for protecting people and the environment in operations — risk assessment, incident reporting, procedures and safety culture. Sometimes extended to HSEQ with quality.",
+      "fullName": {
+        "en": "Health, Safety and Environment",
+        "no": "Helse, miljø og sikkerhet"
+      },
+      "gist": {
+        "en": "Keeping people and the environment safe",
+        "no": "Å holde folk og miljøet trygt"
+      },
+      "description": {
+        "en": "The discipline and organisation responsible for protecting people and the environment in operations — risk assessment, incident reporting, procedures and safety culture. Sometimes extended to HSEQ with quality.",
+        "no": "Fagområdet og organisasjonen som er ansvarlig for å beskytte mennesker og miljø i driften — risikovurdering, hendelsesrapportering, prosedyrer og sikkerhetskultur. Utvides noen ganger til HSEQ med kvalitet lagt til."
+      },
       "aliases": [
         "HMS",
         "HSEQ",
@@ -90,9 +162,18 @@
     },
     {
       "abbr": "SIMOPS",
-      "fullName": "Simultaneous Operations",
-      "gist": "Risky activities happening at the same time",
-      "description": "Two or more potentially conflicting activities carried out at the same time and place, such as drilling while producing or lifting near live process. Requires a dedicated risk assessment and coordination plan.",
+      "fullName": {
+        "en": "Simultaneous Operations",
+        "no": "Samtidige operasjoner"
+      },
+      "gist": {
+        "en": "Risky activities happening at the same time",
+        "no": "Risikofylte aktiviteter som skjer samtidig"
+      },
+      "description": {
+        "en": "Two or more potentially conflicting activities carried out at the same time and place, such as drilling while producing or lifting near live process. Requires a dedicated risk assessment and coordination plan.",
+        "no": "To eller flere potensielt motstridende aktiviteter utført på samme sted og tid, som boring samtidig med produksjon eller løft nær en aktiv prosess. Krever en egen risikovurdering og koordineringsplan."
+      },
       "aliases": [
         "simultaneous operations"
       ],
@@ -100,9 +181,18 @@
     },
     {
       "abbr": "P&ID",
-      "fullName": "Piping and Instrumentation Diagram",
-      "gist": "The master drawing of pipes and instruments",
-      "description": "Detailed engineering drawing showing all pipes, valves, vessels, instruments and control loops in a process system. The primary reference document for operations, maintenance and modifications.",
+      "fullName": {
+        "en": "Piping and Instrumentation Diagram",
+        "no": "Rørlednings- og instrumenteringsdiagram"
+      },
+      "gist": {
+        "en": "The master drawing of pipes and instruments",
+        "no": "Hovedtegningen for rør og instrumenter"
+      },
+      "description": {
+        "en": "Detailed engineering drawing showing all pipes, valves, vessels, instruments and control loops in a process system. The primary reference document for operations, maintenance and modifications.",
+        "no": "Detaljert ingeniørtegning som viser alle rør, ventiler, tanker, instrumenter og reguleringssløyfer i et prosessystem. Hovedreferansedokumentet for drift, vedlikehold og endringer."
+      },
       "aliases": [
         "PID",
         "piping and instrument diagram"
@@ -111,9 +201,18 @@
     },
     {
       "abbr": "HPHT",
-      "fullName": "High Pressure, High Temperature",
-      "gist": "Wells with extreme pressure and temperature",
-      "description": "Wells or reservoirs with pressure above about 690 bar or temperature above about 150 degrees Celsius. They require special materials, equipment ratings and drilling practices.",
+      "fullName": {
+        "en": "High Pressure, High Temperature",
+        "no": "Høyt trykk, høy temperatur"
+      },
+      "gist": {
+        "en": "Wells with extreme pressure and temperature",
+        "no": "Brønner med ekstremt trykk og temperatur"
+      },
+      "description": {
+        "en": "Wells or reservoirs with pressure above about 690 bar or temperature above about 150 degrees Celsius. They require special materials, equipment ratings and drilling practices.",
+        "no": "Brønner eller reservoarer med trykk over rundt 690 bar eller temperatur over rundt 150 grader celsius. Krever spesielle materialer, utstyrsklasser og boremetoder."
+      },
       "aliases": [
         "high pressure high temperature well"
       ],
@@ -121,9 +220,18 @@
     },
     {
       "abbr": "CCS",
-      "fullName": "Carbon Capture and Storage",
-      "gist": "Capturing CO2 and storing it underground",
-      "description": "Capturing CO2 from industrial or power sources, transporting it and injecting it into deep geological formations, often depleted reservoirs or saline aquifers, for permanent storage.",
+      "fullName": {
+        "en": "Carbon Capture and Storage",
+        "no": "Karbonfangst og -lagring"
+      },
+      "gist": {
+        "en": "Capturing CO2 and storing it underground",
+        "no": "Å fange CO2 og lagre det under bakken"
+      },
+      "description": {
+        "en": "Capturing CO2 from industrial or power sources, transporting it and injecting it into deep geological formations, often depleted reservoirs or saline aquifers, for permanent storage.",
+        "no": "Å fange CO2 fra industri- eller kraftkilder, transportere det og injisere det i dype geologiske formasjoner, ofte tomme reservoarer eller saltvannsakviferer, for permanent lagring."
+      },
       "aliases": [
         "carbon capture and sequestration",
         "CCUS"
