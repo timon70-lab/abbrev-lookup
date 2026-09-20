@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abbrev Lookup has moved</title>
+<!-- Fallback for browsers with JS disabled. The script below runs first when JS
+     is available and preserves the query string; this plain refresh does not. -->
+<meta http-equiv="refresh" content="3;url=https://abbrev-lookup.vercel.app/">
+<style>
+  :root { --paper:#eaf1f6; --ink:#1a2328; --ink-soft:#5a6870; --live:#d4880f; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; height:100%; background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif; }
+  body { display:flex; align-items:center; justify-content:center; padding:2rem; text-align:center; }
+  h1 { font-size:1.5rem; font-weight:700; margin:0 0 .6rem; }
+  p { color:var(--ink-soft); line-height:1.55; margin:0 0 1.4rem; max-width:34ch; }
+  a { color:var(--live); font-weight:600; }
+</style>
+</head>
+<body>
+  <div>
+    <h1>Abbrev Lookup has moved</h1>
+    <p>Taking you to the new address now. Update your bookmark, and if you added
+       it to your home screen, remove and re-add it from the new page.</p>
+    <p><a id="link" href="https://abbrev-lookup.vercel.app/">abbrev-lookup.vercel.app</a></p>
+  </div>
+<script>
+  // Carry the query string across so shared links like ?s=utilities&q=ADMS
+  // still land on the right lookup rather than the bare home page.
+  var target = "https://abbrev-lookup.vercel.app/" + (location.search || "");
+  document.getElementById("link").href = target;
+  location.replace(target);   // replace(), not assign(), so Back doesn't bounce
+</script>
+</body>
+</html>
