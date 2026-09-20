@@ -376,7 +376,9 @@
   const params = new URLSearchParams(location.search);
   if (params.get("lang") === "en" || params.get("lang") === "no") LANG = params.get("lang");
   if (params.get("s") && SECTORS.some(d => d.id === params.get("s"))) sectorSel.value = params.get("s");
-  if (params.get("q")) { input.value = params.get("q"); lookup(); }
+  // Only fill the field here. The lookup itself is deferred to just after
+  // hideSuggestions() is defined further down — see the note there.
+  if (params.get("q")) input.value = params.get("q");
 
   applySector(sectorSel.value, false);
   refreshCurrentDict();
@@ -397,7 +399,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.037";
+  const APP_VERSION = "v0.038";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
@@ -482,6 +484,13 @@
     input.setAttribute("aria-expanded", "false");
     input.removeAttribute("aria-activedescendant");
   }
+
+  // Deferred from the setup block: a shared link (?s=...&q=...) fills the input
+  // up there, but running lookup() at that point hits the temporal dead zone —
+  // it calls hideSuggestions(), which touches `suggestionMatches`, a `let`
+  // declared in this section. The promise rejected silently and nothing
+  // rendered. Running it here means every binding lookup() needs exists.
+  if (input.value.trim()) lookup();
 
   // ---- data -----------------------------------------------------------
   async function loadSector(id) {
