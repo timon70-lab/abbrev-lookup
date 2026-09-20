@@ -1,0 +1,7 @@
+{
+  "name": "abbrev-lookup",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Industry abbreviation lookup — static frontend plus an AI fallback function, deployed together on Vercel."
+}

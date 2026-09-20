@@ -268,10 +268,11 @@
     //   line: "#d9d3c7", field: "#fffdf9", live: "#2f6f4f", liveSoft: "#e2efe7", liveInk: "#1d4a33", texture: "none" } },
   ];
 
-  // Step 2: point this at your Cloudflare Worker / Vercel function.
-  // It should accept POST { abbr, sector } and return { fullName, gist, description, aliases }.
+  // The AI fallback, in api/lookup.js of this same project.
+  // Accepts POST { abbr, sector, lang } and returns { fullName, gist, description, aliases }.
   // Leave empty and the app is purely dictionary-based.
-  const AI_ENDPOINT = "https://abbrev-api.vercel.app/api/lookup";
+  // Same origin — the function lives in this same Vercel project under /api.
+  const AI_ENDPOINT = "/api/lookup";
 
   // --- SIMULATION MODE ---------------------------------------------------
   // While true, a miss is answered with placeholder Lorem ipsum text instead
@@ -396,7 +397,7 @@
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
   // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.036";
+  const APP_VERSION = "v0.037";
 
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
