@@ -4,54 +4,108 @@
   "entries": [
     {
       "abbr": "ADMS",
-      "fullName": "Advanced Distribution Management System",
-      "gist": "Control-room software for running the distribution grid",
-      "description": "Software platform used by distribution system operators to monitor, control and optimise the distribution grid. It combines SCADA, outage management and analytics such as fault location, isolation and service restoration (FLISR) and volt/VAR optimisation in one system.",
+      "fullName": {
+        "en": "Advanced Distribution Management System",
+        "no": "Avansert distribusjonsstyringssystem"
+      },
+      "gist": {
+        "en": "Control-room software for running the distribution grid",
+        "no": "Driftssentralprogramvare for distribusjonsnettet"
+      },
+      "description": {
+        "en": "Software platform used by distribution system operators to monitor, control and optimise the distribution grid. It combines SCADA, outage management and analytics such as fault location, isolation and service restoration (FLISR) and volt/VAR optimisation in one system.",
+        "no": "Programvareplattform som nettselskap bruker til å overvåke, styre og optimalisere distribusjonsnettet. Den kombinerer SCADA, avbruddshåndtering og analyser som feilsøking, isolering og gjenoppretting (FLISR), samt spennings- og reaktiv effekt-optimalisering (VVO), i ett system."
+      },
       "aliases": [],
       "note": "Like OMS, ADMS is normally bought off the shelf rather than built in-house. The same vendor landscape applies — GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell ADMS platforms — since ADMS is typically DMS, OMS and analytics sold together as one integrated product.",
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: vendor and industry sources, Sept 2026"
     },
     {
       "abbr": "DMS",
-      "fullName": "Distribution Management System",
-      "gist": "Software for operating the distribution network",
-      "description": "Control-room software for operating the medium- and low-voltage distribution network — switching, load monitoring and network state estimation. An ADMS is a DMS with outage management and advanced analytics added.",
+      "fullName": {
+        "en": "Distribution Management System",
+        "no": "Distribusjonsstyringssystem"
+      },
+      "gist": {
+        "en": "Software for operating the distribution network",
+        "no": "Programvare for drift av distribusjonsnettet"
+      },
+      "description": {
+        "en": "Control-room software for operating the medium- and low-voltage distribution network — switching, load monitoring and network state estimation. An ADMS is a DMS with outage management and advanced analytics added.",
+        "no": "Driftssentralprogramvare for drift av distribusjonsnettet på middels- og lavspenning — koblinger, lastovervåking og tilstandsestimering. En ADMS er et DMS med avbruddshåndtering og avanserte analyser lagt til."
+      },
       "aliases": [],
       "note": "Like ADMS and OMS, DMS is normally bought off the shelf. GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB all sell DMS platforms — often the same product line that becomes an ADMS once outage management and analytics are added.",
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: vendor and industry sources, Sept 2026"
     },
     {
       "abbr": "OMS",
-      "fullName": "Outage Management System",
-      "gist": "System that finds and manages power outages",
-      "description": "System that detects, locates and manages power outages, typically by combining customer trouble calls, smart meter events and network topology to predict which device has failed and to track restoration.",
+      "fullName": {
+        "en": "Outage Management System",
+        "no": "Avbruddshåndteringssystem"
+      },
+      "gist": {
+        "en": "System that finds and manages power outages",
+        "no": "System som oppdager og håndterer strømbrudd"
+      },
+      "description": {
+        "en": "System that detects, locates and manages power outages, typically by combining customer trouble calls, smart meter events and network topology to predict which device has failed and to track restoration.",
+        "no": "System som oppdager, lokaliserer og håndterer strømbrudd, vanligvis ved å kombinere feilmeldinger fra kunder, hendelser fra smarte målere og nettopologi for å forutsi hvilken komponent som har feilet, og for å følge opp gjenoppretting."
+      },
       "aliases": [],
       "note": "OMS is a category, not one specific product. Utilities buy it off the shelf from vendors such as GE, Oracle, Siemens, Hitachi Energy, Schneider Electric and ABB — either as a standalone system integrated with SCADA and GIS, or bundled as a module inside a broader ADMS platform. Fully custom-built systems exist but are the exception, usually only at very large utilities with unusual requirements.",
       "_source": "Web research: OMS vendor market, Sept 2026"
     },
     {
       "abbr": "SCADA",
-      "fullName": "Supervisory Control and Data Acquisition",
-      "gist": "Real-time monitoring and control of grid equipment",
-      "description": "Real-time system that collects measurements from substations and field devices and lets operators send control commands, such as opening or closing a breaker. It is the data backbone that DMS, ADMS and EMS sit on top of.",
+      "fullName": {
+        "en": "Supervisory Control and Data Acquisition",
+        "no": "Driftssentralsystem for overvåking og styring (SCADA)"
+      },
+      "gist": {
+        "en": "Real-time monitoring and control of grid equipment",
+        "no": "Sanntidsovervåking og styring av nettutstyr"
+      },
+      "description": {
+        "en": "Real-time system that collects measurements from substations and field devices and lets operators send control commands, such as opening or closing a breaker. It is the data backbone that DMS, ADMS and EMS sit on top of.",
+        "no": "Sanntidssystem som samler inn målinger fra nettstasjoner og feltutstyr, og lar operatører sende styrekommandoer, som å åpne eller lukke en bryter. Det er datagrunnlaget som DMS, ADMS og EMS bygger videre på."
+      },
       "aliases": [],
       "note": "SCADA is off-the-shelf software too, usually chosen separately from DMS/ADMS since it's the base layer both connect to. Common vendors include GE, Schneider Electric (Wonderware), Honeywell, Siemens, ABB and OSI. Utilities tend to keep the same SCADA system for decades, since replacing it means changing how every substation talks to the control room.",
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: vendor and industry sources, Sept 2026"
     },
     {
       "abbr": "EMS",
-      "fullName": "Energy Management System",
-      "gist": "Control-room software for the transmission grid",
-      "description": "Control-room software for the high-voltage transmission grid — generation dispatch, state estimation, contingency analysis and frequency control. The transmission-level counterpart to a DMS.",
+      "fullName": {
+        "en": "Energy Management System",
+        "no": "Energistyringssystem"
+      },
+      "gist": {
+        "en": "Control-room software for the transmission grid",
+        "no": "Driftssentralprogramvare for sentralnettet"
+      },
+      "description": {
+        "en": "Control-room software for the high-voltage transmission grid — generation dispatch, state estimation, contingency analysis and frequency control. The transmission-level counterpart to a DMS.",
+        "no": "Driftssentralprogramvare for det høyspente sentralnettet — produksjonsplanlegging, tilstandsestimering, kontingensanalyse og frekvensregulering. Motstykket til DMS på sentralnettnivå."
+      },
       "aliases": [],
       "note": "EMS platforms are sold by the same major vendors as DMS/ADMS — GE, Siemens, Hitachi Energy and ABB among them — plus specialists like OSI. Utilities buy and configure these rather than building them from scratch.",
       "_source": "General knowledge (not independently verified)"
     },
     {
       "abbr": "DER",
-      "fullName": "Distributed Energy Resource",
-      "gist": "Small power source or flexible load on the grid",
-      "description": "Small-scale power source or flexible load connected to the distribution grid rather than the transmission grid — rooftop solar, batteries, EV chargers, heat pumps and small wind.",
+      "fullName": {
+        "en": "Distributed Energy Resource",
+        "no": "Distribuert energiressurs"
+      },
+      "gist": {
+        "en": "Small power source or flexible load on the grid",
+        "no": "Liten kraftkilde eller fleksibel last i nettet"
+      },
+      "description": {
+        "en": "Small-scale power source or flexible load connected to the distribution grid rather than the transmission grid — rooftop solar, batteries, EV chargers, heat pumps and small wind.",
+        "no": "Småskala kraftkilde eller fleksibel last tilkoblet distribusjonsnettet i stedet for sentralnettet — solceller på tak, batterier, elbilladere, varmepumper og mindre vindkraft."
+      },
       "aliases": [
         "distributed generation",
         "DG"
@@ -60,18 +114,36 @@
     },
     {
       "abbr": "DERMS",
-      "fullName": "Distributed Energy Resource Management System",
-      "gist": "Software that controls fleets of DERs",
-      "description": "Software that monitors, forecasts and controls large numbers of DERs so the grid operator can use them as flexibility — for example curtailing solar or dispatching batteries to relieve a constraint.",
+      "fullName": {
+        "en": "Distributed Energy Resource Management System",
+        "no": "Styringssystem for distribuerte energiressurser"
+      },
+      "gist": {
+        "en": "Software that controls fleets of DERs",
+        "no": "Programvare som styrer mange DER-er samlet"
+      },
+      "description": {
+        "en": "Software that monitors, forecasts and controls large numbers of DERs so the grid operator can use them as flexibility — curtailing solar, dispatching batteries to relieve a constraint, or aggregating many small resources into a virtual power plant (VPP) that can be dispatched as one.",
+        "no": "Programvare som overvåker, prognostiserer og styrer store mengder DER-er slik at nettselskapet kan bruke dem som fleksibilitet — redusere solkraftproduksjon, styre batterier for å avlaste nettet, eller samle mange små ressurser til et virtuelt kraftverk (VPP) som kan styres som én enhet."
+      },
       "aliases": [],
       "note": "DERMS is a newer category, so the vendor list is more fragmented than ADMS: GE, Schneider Electric, Itron, AutoGrid, Smarter Grid Solutions and Enbala all sell DERMS products, and some ADMS vendors now bundle a DERMS module rather than selling it standalone.",
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: vendor and industry sources, Sept 2026"
     },
     {
       "abbr": "DSO",
-      "fullName": "Distribution System Operator",
-      "gist": "The company that runs the local grid",
-      "description": "The company that owns and operates the local distribution grid and connects end customers. In Norway the DSO is the nettselskap; the transmission grid is operated by the TSO (Statnett).",
+      "fullName": {
+        "en": "Distribution System Operator",
+        "no": "Distribusjonsnettoperatør"
+      },
+      "gist": {
+        "en": "The company that runs the local grid",
+        "no": "Selskapet som drifter det lokale nettet"
+      },
+      "description": {
+        "en": "The company that owns and operates the local distribution grid and connects end customers. In Norway the DSO is the nettselskap; the transmission grid is operated by the TSO (Statnett).",
+        "no": "Selskapet som eier og drifter det lokale distribusjonsnettet og kobler til sluttkunder. I Norge er DSO-en nettselskapet; sentralnettet driftes av TSO-en (Statnett)."
+      },
       "aliases": [
         "nettselskap",
         "distribution network operator",
@@ -81,9 +153,18 @@
     },
     {
       "abbr": "TSO",
-      "fullName": "Transmission System Operator",
-      "gist": "The company that runs the national grid",
-      "description": "The operator responsible for the high-voltage transmission grid and for keeping the whole power system in balance. Statnett in Norway.",
+      "fullName": {
+        "en": "Transmission System Operator",
+        "no": "Transmisjonsnettoperatør"
+      },
+      "gist": {
+        "en": "The company that runs the national grid",
+        "no": "Selskapet som drifter det nasjonale nettet"
+      },
+      "description": {
+        "en": "The operator responsible for the high-voltage transmission grid and for keeping the whole power system in balance. Statnett in Norway.",
+        "no": "Operatøren som er ansvarlig for det høyspente sentralnettet og for å holde hele kraftsystemet i balanse. Statnett i Norge."
+      },
       "aliases": [
         "transmission operator"
       ],
@@ -91,9 +172,18 @@
     },
     {
       "abbr": "AMI",
-      "fullName": "Advanced Metering Infrastructure",
-      "gist": "Smart meters and the network behind them",
-      "description": "The end-to-end smart metering system — meters, communication network and head-end system — that delivers interval consumption data and meter events to the utility.",
+      "fullName": {
+        "en": "Advanced Metering Infrastructure",
+        "no": "Avansert måleinfrastruktur"
+      },
+      "gist": {
+        "en": "Smart meters and the network behind them",
+        "no": "Smarte målere og nettverket bak dem"
+      },
+      "description": {
+        "en": "The end-to-end smart metering system — meters, communication network and head-end system — that delivers interval consumption data and meter events to the utility.",
+        "no": "Det komplette smartmålersystemet — målere, kommunikasjonsnettverk og sentralsystem — som leverer intervallforbruksdata og målerhendelser til nettselskapet."
+      },
       "aliases": [
         "smart metering",
         "AMS"
@@ -103,32 +193,62 @@
     },
     {
       "abbr": "FLISR",
-      "fullName": "Fault Location, Isolation and Service Restoration",
-      "gist": "Grid that isolates faults and restores power by itself",
-      "description": "Automated ADMS function that pinpoints a fault on a feeder, opens switches to isolate the faulted section and closes tie switches to restore supply to unaffected customers, usually within a minute.",
+      "fullName": {
+        "en": "Fault Location, Isolation and Service Restoration",
+        "no": "Feillokalisering, isolering og gjenoppretting"
+      },
+      "gist": {
+        "en": "Grid that isolates faults and restores power by itself",
+        "no": "Nettet finner feil og gjenoppretter strøm selv"
+      },
+      "description": {
+        "en": "Automated function that pinpoints a fault on a feeder, opens switches to isolate the faulted section and closes tie switches to restore supply to unaffected customers — typically in seconds rather than minutes. Runs inside a DMS or ADMS rather than as a separate product.",
+        "no": "Automatisert funksjon som lokaliserer en feil på en linje, åpner brytere for å isolere det berørte området, og lukker skillebrytere for å gjenopprette forsyningen til upåvirkede kunder — typisk i løpet av sekunder, ikke minutter. Kjører inne i et DMS eller ADMS, ikke som et eget produkt."
+      },
       "aliases": [
-        "self-healing grid"
+        "self-healing grid",
+        "FDIR",
+        "fault detection isolation and restoration"
       ],
-      "note": "FLISR isn't sold as a separate product — it's a function running inside a DMS or ADMS. Whichever vendor supplies the ADMS (GE, Siemens, Schneider Electric, Hitachi Energy, ABB) also supplies FLISR as a configurable module within it.",
-      "_source": "General knowledge (not independently verified)"
+      "note": "Also called FDIR (fault detection, isolation and restoration) — the two terms are used interchangeably. Not sold as a separate product: whichever vendor supplies the ADMS/DMS (GE Vernova, Oracle, Siemens, Schneider Electric, Hitachi Energy, ABB, Survalent) supplies FLISR as a module within it. A US Department of Energy study of five utilities found FLISR reduced customers interrupted by up to 45% and customer-minutes of interruption by up to 51% per outage event.",
+      "_source": "Web research: SEL, GE Vernova, Oracle ADMS docs, DOE study via T&D World, Sept 2026"
     },
     {
       "abbr": "VVO",
-      "fullName": "Volt/VAR Optimisation",
-      "gist": "Automatic voltage and reactive power control",
-      "description": "Coordinated control of voltage regulators, capacitor banks and inverters to keep voltage within limits while reducing losses or demand.",
+      "fullName": {
+        "en": "Volt/VAR Optimisation",
+        "no": "Spennings- og reaktiv effekt-optimalisering"
+      },
+      "gist": {
+        "en": "Automatic voltage and reactive power control",
+        "no": "Automatisk styring av spenning og reaktiv effekt"
+      },
+      "description": {
+        "en": "Coordinated control of tap changers, voltage regulators and capacitor banks to keep voltage within limits while reducing losses or demand. Usually includes conservation voltage reduction (CVR), which deliberately runs the feeder at the low end of the allowed range to cut energy use.",
+        "no": "Koordinert styring av trinnkoblere, spenningsregulatorer og kondensatorbatterier for å holde spenningen innenfor grensene samtidig som tap eller effektbehov reduseres. Inkluderer vanligvis CVR (conservation voltage reduction), som bevisst kjører linjen i nedre del av det tillatte spenningsområdet for å redusere energibruken."
+      },
       "aliases": [
         "volt-VAR control",
-        "VVC"
+        "VVC",
+        "CVR"
       ],
-      "note": "Like FLISR, VVO is a function inside a DMS or ADMS rather than its own product, supplied by the same ADMS vendors as an optional module.",
-      "_source": "General knowledge (not independently verified)"
+      "note": "Like FLISR, VVO is a function inside a DMS or ADMS rather than its own product, supplied by the same ADMS vendors as an optional module. Increasingly also delivered via DERMS, using inverters on solar and battery installations for voltage support.",
+      "_source": "Web research: vendor and industry sources, Sept 2026"
     },
     {
       "abbr": "E-TERRA",
-      "fullName": "e-terra (a product name, not an acronym)",
-      "gist": "Legacy Alstom/GE control-room software suite",
-      "description": "A family of SCADA, EMS and DMS/ADMS control-room software originally developed by Alstom Grid. Individual products in the suite include e-terraplatform (SCADA/EMS), e-terradistribution (DMS/ADMS) and e-terrasource (network modelling), used by transmission and distribution utilities worldwide, including several Nordic TSOs.",
+      "fullName": {
+        "en": "e-terra (a product name, not an acronym)",
+        "no": "e-terra (et produktnavn, ikke et akronym)"
+      },
+      "gist": {
+        "en": "Legacy Alstom/GE control-room software suite",
+        "no": "Eldre driftssentralsystem fra Alstom/GE"
+      },
+      "description": {
+        "en": "A family of SCADA, EMS and DMS/ADMS control-room software originally developed by Alstom Grid. Individual products in the suite include e-terraplatform (SCADA/EMS), e-terradistribution (DMS/ADMS) and e-terrasource (network modelling), used by transmission and distribution utilities worldwide, including several Nordic TSOs.",
+        "no": "En familie av SCADA-, EMS- og DMS/ADMS-programvare som opprinnelig ble utviklet av Alstom Grid. Enkeltprodukter i pakken inkluderer e-terraplatform (SCADA/EMS), e-terradistribution (DMS/ADMS) og e-terrasource (nettmodellering), brukt av nettselskaper og TSO-er over hele verden, inkludert flere nordiske TSO-er."
+      },
       "aliases": [
         "eterra",
         "e-terra platform",

@@ -55,7 +55,8 @@
         "no": "Amerikansk føderal lov som setter standarder for å beskytte pasientinformasjon og gir pasienter rettigheter over egne journaler. Brudd kan gi store bøter, så loven er sentral i ethvert USA-rettet helse-IT- eller dataprosjekt. Det nærmeste norske/europeiske motstykket er GDPR."
       },
       "aliases": [],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: HHS OCR NPRM coverage (HIPAA Journal, compliance advisories), Sept 2026",
+      "note": "The Security Rule, largely unchanged since 2003, is mid-overhaul. HHS Office for Civil Rights issued a proposed rule in December 2024 that would drop the 'required vs addressable' distinction and make controls such as MFA, encryption at rest and in transit, network segmentation and annual penetration testing mandatory. As of mid-2026 it is still only proposed — it drew heavy industry pushback over cost, and the final rule has slipped well past its expected date. Anyone citing these as current requirements is ahead of the law."
     },
     {
       "abbr": "PHI",
@@ -123,8 +124,8 @@
         "no": "Hele prosessen med å fakturere for helsetjenester — fra å sjekke en pasients forsikringsdekning, via koding og innsending av krav, til innkreving av betaling. En stor kostnadspost for enhver tjenesteyter."
       },
       "aliases": [],
-      "note": "RCM software is usually bought rather than built — Epic, Oracle Health, Waystar and R1 RCM are common vendors — and the work itself is often outsourced entirely to a specialist billing company.",
-      "_source": "General knowledge (not independently verified)"
+      "note": "Two ways to buy it: software, or hand the whole function over. On the software side Epic and Oracle Health dominate among large health systems, with Waystar the strongest-rated best-of-breed layer for organisations that already have an EHR. On the outsourcing side, Optum, R1 RCM and Conifer Health Solutions run the process on the provider's behalf. AI-driven denial prevention and prior-authorisation automation are where most of the current product effort goes.",
+      "_source": "Web research: KLAS 2026 RCM Suites coverage, RCM market analyses, Sept 2026"
     },
     {
       "abbr": "CDS",
@@ -159,7 +160,8 @@
         "no": "Et selskap som sitter mellom legemiddelprodusenter, forsikringsselskaper og apotek, og som forhandler priser og avgjør hvilke legemidler en forsikringsplan skal dekke. En stor, og ofte omstridt, aktør i amerikansk legemiddelprising. Konseptet har ikke noe direkte motstykke i det norske systemet."
       },
       "aliases": [],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: KFF, AMA, Wikipedia (PBM market concentration), Sept 2026",
+      "note": "Three PBMs — CVS Caremark, Cigna's Express Scripts and UnitedHealth's Optum Rx — control roughly 80% of the US market, covering around 270 million people. That concentration, and the fact that each is owned by a company that also owns insurers and pharmacies, is why PBMs draw bipartisan scrutiny and ongoing reform efforts."
     },
     {
       "abbr": "HMO",
@@ -189,11 +191,11 @@
         "no": "Behandlere som deler ansvar for kostnad og kvalitet"
       },
       "description": {
-        "en": "A group of doctors, hospitals and other providers who voluntarily coordinate care for a defined patient population and share in any savings — or losses — against a cost target, rewarding quality over volume of care.",
-        "no": "En gruppe leger, sykehus og andre behandlere som frivillig koordinerer behandlingen av en definert pasientgruppe og deler eventuelle besparelser — eller tap — mot et kostnadsmål, som en modell for å belønne kvalitet fremfor volum."
+        "en": "A group of doctors, hospitals and other providers who voluntarily coordinate care for a defined patient population and share in any savings — or losses — against a cost target, with payment tied to quality measures. The model started in US Medicare and has since spread to commercial insurance.",
+        "no": "En gruppe leger, sykehus og andre behandlere som frivillig koordinerer behandlingen av en definert pasientgruppe og deler eventuelle besparelser — eller tap — mot et kostnadsmål, der betalingen er knyttet til kvalitetsmål. Modellen startet i amerikanske Medicare og har siden spredt seg til privat forsikring."
       },
       "aliases": [],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: Medicare.gov, AMCP managed care glossary, Sept 2026"
     },
     {
       "abbr": "ICD-10",

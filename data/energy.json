@@ -33,13 +33,15 @@
         "no": "Ventilstabel som stopper en brønn i å blåse ut"
       },
       "description": {
-        "en": "Stack of large valves on top of a well that can seal the wellbore and shut off uncontrolled flow of oil or gas during drilling. The last line of defence against a blowout.",
-        "no": "Stabel av store ventiler på toppen av en brønn som kan tette brønnhullet og stanse ukontrollert utstrømning av olje eller gass under boring. Siste forsvarslinje mot en utblåsning."
+        "en": "Stack of large valves on top of a well that can seal the wellbore and shut off uncontrolled flow of oil or gas. Two main types are combined in a stack: annular preventers, which use a rubber element to close around any pipe size, and ram preventers, which drive steel rams across the bore — some able to shear the drill pipe itself.",
+        "no": "Stabel av store ventiler på toppen av en brønn som kan tette brønnhullet og stanse ukontrollert utstrømning av olje eller gass. To hovedtyper kombineres i stabelen: annulære preventere, som bruker et gummielement til å tette rundt alle rørdimensjoner, og ram-preventere, som skyver stålrammer på tvers av brønnhullet — noen kan kutte selve borestrengen."
       },
       "aliases": [
-        "BOP stack"
+        "BOP stack",
+        "blowout preventer stack"
       ],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: Enverus glossary, Wikipedia, industry sources, Sept 2026",
+      "note": "Triggered by a formation kick — a sudden pressure surge from the reservoir. The BOP is the last barrier against a blowout, which is why its failure on Deepwater Horizon in 2010 became the industry's reference case for well-control equipment integrity."
     },
     {
       "abbr": "ESD",
@@ -52,15 +54,15 @@
         "no": "Stenger anlegget ved feil eller fare"
       },
       "description": {
-        "en": "Safety system that automatically or manually shuts down process equipment, isolates inventories and stops flow when a dangerous condition such as fire, gas leak or overpressure is detected.",
-        "no": "Sikkerhetssystem som automatisk eller manuelt stenger ned prosessutstyr, isolerer beholdninger og stopper strømning når en farlig tilstand som brann, gasslekkasje eller overtrykk oppdages."
+        "en": "Safety system that automatically or manually shuts down process equipment, isolates inventories and stops flow when a dangerous condition such as fire, gas leak or overpressure is detected. Built in three layers: sensors, a logic solver running cause-and-effect logic, and final elements such as ESD valves that fail to a safe position.",
+        "no": "Sikkerhetssystem som automatisk eller manuelt stenger ned prosessutstyr, isolerer beholdninger og stopper strømning når en farlig tilstand som brann, gasslekkasje eller overtrykk oppdages. Bygget i tre lag: sensorer, en logikkenhet som kjører årsak-virkning-logikk, og sluttelementer som ESD-ventiler som feiler til sikker posisjon."
       },
       "aliases": [
         "emergency shutdown system",
         "ESDS"
       ],
-      "note": "The logic behind ESD usually runs on a Safety Instrumented System (SIS) — off-the-shelf, safety-certified hardware and software from vendors such as Honeywell, Schneider Electric (Triconex), ABB, Siemens and Yokogawa, configured for the specific platform or plant rather than built from scratch.",
-      "_source": "General knowledge (not independently verified)"
+      "note": "ESD is part of a Safety Instrumented System (SIS), governed by IEC 61508 and IEC 61511. Each function gets a SIL (Safety Integrity Level) from 1 to 4 — offshore ESD loops typically target SIL 2 or SIL 3. On the Norwegian shelf, NORSOK S-001 and Offshore Norge Guideline 070 (formerly OLF 070) set the detailed requirements. The hardware is bought certified off the shelf from vendors such as Honeywell, Schneider Electric (Triconex), ABB, Siemens and Yokogawa, then configured per installation.",
+      "_source": "Web research: IEC 61511/61508 summaries, Offshore Norge 070, NORSOK S-001 references, Sept 2026"
     },
     {
       "abbr": "EOR",
@@ -130,14 +132,15 @@
         "no": "Utbyggingsplanen myndighetene godkjenner"
       },
       "description": {
-        "en": "The formal development plan an operator submits to Norwegian authorities for approval before building out a field — concept, facilities, cost, schedule and environmental impact. Approval is the go-ahead for the project.",
-        "no": "Den formelle utbyggingsplanen en operatør sender til norske myndigheter for godkjenning før et felt bygges ut — konsept, anlegg, kostnad, fremdrift og miljøkonsekvenser. Godkjenning er klarsignalet for prosjektet."
+        "en": "The formal development plan licensees must get approved before building out a field on the Norwegian shelf — covering concept, facilities, cost, schedule, safety and environmental impact. No major contracts may be signed and no construction started until it is approved. It comes in two parts: the development plan itself and an impact assessment.",
+        "no": "Den formelle utbyggingsplanen rettighetshavere må få godkjent før et felt bygges ut på norsk sokkel — konsept, innretninger, kostnad, fremdrift, sikkerhet og miljøkonsekvenser. Ingen vesentlige kontrakter kan inngås og ingen byggevirksomhet startes før den er godkjent. Den består av to deler: selve utbyggingsdelen og en konsekvensutredningsdel."
       },
       "aliases": [
         "PUD",
         "plan for utbygging og drift"
       ],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: regjeringen.no PUD pages and approval letters, Sokkeldirektoratet, SNL, Sept 2026",
+      "note": "Approved by Energidepartementet (renamed from Olje- og energidepartementet/OED in 2024), after advice from Sokkeldirektoratet (formerly Oljedirektoratet) and Havindustritilsynet (formerly Petroleumstilsynet/Ptil). Developments above roughly NOK 20 billion in investment go to the Stortinget for approval; smaller ones the ministry can approve alone. The sibling term PAD (plan for anlegg og drift) covers transport and processing facilities rather than a field."
     },
     {
       "abbr": "HSE",
@@ -210,13 +213,15 @@
         "no": "Brønner med ekstremt trykk og temperatur"
       },
       "description": {
-        "en": "Wells or reservoirs with pressure above about 690 bar or temperature above about 150 degrees Celsius. They require special materials, equipment ratings and drilling practices.",
-        "no": "Brønner eller reservoarer med trykk over rundt 690 bar eller temperatur over rundt 150 grader celsius. Krever spesielle materialer, utstyrsklasser og boremetoder."
+        "en": "Wells where pressure or temperature is extreme enough to need specially rated equipment, materials and drilling practices. Definitions vary: the common industry threshold is a bottom-hole temperature above 150°C (300°F) or pressure control equipment rated above 690 bar (10,000 psi), while API Technical Report 1PER15K-1 sets higher bars — 103 MPa (15,000 psi) and 177°C (350°F). A well often meets only one of the two conditions, not both.",
+        "no": "Brønner der trykk eller temperatur er så ekstremt at det kreves spesielt klassifisert utstyr, materialer og boremetoder. Definisjonene varierer: den vanlige bransjegrensen er bunnhullstemperatur over 150 °C (300 °F) eller trykkontrollutstyr klassifisert over 690 bar (10 000 psi), mens API Technical Report 1PER15K-1 setter høyere grenser — 103 MPa (15 000 psi) og 177 °C (350 °F). En brønn oppfyller ofte bare ett av de to kriteriene, ikke begge."
       },
       "aliases": [
-        "high pressure high temperature well"
+        "high pressure high temperature well",
+        "HTHP"
       ],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: SLB Energy Glossary, API TR 1PER15K-1 summaries, ScienceDirect, Sept 2026",
+      "note": "The term came into industry use after the Cullen report into the Piper Alpha disaster in the UK North Sea. Beyond HPHT, the industry also uses ultra-HPHT (around 205°C / 138 MPa) and extreme HPHT (around 260°C / 241 MPa)."
     },
     {
       "abbr": "CCS",
@@ -236,7 +241,8 @@
         "carbon capture and sequestration",
         "CCUS"
       ],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: Prop. 1 S (2025–2026) Energidepartementet, Sept 2026",
+      "note": "Norway runs one of the most advanced full-chain CCS projects: Langskip, with Northern Lights as its transport and storage arm. It came into operation in autumn 2025, with the first CO2 from Heidelberg Materials' Brevik cement plant injected beneath the seabed in August 2025. A phase 2 expansion approved in June 2025 lifts storage capacity from 1.5 to at least 5 million tonnes of CO2 per year."
     }
   ]
 }

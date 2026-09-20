@@ -81,8 +81,8 @@
         "no": "Mer enn bare passord for å logge inn"
       },
       "description": {
-        "en": "Requires a user to prove their identity with two or more independent factors — typically a password plus a code, app approval or biometric check — before granting access. Significantly cuts the risk of a stolen password alone leading to a breach.",
-        "no": "Krever at en bruker bekrefter identiteten sin med to eller flere uavhengige faktorer — typisk et passord pluss en kode, en app-godkjenning eller biometrisk sjekk — før tilgang gis. Reduserer risikoen betraktelig for at et stjålet passord alene fører til et innbrudd."
+        "en": "Requires a user to prove their identity with two or more independent factors — typically a password plus a code, app approval or biometric check — before granting access. 2FA is the specific case of exactly two factors, so every 2FA setup is MFA but not the reverse; in everyday use the two words are often swapped freely.",
+        "no": "Krever at en bruker bekrefter identiteten sin med to eller flere uavhengige faktorer — typisk et passord pluss en kode, en app-godkjenning eller biometrisk sjekk — før tilgang gis. 2FA er det spesifikke tilfellet med nøyaktig to faktorer, så all 2FA er MFA, men ikke omvendt; til daglig brukes ordene om hverandre."
       },
       "aliases": [
         "2FA",
@@ -142,8 +142,8 @@
         "no": "Programvare som samler inn logg- og hendelsesdata fra hele organisasjonens systemer, korrelerer dem, og flagger mønstre som ligner på en sikkerhetshendelse — som gjentatte mislykkede innlogginger eller uvanlige dataoverføringer. Sentralt i sikkerhetsteamets daglige overvåking."
       },
       "aliases": [],
-      "note": "SIEM is sold as off-the-shelf software by vendors such as Splunk, Microsoft Sentinel, IBM QRadar and Exabeam, though the detection rules are usually tuned in-house for each organisation.",
-      "_source": "General knowledge (not independently verified)"
+      "note": "The vendor landscape shifted hard in 2024-26: Cisco bought Splunk for $28bn (closed March 2024); IBM sold QRadar's SaaS business to Palo Alto Networks, which set end-of-life dates through 2026 and steers buyers to Cortex XSIAM; and Exabeam merged with LogRhythm. The platforms most often shortlisted now are Splunk (Cisco), Microsoft Sentinel, Palo Alto Cortex XSIAM, CrowdStrike Falcon Next-Gen SIEM and Google SecOps, with Elastic and Wazuh as open-source options. Detection rules are still tuned in-house whichever you pick.",
+      "_source": "Web research: SIEM market analyses and vendor consolidation reporting, Sept 2026"
     },
     {
       "abbr": "ITSM",
@@ -240,15 +240,16 @@
         "no": "Microsoft-sertifisert fagperson"
       },
       "gist": {
-        "en": "A Microsoft technical certification",
-        "no": "En teknisk Microsoft-sertifisering"
+        "en": "A retired Microsoft certification",
+        "no": "En utgått Microsoft-sertifisering"
       },
       "description": {
-        "en": "A certification earned by passing a Microsoft exam demonstrating proficiency with a specific Microsoft product or technology. One of Microsoft's oldest certification tracks, later joined by role-based certifications such as Azure Administrator.",
-        "no": "En sertifisering man oppnår ved å bestå en Microsoft-eksamen som viser kompetanse innenfor et bestemt Microsoft-produkt eller -teknologi. Ett av Microsofts eldste sertifiseringsløp, senere supplert med rollebaserte sertifiseringer som Azure Administrator."
+        "en": "A legacy Microsoft credential, earned by passing a single qualifying Microsoft exam, that ran from the early 1990s until it was decommissioned in 2019. Microsoft replaced it, and the MCSA/MCSD/MCSE tracks that followed it, with role-based certifications such as Azure Administrator. You still see MCP on CVs and in conversation, but it can no longer be earned.",
+        "no": "En eldre Microsoft-sertifisering, oppnådd ved å bestå én kvalifiserende Microsoft-eksamen, som eksisterte fra tidlig på 1990-tallet til den ble avviklet i 2019. Microsoft erstattet den, og MCSA/MCSD/MCSE-løpene som fulgte, med rollebaserte sertifiseringer som Azure Administrator. MCP dukker fortsatt opp på CV-er og i samtaler, men kan ikke lenger tas."
       },
       "aliases": [],
-      "_source": "General knowledge (not independently verified)"
+      "_source": "Web research: Microsoft Learn certification retirement posts, Wikipedia, Sept 2026",
+      "note": "Retired, not renamed: MCP was decommissioned in February 2019, and the remaining MCSA, MCSD and MCSE exams followed on 31 January 2021. Certifications already earned stay on the holder's Microsoft Learn transcript but cannot be renewed or re-earned. In IT conversation today, MCP far more often means Model Context Protocol."
     }
   ]
 }
