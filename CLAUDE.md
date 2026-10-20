@@ -26,6 +26,7 @@ data/<sector>.json          one dictionary per sector
 img/<sector>.svg            one illustrated background per sector
 icons/, manifest.json       PWA install (Add to Home Screen)
 api/lookup.js               the AI fallback — becomes /api/lookup automatically
+tools/harness.mjs           stubbed-DOM test harness — `node tools/harness.mjs`
 tools/miss-logger.gs        Google Apps Script — paste into the bound Sheet, not run from here
 ```
 
@@ -120,11 +121,24 @@ All four steps are in this one repo now:
 
 ## Testing
 
-There's no test framework. The working method has been to extract the `<script>`
-block from `index.html` and run it under Node with a stubbed DOM — enough to
-catch reference errors, ordering bugs and rendering regressions before pushing.
-Two real bugs were caught this way (functions used before definition), so it's
-worth keeping. `node --check api/lookup.js` for the function.
+There's no test framework. `tools/harness.mjs` extracts the `<script>` block from
+`index.html` and runs it under Node against a stubbed DOM, with `fetch` reading
+`data/*.json` off disk — enough to catch reference errors, ordering bugs and
+rendering regressions before pushing. Three real bugs have been caught this way.
+
+    node tools/harness.mjs                                  run the suite
+    TEST_QUERY="?s=utilities&q=ADMS" node tools/harness.mjs  inspect one case
+    TEST_FILE=other.html node tools/harness.mjs              run against another file
+
+Plain Node, no dependencies, nothing to install — it must stay that way, like
+everything else here. It exits non-zero on failure, so it works as a pre-push
+check. **The assertion that matters most is that no case leaves an unhandled
+promise rejection**, because that is how the v0.037 shared-link bug hid: the
+promise rejected inside the temporal dead zone, nothing rendered, and no error
+ever reached the user. Add a case whenever you fix something it would have
+caught.
+
+`node --check api/lookup.js` for the function.
 
 Always verify JSON parses after editing a dictionary.
 
