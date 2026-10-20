@@ -243,6 +243,85 @@
       ],
       "_source": "Web research: Prop. 1 S (2025–2026) Energidepartementet, Sept 2026",
       "note": "Norway runs one of the most advanced full-chain CCS projects: Langskip, with Northern Lights as its transport and storage arm. It came into operation in autumn 2025, with the first CO2 from Heidelberg Materials' Brevik cement plant injected beneath the seabed in August 2025. A phase 2 expansion approved in June 2025 lifts storage capacity from 1.5 to at least 5 million tonnes of CO2 per year."
+    },
+    {
+      "abbr": "NVE",
+      "fullName": {
+        "en": "Norwegian Water Resources and Energy Directorate",
+        "no": "Norges vassdrags- og energidirektorat"
+      },
+      "gist": {
+        "en": "Norway's water and energy directorate",
+        "no": "Norges direktorat for vassdrag og energi"
+      },
+      "description": {
+        "en": "The Norwegian directorate responsible for water resources and the energy system, under the Ministry of Energy. It handles licensing, dam safety, flood and landslide work and energy supply preparedness, and publishes much of the analysis the sector works from.",
+        "no": "Det norske direktoratet med ansvar for vassdrag og energiforsyning, underlagt Energidepartementet. NVE behandler konsesjoner, har ansvar for damsikkerhet, flom- og skredarbeid og beredskap i energiforsyningen, og publiserer mye av analysegrunnlaget bransjen arbeider ut fra."
+      },
+      "aliases": [
+        "vassdrags- og energidirektoratet"
+      ],
+      "note": "RME — Reguleringsmyndigheten for energi — is the regulator for the Norwegian power and gas markets, and sits as an independent unit inside NVE with its own budget set by the Storting, rather than as a separate agency. Both names were still in use in the Ministry of Energy's 2026 allocation letters.",
+      "_source": "Web research: regjeringen.no tildelingsbrev til NVE and to RME for 2026, nve.no, Oct 2026"
+    },
+    {
+      "abbr": "SKID",
+      "fullName": {
+        "en": "Skid",
+        "no": "Skid"
+      },
+      "gist": {
+        "en": "Pre-assembled equipment package on a single frame",
+        "no": "Ferdig montert utstyrspakke på én ramme"
+      },
+      "description": {
+        "en": "A process package — pumps, vessels, piping, instrumentation — built and tested on one structural frame at a fabrication yard, then lifted into place as a unit. It shifts work off the installation, where hours cost far more, and shortens hook-up.",
+        "no": "En prosesspakke — pumper, tanker, rør og instrumentering — bygget og testet på én ramme hos et verksted, og deretter løftet på plass som én enhet. Det flytter arbeid bort fra installasjonen, der timene koster langt mer, og korter ned hook-up."
+      },
+      "aliases": [
+        "skidpakke",
+        "modul"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "PIMS",
+      "fullName": {
+        "en": "Pipeline Integrity Management System",
+        "no": "System for integritetsstyring av rørledninger"
+      },
+      "gist": {
+        "en": "Managing pipeline condition, inspection and risk",
+        "no": "Styrer tilstand, inspeksjon og risiko for rørledninger"
+      },
+      "description": {
+        "en": "The system and process for keeping a pipeline fit for service: inspection data, corrosion and defect assessment, remaining-life calculations and the resulting repair or pressure-reduction decisions, held together so the operator can show the line is safe to run.",
+        "no": "Systemet og prosessen for å holde en rørledning i forsvarlig stand: inspeksjonsdata, vurdering av korrosjon og defekter, beregning av gjenværende levetid og de påfølgende beslutningene om reparasjon eller trykkreduksjon, samlet slik at operatøren kan dokumentere at ledningen er sikker å drive."
+      },
+      "aliases": [
+        "integritetsstyring"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "PIMS",
+      "fullName": {
+        "en": "Plant Information Management System",
+        "no": "Informasjonssystem for prosessanlegg"
+      },
+      "gist": {
+        "en": "Historian and reporting layer over plant process data",
+        "no": "Historikk- og rapporteringslag over prosessdata"
+      },
+      "description": {
+        "en": "The layer that collects time-series data from the control system and makes it usable away from the console — trending, production reporting, performance monitoring and feeding analytics. Often used loosely as a synonym for the plant historian.",
+        "no": "Laget som samler tidsseriedata fra styresystemet og gjør dem brukbare utenfor kontrollrommet — trending, produksjonsrapportering, ytelsesoppfølging og underlag for analyse. Brukes ofte løst som synonym for anleggets historian."
+      },
+      "aliases": [
+        "historian",
+        "prosessdatabase"
+      ],
+      "_source": "General knowledge (not independently verified)"
     }
   ]
 }

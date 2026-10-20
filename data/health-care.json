@@ -214,6 +214,26 @@
       "aliases": [],
       "note": "Maintained by the World Health Organization. A successor, ICD-11, was published in 2019, but adoption has been slow — the US and many other countries were still on ICD-10 as of the most recent reporting.",
       "_source": "Web research: ICD-11 adoption status, Sept 2026"
+    },
+    {
+      "abbr": "LLM",
+      "fullName": {
+        "en": "Large Language Model",
+        "no": "Stor språkmodell"
+      },
+      "gist": {
+        "en": "AI model that generates and interprets text",
+        "no": "KI-modell som genererer og tolker tekst"
+      },
+      "description": {
+        "en": "A model trained on large volumes of text that can draft, summarise and answer in natural language. In clinical settings it is used mainly for documentation and summarisation; its output is not a clinical decision and needs the same review as any other draft.",
+        "no": "En modell trent på store tekstmengder som kan skrive utkast, oppsummere og svare på naturlig språk. I klinisk sammenheng brukes den først og fremst til dokumentasjon og oppsummering; svarene er ikke en klinisk beslutning og må kvalitetssikres som ethvert annet utkast."
+      },
+      "aliases": [
+        "stor språkmodell",
+        "språkmodell"
+      ],
+      "_source": "General knowledge (not independently verified)"
     }
   ]
 }

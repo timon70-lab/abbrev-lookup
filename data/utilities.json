@@ -256,6 +256,169 @@
       ],
       "note": "e-terra was built by Alstom Grid; GE acquired Alstom's power business in 2015, e-terra included. GE Vernova has since been folding it into its newer GridOS-branded product line (GridOS ADMS, GridOS AEMS), but many utilities still run — and refer to — their systems under the original e-terra name.",
       "_source": "Web research: Alstom Grid / GE Grid Solutions / GE Vernova GridOS history, Sept 2026"
+    },
+    {
+      "abbr": "FEP",
+      "fullName": {
+        "en": "Front End Processor",
+        "no": "Frontprosessor"
+      },
+      "gist": {
+        "en": "The box that talks to field devices for SCADA",
+        "no": "Enheten som snakker med feltutstyret for SCADA"
+      },
+      "description": {
+        "en": "The communications layer between a SCADA master and the field equipment. It handles polling, protocol translation and link management for hundreds or thousands of RTUs and IEDs, so the control system itself does not have to speak every protocol in the field.",
+        "no": "Kommunikasjonsleddet mellom SCADA-systemet og utstyret ute i nettet. Den håndterer polling, protokolloversetting og linjeovervåking for hundrevis eller tusenvis av RTU-er og IED-er, slik at selve driftssystemet slipper å beherske alle feltprotokollene."
+      },
+      "aliases": [
+        "frontprosessor",
+        "front-end processor"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "RTU",
+      "fullName": {
+        "en": "Remote Terminal Unit",
+        "no": "Fjernterminalenhet"
+      },
+      "gist": {
+        "en": "Field device that reports measurements and takes commands",
+        "no": "Feltenhet som rapporterer målinger og tar imot kommandoer"
+      },
+      "description": {
+        "en": "A device installed in a substation or along the line that collects measurements and status from primary equipment, passes them to the control centre, and carries out switching commands sent back. The basic building block of SCADA telemetry.",
+        "no": "En enhet i en transformatorstasjon eller ute i nettet som samler inn målinger og statusinformasjon fra primærutstyret, sender dem til driftssentralen og utfører koblingsordrer som sendes tilbake. Den grunnleggende byggeklossen i SCADA-telemetri."
+      },
+      "aliases": [
+        "fjernterminal",
+        "fjernterminalenhet"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "CIM",
+      "fullName": {
+        "en": "Common Information Model",
+        "no": "Felles informasjonsmodell"
+      },
+      "gist": {
+        "en": "IEC standard for describing grid data between systems",
+        "no": "IEC-standard for å beskrive nettdata mellom systemer"
+      },
+      "description": {
+        "en": "A family of IEC standards from Technical Committee 57 that gives power system objects — lines, transformers, breakers, measurements — a shared definition, so software from different vendors can exchange network models and messages without a bespoke integration each time.",
+        "no": "En familie IEC-standarder fra teknisk komité 57 som gir objektene i kraftsystemet — linjer, transformatorer, brytere og målinger — en felles definisjon, slik at programvare fra ulike leverandører kan utveksle nettmodeller og meldinger uten en skreddersydd integrasjon hver gang."
+      },
+      "aliases": [
+        "felles informasjonsmodell",
+        "IEC 61970",
+        "IEC 61968"
+      ],
+      "note": "Three standards divide the work: IEC 61970 covers power system modelling and EMS/SCADA exchange, IEC 61968 covers distribution — DMS, assets, work, GIS and metering — and IEC 62325 covers wholesale markets. IEC 61970-301 holds the core model; its latest edition is dated 2020.",
+      "_source": "Web research: IEC TC57 standards, CIM Users Group (cimug.ucaiug.org) and EPRI CIM Primer, Oct 2026"
+    },
+    {
+      "abbr": "IVVC",
+      "fullName": {
+        "en": "Integrated Volt/VAR Control",
+        "no": "Integrert spennings- og reaktiv effektregulering"
+      },
+      "gist": {
+        "en": "Coordinating voltage and reactive power across the feeder",
+        "no": "Samordner spenning og reaktiv effekt langs avgangen"
+      },
+      "description": {
+        "en": "Control that coordinates tap changers, capacitor banks and regulators across a whole feeder rather than letting each device act alone. Used to hold voltage within limits, cut losses, and sometimes to shave peak demand by running the feeder at the low end of the allowed band.",
+        "no": "Styring som samordner trinnkoblere, kondensatorbatterier og regulatorer langs hele avgangen i stedet for å la hver enhet virke for seg. Brukes til å holde spenningen innenfor grensene, redusere tap, og noen ganger til å dempe effekttopper ved å kjøre avgangen i nedre del av det tillatte båndet."
+      },
+      "aliases": [
+        "volt/VAR optimisation",
+        "VVO"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "ANM",
+      "fullName": {
+        "en": "Active Network Management",
+        "no": "Aktiv nettstyring"
+      },
+      "gist": {
+        "en": "Curtailing connections in real time instead of building grid",
+        "no": "Styrer tilknytninger i sanntid framfor å bygge nett"
+      },
+      "description": {
+        "en": "Letting generation or load connect to a constrained grid on the condition that it can be curtailed automatically when limits would otherwise be breached. It gets connections in years earlier than reinforcement would allow, at the cost of a non-firm connection agreement.",
+        "no": "Å la produksjon eller forbruk koble seg til et nett med begrensninger, mot at tilknytningen kan nedreguleres automatisk når grensene ellers ville blitt brutt. Det gir tilknytning år tidligere enn nettforsterkning ville tillatt, mot at avtalen ikke gir fast kapasitet."
+      },
+      "aliases": [
+        "aktiv nettstyring",
+        "fleksibel tilknytning"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "GIS",
+      "fullName": {
+        "en": "Geographic Information System",
+        "no": "Geografisk informasjonssystem"
+      },
+      "gist": {
+        "en": "The map system holding where the network actually is",
+        "no": "Kartsystemet som viser hvor nettet faktisk ligger"
+      },
+      "description": {
+        "en": "The system of record for the physical network — where every cable, pole, substation and service connection sits geographically, with its attributes. It feeds the connectivity model that outage management and network analysis depend on.",
+        "no": "Systemet som holder orden på det fysiske nettet — hvor hver kabel, stolpe, nettstasjon og tilknytning ligger geografisk, med tilhørende egenskaper. Det leverer koblingsmodellen som avbruddshåndtering og nettanalyse bygger på."
+      },
+      "aliases": [
+        "geografisk informasjonssystem",
+        "kartsystem"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "GIS",
+      "fullName": {
+        "en": "Gas Insulated Switchgear",
+        "no": "Gassisolert koblingsanlegg"
+      },
+      "gist": {
+        "en": "Compact switchgear insulated by gas, not air",
+        "no": "Kompakt koblingsanlegg isolert med gass i stedet for luft"
+      },
+      "description": {
+        "en": "High-voltage switchgear where the live parts sit in a sealed enclosure filled with an insulating gas instead of open air. It takes a fraction of the footprint of an air-insulated yard, which is why it is used indoors, in cities and offshore.",
+        "no": "Høyspent koblingsanlegg der de spenningsførende delene står i et forseglet kammer fylt med isolasjonsgass i stedet for fri luft. Det krever en brøkdel av arealet til et luftisolert anlegg, og brukes derfor innendørs, i byer og offshore."
+      },
+      "aliases": [
+        "gassisolert koblingsanlegg",
+        "GIS-anlegg"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "HR",
+      "fullName": {
+        "en": "Human Resources",
+        "no": "Personalfunksjonen (Human Resources)"
+      },
+      "gist": {
+        "en": "The people function — hiring, pay, competence, HSE duties",
+        "no": "Personalområdet — rekruttering, lønn, kompetanse, HMS-ansvar"
+      },
+      "description": {
+        "en": "The function responsible for hiring, employment terms, competence and staff development. In a utility it also carries much of the formal HSE and certification burden, since switching and live-line work may only be done by demonstrably qualified people.",
+        "no": "Funksjonen som har ansvar for rekruttering, arbeidsvilkår, kompetanse og personalutvikling. I et nettselskap bærer den også mye av det formelle HMS- og sertifiseringsansvaret, siden kobling og arbeid på spenningssatt anlegg bare kan utføres av dokumentert kvalifisert personell."
+      },
+      "aliases": [
+        "personal",
+        "personalavdeling",
+        "menneskelige ressurser"
+      ],
+      "_source": "General knowledge (not independently verified)"
     }
   ]
 }

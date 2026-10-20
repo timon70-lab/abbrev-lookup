@@ -250,6 +250,446 @@
       "aliases": [],
       "_source": "Web research: Microsoft Learn certification retirement posts, Wikipedia, Sept 2026",
       "note": "Retired, not renamed: MCP was decommissioned in February 2019, and the remaining MCSA, MCSD and MCSE exams followed on 31 January 2021. Certifications already earned stay on the holder's Microsoft Learn transcript but cannot be renewed or re-earned. In IT conversation today, MCP far more often means Model Context Protocol."
+    },
+    {
+      "abbr": "CIO",
+      "fullName": {
+        "en": "Chief Information Officer",
+        "no": "IT-direktør"
+      },
+      "gist": {
+        "en": "The executive accountable for IT",
+        "no": "Lederen med det øverste ansvaret for IT"
+      },
+      "description": {
+        "en": "The executive who owns the organisation's IT — systems, data, budgets and the people running them. Usually distinguished from a CTO, who owns the technology in the product, where the CIO owns the technology the business runs on.",
+        "no": "Lederen som har ansvaret for virksomhetens IT — systemer, data, budsjetter og de som drifter dem. Skilles vanligvis fra en CTO, som eier teknologien i produktet, mens IT-direktøren eier teknologien virksomheten selv drives på."
+      },
+      "aliases": [
+        "IT-direktør",
+        "IT-sjef"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "SIAM",
+      "fullName": {
+        "en": "Service Integration and Management",
+        "no": "Tjenesteintegrasjon og -styring"
+      },
+      "gist": {
+        "en": "Managing many suppliers as one service",
+        "no": "Styrer mange leverandører som én tjeneste"
+      },
+      "description": {
+        "en": "A way of organising IT when the service is delivered by several providers at once: one integrator layer holds end-to-end accountability, so the business sees a single service rather than a set of contracts that each stop at their own boundary.",
+        "no": "En måte å organisere IT på når tjenesten leveres av flere leverandører samtidig: et integratorlag har ansvaret ende til ende, slik at virksomheten ser én tjeneste i stedet for en samling kontrakter som hver stopper ved sin egen grense."
+      },
+      "aliases": [
+        "tjenesteintegrasjon",
+        "service integration"
+      ],
+      "note": "Scopism's SIAM Foundation Body of Knowledge places the term's origin in the UK public sector around 2005, driven by the 2010 UK government ICT strategy's move away from single prime-supplier contracts. That dating comes from Scopism's own material. The BoK underpins the EXIN SIAM Foundation certification.",
+      "_source": "Web research: Scopism SIAM Foundation BoK 2nd ed., Wikipedia, Deloitte UK, Oct 2026"
+    },
+    {
+      "abbr": "ITOM",
+      "fullName": {
+        "en": "IT Operations Management",
+        "no": "IT-driftsstyring"
+      },
+      "gist": {
+        "en": "Keeping the IT estate discovered, monitored and healthy",
+        "no": "Holder IT-porteføljen kartlagt, overvåket og i drift"
+      },
+      "description": {
+        "en": "The discipline and tooling for running infrastructure and services day to day: discovery of what exists, monitoring, event and alert handling, and the automation that keeps it stable. Sits next to ITSM, which handles the request and incident process around it.",
+        "no": "Fagområdet og verktøyene for daglig drift av infrastruktur og tjenester: kartlegging av hva som finnes, overvåking, hendelses- og varselhåndtering, og automatiseringen som holder det stabilt. Ligger ved siden av ITSM, som håndterer bestillings- og hendelsesprosessen rundt."
+      },
+      "aliases": [
+        "IT-drift",
+        "IT-driftsstyring"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "ITAM",
+      "fullName": {
+        "en": "IT Asset Management",
+        "no": "Forvaltning av IT-ressurser"
+      },
+      "gist": {
+        "en": "Tracking what IT you own, where it is and what it costs",
+        "no": "Holder orden på hva IT-en består av, hvor den er og hva den koster"
+      },
+      "description": {
+        "en": "Managing hardware, software and licences across their life — procurement, deployment, renewal and disposal. Driven as much by cost and licence compliance as by operations: it answers what is owned, who has it and what is due for renewal.",
+        "no": "Forvaltning av maskinvare, programvare og lisenser gjennom hele livsløpet — anskaffelse, utrulling, fornyelse og avhending. Drives like mye av kostnader og lisensetterlevelse som av drift: det svarer på hva som eies, hvem som har det, og hva som skal fornyes."
+      },
+      "aliases": [
+        "IT-ressursforvaltning",
+        "lisensforvaltning"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "RAG",
+      "fullName": {
+        "en": "Retrieval-Augmented Generation",
+        "no": "Gjenfinningsstøttet generering"
+      },
+      "gist": {
+        "en": "Giving a language model your documents to answer from",
+        "no": "Gir språkmodellen dine egne dokumenter å svare ut fra"
+      },
+      "description": {
+        "en": "A pattern where relevant documents are retrieved and passed to a language model as context, so the answer is grounded in your own material rather than the model's training data. The usual way to put an assistant on top of internal content without retraining anything.",
+        "no": "Et mønster der relevante dokumenter hentes fram og gis til en språkmodell som kontekst, slik at svaret bygger på ditt eget materiale framfor modellens treningsdata. Den vanlige måten å sette en assistent oppå internt innhold på, uten å trene opp noe på nytt."
+      },
+      "aliases": [
+        "gjenfinningsstøttet generering"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "HITL",
+      "fullName": {
+        "en": "Human in the Loop",
+        "no": "Menneske i sløyfen"
+      },
+      "gist": {
+        "en": "A person approves before the system acts",
+        "no": "Et menneske godkjenner før systemet handler"
+      },
+      "description": {
+        "en": "A design where an automated or AI-driven step pauses for a person to review, approve or correct it before anything takes effect. Used where the cost of a wrong action is higher than the cost of the delay.",
+        "no": "En utforming der et automatisert eller KI-drevet steg stanser for at et menneske skal vurdere, godkjenne eller rette det før noe får virkning. Brukes der kostnaden ved en feil handling er høyere enn kostnaden ved forsinkelsen."
+      },
+      "aliases": [
+        "menneske i sløyfen",
+        "human-in-the-loop"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "DPIA",
+      "fullName": {
+        "en": "Data Protection Impact Assessment",
+        "no": "Personvernkonsekvensvurdering"
+      },
+      "gist": {
+        "en": "Mandatory privacy risk assessment before high-risk processing",
+        "no": "Pålagt personvernvurdering før behandling med høy risiko"
+      },
+      "description": {
+        "en": "An assessment required under the GDPR before starting processing likely to result in a high risk to people's rights. It describes the processing, tests necessity and proportionality, assesses the risks and sets out the measures that bring them down.",
+        "no": "En vurdering som personvernforordningen krever før man starter behandling som sannsynligvis gir høy risiko for den enkeltes rettigheter. Den beskriver behandlingen, prøver nødvendighet og forholdsmessighet, vurderer risikoene og fastsetter tiltakene som reduserer dem."
+      },
+      "aliases": [
+        "personvernkonsekvensvurdering",
+        "DPIA-vurdering"
+      ],
+      "note": "GDPR Article 35(3) names three cases that always require one: large-scale profiling with legal or similarly significant effects, large-scale processing of special category or criminal conviction data, and large-scale monitoring of publicly accessible areas. If high risk remains after mitigation, Article 36 requires consulting the supervisory authority.",
+      "_source": "Web research: GDPR Article 35 text and EDPB/WP29 criteria via compliance guidance, Oct 2026"
+    },
+    {
+      "abbr": "MTTR",
+      "fullName": {
+        "en": "Mean Time to Restore",
+        "no": "Gjennomsnittlig gjenopprettingstid"
+      },
+      "gist": {
+        "en": "Average time from incident start to service back",
+        "no": "Snitt-tid fra hendelsen starter til tjenesten er tilbake"
+      },
+      "description": {
+        "en": "The average time taken to get a service working again after it breaks. Worth pinning down which variant is meant in a given contract — restore, repair, respond and resolve all get abbreviated the same way and measure different spans.",
+        "no": "Gjennomsnittlig tid det tar å få en tjeneste i drift igjen etter en feil. Det lønner seg å avklare hvilken variant som menes i en konkret avtale — gjenoppretting, reparasjon, responstid og løsningstid forkortes likt og måler ulike strekk."
+      },
+      "aliases": [
+        "gjenopprettingstid",
+        "mean time to repair"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "CSAT",
+      "fullName": {
+        "en": "Customer Satisfaction Score",
+        "no": "Kundetilfredshetsscore"
+      },
+      "gist": {
+        "en": "Short satisfaction rating collected after an interaction",
+        "no": "Kort tilfredshetsmåling rett etter en henvendelse"
+      },
+      "description": {
+        "en": "A satisfaction measure taken straight after a specific interaction, typically a one-question rating. Measures that moment rather than the relationship as a whole, which is what separates it from a loyalty measure like NPS.",
+        "no": "Et tilfredshetsmål som hentes inn rett etter en konkret henvendelse, vanligvis med ett spørsmål. Det måler øyeblikket framfor kundeforholdet som helhet, og det er dette som skiller det fra et lojalitetsmål som NPS."
+      },
+      "aliases": [
+        "kundetilfredshet"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "MVP",
+      "fullName": {
+        "en": "Minimum Viable Product",
+        "no": "Minste brukbare produkt"
+      },
+      "gist": {
+        "en": "Smallest version that still proves the idea",
+        "no": "Minste versjon som fortsatt beviser ideen"
+      },
+      "description": {
+        "en": "The smallest build that real users can actually use, released to find out whether the idea holds before more is spent on it. The point is the learning, not the scope — which is why it is so often misused to mean a cut-down first release.",
+        "no": "Den minste versjonen ekte brukere faktisk kan bruke, sluppet for å finne ut om ideen holder før mer penger brukes på den. Poenget er lærdommen, ikke omfanget — derfor brukes begrepet så ofte feil, om en nedskalert førsteversjon."
+      },
+      "aliases": [
+        "minste brukbare produkt"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "SOW",
+      "fullName": {
+        "en": "Statement of Work",
+        "no": "Arbeidsbeskrivelse"
+      },
+      "gist": {
+        "en": "The document saying exactly what will be delivered",
+        "no": "Dokumentet som sier nøyaktig hva som skal leveres"
+      },
+      "description": {
+        "en": "The part of a contract that sets out scope, deliverables, milestones and acceptance criteria for a piece of work. The document people return to when there is a disagreement about whether something was in scope.",
+        "no": "Den delen av en kontrakt som fastsetter omfang, leveranser, milepæler og akseptkriterier for et stykke arbeid. Dokumentet folk går tilbake til når det er uenighet om noe var innenfor omfanget."
+      },
+      "aliases": [
+        "arbeidsbeskrivelse",
+        "leveransebeskrivelse"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "HCM",
+      "fullName": {
+        "en": "Human Capital Management",
+        "no": "Forvaltning av menneskelige ressurser"
+      },
+      "gist": {
+        "en": "The software and process layer behind HR",
+        "no": "Programvare- og prosesslaget bak HR"
+      },
+      "description": {
+        "en": "The systems and practices covering the employee life cycle — recruitment, onboarding, payroll, competence, performance and offboarding. In practice the term usually points at the software platform rather than the HR function itself.",
+        "no": "Systemene og praksisen som dekker hele ansettelsesløpet — rekruttering, onboarding, lønn, kompetanse, oppfølging og avslutning. I praksis peker begrepet som regel på programvareplattformen snarere enn på selve HR-funksjonen."
+      },
+      "aliases": [
+        "HR-system",
+        "personalsystem"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "SCIM",
+      "fullName": {
+        "en": "System for Cross-domain Identity Management",
+        "no": "System for identitetsforvaltning på tvers av domener"
+      },
+      "gist": {
+        "en": "Standard for syncing users between systems",
+        "no": "Standard for å synkronisere brukere mellom systemer"
+      },
+      "description": {
+        "en": "An open standard for provisioning and de-provisioning user accounts across systems over HTTP. It is what makes a new hire appear in the connected SaaS applications automatically, and — more importantly — makes a leaver disappear from them.",
+        "no": "En åpen standard for å opprette og fjerne brukerkontoer på tvers av systemer over HTTP. Det er den som gjør at en nyansatt dukker opp automatisk i tilknyttede skytjenester, og — viktigere — at en som slutter forsvinner fra dem."
+      },
+      "aliases": [
+        "brukerprovisjonering",
+        "identitetssynkronisering"
+      ],
+      "note": "Defined by IETF RFCs 7642 (overview and use cases), 7643 (core schema) and 7644 (protocol), all from September 2015. RFC 7644 has since been updated by RFC 9865, and RFC 9967 (May 2026) adds a SCIM profile for Security Event Tokens plus an optional asynchronous request capability.",
+      "_source": "Web research: IETF RFC 7642/7643/7644 and RFC 9967 via rfc-editor.org and datatracker.ietf.org, Oct 2026"
+    },
+    {
+      "abbr": "CLI",
+      "fullName": {
+        "en": "Command-Line Interface",
+        "no": "Kommandolinjegrensesnitt"
+      },
+      "gist": {
+        "en": "Driving software by typed commands",
+        "no": "Å styre programvare med skrevne kommandoer"
+      },
+      "description": {
+        "en": "A text interface where you type commands rather than click. Preferred for anything that needs to be repeatable, scripted or run on a machine with no screen — which is most of what runs in production.",
+        "no": "Et tekstgrensesnitt der du skriver kommandoer i stedet for å klikke. Foretrekkes til alt som skal være repeterbart, skriptbart eller kjøres på en maskin uten skjerm — som er det meste av det som kjører i produksjon."
+      },
+      "aliases": [
+        "kommandolinje",
+        "terminal"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "SOP",
+      "fullName": {
+        "en": "Standard Operating Procedure",
+        "no": "Standard arbeidsprosedyre"
+      },
+      "gist": {
+        "en": "The written way a recurring task is done",
+        "no": "Den skrevne måten en gjentakende oppgave gjøres på"
+      },
+      "description": {
+        "en": "A documented, step-by-step procedure for a task that recurs, written so it comes out the same regardless of who does it. In IT operations it is what turns tribal knowledge into something that survives a handover or an on-call rotation.",
+        "no": "En dokumentert, trinnvis prosedyre for en oppgave som gjentas, skrevet slik at resultatet blir det samme uansett hvem som utfører den. I IT-drift er det dette som gjør uskreven kunnskap til noe som overlever en overlevering eller en vaktturnus."
+      },
+      "aliases": [
+        "standard arbeidsprosedyre",
+        "rutinebeskrivelse"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "RAID",
+      "fullName": {
+        "en": "Redundant Array of Independent Disks",
+        "no": "Redundant rekke av uavhengige disker"
+      },
+      "gist": {
+        "en": "Combining disks for redundancy or speed",
+        "no": "Kombinerer disker for redundans eller hastighet"
+      },
+      "description": {
+        "en": "A way of combining several physical disks so they behave as one volume, trading capacity for fault tolerance, speed, or both depending on the level chosen. Protects against a disk failing — it is not a backup, since it faithfully replicates deletions too.",
+        "no": "En måte å kombinere flere fysiske disker på slik at de opptrer som ett volum, der kapasitet byttes mot feiltoleranse, hastighet eller begge avhengig av nivået som velges. Det beskytter mot at en disk ryker — men er ingen sikkerhetskopi, siden sletting speiles like trofast."
+      },
+      "aliases": [
+        "diskarray"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "RAID",
+      "fullName": {
+        "en": "Risks, Assumptions, Issues and Dependencies",
+        "no": "Risikoer, antakelser, saker og avhengigheter"
+      },
+      "gist": {
+        "en": "The project log of what might go wrong",
+        "no": "Prosjektloggen over hva som kan gå galt"
+      },
+      "description": {
+        "en": "A project management log holding risks, assumptions, issues and dependencies in one place, reviewed at each checkpoint. Some organisations read the same letters as risks, actions, issues and decisions — worth checking which is meant locally.",
+        "no": "En prosjektlogg som samler risikoer, antakelser, saker og avhengigheter på ett sted, og gjennomgås ved hvert kontrollpunkt. Enkelte virksomheter leser de samme bokstavene som risikoer, aksjoner, saker og beslutninger — det er verdt å avklare hva som gjelder lokalt."
+      },
+      "aliases": [
+        "RAID-logg",
+        "risikologg"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "ARB",
+      "fullName": {
+        "en": "Architecture Review Board",
+        "no": "Arkitekturråd"
+      },
+      "gist": {
+        "en": "The forum that approves technical design choices",
+        "no": "Forumet som godkjenner tekniske designvalg"
+      },
+      "description": {
+        "en": "A standing group that reviews proposed solutions against the organisation's architecture standards before they are built. Exists to keep a portfolio coherent; becomes a bottleneck when it reviews everything rather than what actually carries risk.",
+        "no": "En fast gruppe som vurderer foreslåtte løsninger opp mot virksomhetens arkitekturstandarder før de bygges. Finnes for å holde porteføljen sammenhengende, men blir en flaskehals når den vurderer alt i stedet for det som faktisk bærer risiko."
+      },
+      "aliases": [
+        "arkitekturråd",
+        "arkitekturforum"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "TMO",
+      "fullName": {
+        "en": "Transformation Management Office",
+        "no": "Transformasjonskontor"
+      },
+      "gist": {
+        "en": "The office steering a large change programme",
+        "no": "Kontoret som styrer et stort endringsprogram"
+      },
+      "description": {
+        "en": "A central function coordinating a large change programme across departments — tracking progress, dependencies and benefits. Distinguished from a PMO by its focus on one transformation's outcomes rather than ongoing project governance.",
+        "no": "En sentral funksjon som koordinerer et stort endringsprogram på tvers av avdelinger — og følger framdrift, avhengigheter og gevinster. Skilles fra et PMO ved at den er rettet mot resultatene av én transformasjon framfor løpende prosjektstyring."
+      },
+      "aliases": [
+        "transformasjonskontor"
+      ],
+      "_source": "General knowledge (not independently verified)"
+    },
+    {
+      "abbr": "CSDM",
+      "fullName": {
+        "en": "Common Service Data Model",
+        "no": "Felles tjenestedatamodell"
+      },
+      "gist": {
+        "en": "Prescribed structure for service data in a CMDB",
+        "no": "Fastsatt struktur for tjenestedata i en CMDB"
+      },
+      "description": {
+        "en": "A prescribed way of modelling services, applications and their configuration items so that the data sits in consistent places and can be shared across products rather than rebuilt per use case. Effectively a blueprint for structuring a CMDB.",
+        "no": "En fastsatt måte å modellere tjenester, applikasjoner og tilhørende konfigurasjonselementer på, slik at dataene ligger konsekvent plassert og kan deles på tvers av produkter i stedet for å bygges opp på nytt per bruksområde. I praksis en mal for å strukturere en CMDB."
+      },
+      "aliases": [
+        "felles tjenestedatamodell"
+      ],
+      "note": "The term originates with ServiceNow, which documents CSDM per platform release rather than as a separately versioned standard — so 'which CSDM' is answered by naming the platform release.",
+      "_source": "Web research: ServiceNow product documentation (servicenow.com/docs), Oct 2026"
+    },
+    {
+      "abbr": "OTSM",
+      "fullName": {
+        "en": "Operational Technology Service Management",
+        "no": "Tjenestestyring for driftsteknologi"
+      },
+      "gist": {
+        "en": "Applying IT service management to plant and factory kit",
+        "no": "Bruker IT-tjenestestyring på anleggs- og fabrikkutstyr"
+      },
+      "description": {
+        "en": "Extending service management practice — incidents, changes, asset life cycle — to operational technology: the controllers, sensors and industrial systems running a plant. The hard part is that OT cannot simply be patched or rebooted on an IT schedule.",
+        "no": "Å utvide tjenestestyring — hendelser, endringer, livsløp for utstyr — til driftsteknologi: styringsenhetene, sensorene og de industrielle systemene som driver et anlegg. Det vanskelige er at OT ikke uten videre kan oppdateres eller startes på nytt etter IT-ens tidsplan."
+      },
+      "aliases": [
+        "OT-tjenestestyring",
+        "driftsteknologi"
+      ],
+      "note": "The abbreviation is ServiceNow's, where OTSM sits within its wider Operational Technology Management offering alongside OT asset management and OT visibility. Vendor integrations named in its documentation include Nozomi and Claroty.",
+      "_source": "Web research: ServiceNow Operational Technology product pages and OTSM release notes, Oct 2026"
+    },
+    {
+      "abbr": "HR",
+      "fullName": {
+        "en": "Human Resources",
+        "no": "Personalfunksjonen (Human Resources)"
+      },
+      "gist": {
+        "en": "The people function — hiring, pay, competence",
+        "no": "Personalområdet — rekruttering, lønn, kompetanse"
+      },
+      "description": {
+        "en": "The function responsible for hiring, employment terms, competence and staff development. In an IT context it is most often met as the owner of the systems behind that work, and as the source of the identity data that provisioning runs from.",
+        "no": "Funksjonen som har ansvar for rekruttering, arbeidsvilkår, kompetanse og personalutvikling. I en IT-sammenheng møter man den oftest som eier av systemene bak dette arbeidet, og som kilden til identitetsdataene brukerprovisjonering kjører på."
+      },
+      "aliases": [
+        "personal",
+        "personalavdeling",
+        "menneskelige ressurser"
+      ],
+      "_source": "General knowledge (not independently verified)"
     }
   ]
 }
