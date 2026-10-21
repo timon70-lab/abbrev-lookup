@@ -50,7 +50,7 @@ rather than calling the API from the page.
 It records where a definition actually came from. Never upgrade an entry to a
 "Web research: ..." source without actually searching. Entries written from
 model knowledge stay tagged `General knowledge (not independently verified)`.
-As of the last pass: 21 of 51 entries verified.
+As of the last pass: 28 of 81 entries verified.
 
 **Never invent a `note`.** Notes carry vendor lists, history and lineage —
 exactly the facts that go stale or turn out wrong. Only add one when it's been

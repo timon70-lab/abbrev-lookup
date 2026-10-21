@@ -151,10 +151,10 @@ const CASES = [
     check: (r) => /has 2 meanings/.test(text(r.resultHTML))
       || "expected the two-meaning prompt" },
 
-  { name: "shared abbr offers the picker (GIS)",
-    query: "?s=utilities&q=GIS",
+  { name: "shared abbr offers the picker (PIMS)",
+    query: "?s=energy&q=PIMS",
     check: (r) => /has 2 meanings/.test(text(r.resultHTML)) && !r.suggestionsHidden
-      || "expected two GIS meanings and a visible suggestion list" },
+      || "expected two PIMS meanings and a visible suggestion list" },
 
   { name: "norwegian alias finds the entry",
     query: "?s=utilities&q=frontprosessor",

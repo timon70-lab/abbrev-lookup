@@ -571,26 +571,6 @@
       "_source": "General knowledge (not independently verified)"
     },
     {
-      "abbr": "RAID",
-      "fullName": {
-        "en": "Risks, Assumptions, Issues and Dependencies",
-        "no": "Risikoer, antakelser, saker og avhengigheter"
-      },
-      "gist": {
-        "en": "The project log of what might go wrong",
-        "no": "Prosjektloggen over hva som kan gå galt"
-      },
-      "description": {
-        "en": "A project management log holding risks, assumptions, issues and dependencies in one place, reviewed at each checkpoint. Some organisations read the same letters as risks, actions, issues and decisions — worth checking which is meant locally.",
-        "no": "En prosjektlogg som samler risikoer, antakelser, saker og avhengigheter på ett sted, og gjennomgås ved hvert kontrollpunkt. Enkelte virksomheter leser de samme bokstavene som risikoer, aksjoner, saker og beslutninger — det er verdt å avklare hva som gjelder lokalt."
-      },
-      "aliases": [
-        "RAID-logg",
-        "risikologg"
-      ],
-      "_source": "General knowledge (not independently verified)"
-    },
-    {
       "abbr": "ARB",
       "fullName": {
         "en": "Architecture Review Board",

@@ -320,46 +320,6 @@
       "_source": "Web research: IEC TC57 standards, CIM Users Group (cimug.ucaiug.org) and EPRI CIM Primer, Oct 2026"
     },
     {
-      "abbr": "IVVC",
-      "fullName": {
-        "en": "Integrated Volt/VAR Control",
-        "no": "Integrert spennings- og reaktiv effektregulering"
-      },
-      "gist": {
-        "en": "Coordinating voltage and reactive power across the feeder",
-        "no": "Samordner spenning og reaktiv effekt langs avgangen"
-      },
-      "description": {
-        "en": "Control that coordinates tap changers, capacitor banks and regulators across a whole feeder rather than letting each device act alone. Used to hold voltage within limits, cut losses, and sometimes to shave peak demand by running the feeder at the low end of the allowed band.",
-        "no": "Styring som samordner trinnkoblere, kondensatorbatterier og regulatorer langs hele avgangen i stedet for å la hver enhet virke for seg. Brukes til å holde spenningen innenfor grensene, redusere tap, og noen ganger til å dempe effekttopper ved å kjøre avgangen i nedre del av det tillatte båndet."
-      },
-      "aliases": [
-        "volt/VAR optimisation",
-        "VVO"
-      ],
-      "_source": "General knowledge (not independently verified)"
-    },
-    {
-      "abbr": "ANM",
-      "fullName": {
-        "en": "Active Network Management",
-        "no": "Aktiv nettstyring"
-      },
-      "gist": {
-        "en": "Curtailing connections in real time instead of building grid",
-        "no": "Styrer tilknytninger i sanntid framfor å bygge nett"
-      },
-      "description": {
-        "en": "Letting generation or load connect to a constrained grid on the condition that it can be curtailed automatically when limits would otherwise be breached. It gets connections in years earlier than reinforcement would allow, at the cost of a non-firm connection agreement.",
-        "no": "Å la produksjon eller forbruk koble seg til et nett med begrensninger, mot at tilknytningen kan nedreguleres automatisk når grensene ellers ville blitt brutt. Det gir tilknytning år tidligere enn nettforsterkning ville tillatt, mot at avtalen ikke gir fast kapasitet."
-      },
-      "aliases": [
-        "aktiv nettstyring",
-        "fleksibel tilknytning"
-      ],
-      "_source": "General knowledge (not independently verified)"
-    },
-    {
       "abbr": "GIS",
       "fullName": {
         "en": "Geographic Information System",
@@ -376,47 +336,6 @@
       "aliases": [
         "geografisk informasjonssystem",
         "kartsystem"
-      ],
-      "_source": "General knowledge (not independently verified)"
-    },
-    {
-      "abbr": "GIS",
-      "fullName": {
-        "en": "Gas Insulated Switchgear",
-        "no": "Gassisolert koblingsanlegg"
-      },
-      "gist": {
-        "en": "Compact switchgear insulated by gas, not air",
-        "no": "Kompakt koblingsanlegg isolert med gass i stedet for luft"
-      },
-      "description": {
-        "en": "High-voltage switchgear where the live parts sit in a sealed enclosure filled with an insulating gas instead of open air. It takes a fraction of the footprint of an air-insulated yard, which is why it is used indoors, in cities and offshore.",
-        "no": "Høyspent koblingsanlegg der de spenningsførende delene står i et forseglet kammer fylt med isolasjonsgass i stedet for fri luft. Det krever en brøkdel av arealet til et luftisolert anlegg, og brukes derfor innendørs, i byer og offshore."
-      },
-      "aliases": [
-        "gassisolert koblingsanlegg",
-        "GIS-anlegg"
-      ],
-      "_source": "General knowledge (not independently verified)"
-    },
-    {
-      "abbr": "HR",
-      "fullName": {
-        "en": "Human Resources",
-        "no": "Personalfunksjonen (Human Resources)"
-      },
-      "gist": {
-        "en": "The people function — hiring, pay, competence, HSE duties",
-        "no": "Personalområdet — rekruttering, lønn, kompetanse, HMS-ansvar"
-      },
-      "description": {
-        "en": "The function responsible for hiring, employment terms, competence and staff development. In a utility it also carries much of the formal HSE and certification burden, since switching and live-line work may only be done by demonstrably qualified people.",
-        "no": "Funksjonen som har ansvar for rekruttering, arbeidsvilkår, kompetanse og personalutvikling. I et nettselskap bærer den også mye av det formelle HMS- og sertifiseringsansvaret, siden kobling og arbeid på spenningssatt anlegg bare kan utføres av dokumentert kvalifisert personell."
-      },
-      "aliases": [
-        "personal",
-        "personalavdeling",
-        "menneskelige ressurser"
       ],
       "_source": "General knowledge (not independently verified)"
     }
