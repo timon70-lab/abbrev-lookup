@@ -268,6 +268,14 @@
     //   line: "#d9d3c7", field: "#fffdf9", live: "#2f6f4f", liveSoft: "#e2efe7", liveInk: "#1d4a33", texture: "none" } },
   ];
 
+  // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
+  // It renders in the footer, and it cache-busts the dictionary fetch in
+  // loadSector — so it must be declared up here, above the setup block.
+  // applySector() and refreshCurrentDict() both reach loadSector during setup;
+  // declared any lower, that read would land in the temporal dead zone and
+  // every lookup would fail, which is the v0.037 bug all over again.
+  const APP_VERSION = "v0.039";
+
   // The AI fallback, in api/lookup.js of this same project.
   // Accepts POST { abbr, sector, lang } and returns { fullName, gist, description, aliases }.
   // Leave empty and the app is purely dictionary-based.
@@ -398,9 +406,6 @@
   // On touch devices, popping the keyboard on load hides the sector choice and examples.
   if (matchMedia("(pointer: fine)").matches) input.focus();
 
-  // Bump this by 0.001 on every change to this file (v0.001, v0.002, ...).
-  const APP_VERSION = "v0.038";
-
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("version").textContent = APP_VERSION;
 
@@ -495,7 +500,7 @@
   // ---- data -----------------------------------------------------------
   async function loadSector(id) {
     if (dictionaries[id]) return dictionaries[id];
-    const res = await fetch(`data/${id}.json`);
+    const res = await fetch(`data/${id}.json?v=${APP_VERSION}`);
     if (!res.ok) throw new Error(`Could not load data/${id}.json (${res.status})`);
     const json = await res.json();
     const byAbbr = new Map(), byAlias = new Map();

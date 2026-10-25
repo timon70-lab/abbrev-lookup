@@ -90,7 +90,9 @@ async function runCase(query) {
     // or spends API credits.
     async fetch(u) {
       netLog.push(String(u));
-      const local = String(u).match(/^data\/([a-z-]+)\.json$/);
+      // The query string is the cache-buster (?v=APP_VERSION); a static host
+      // ignores it when resolving the file, so this stub does too.
+      const local = String(u).match(/^data\/([a-z-]+)\.json(?:\?.*)?$/);
       if (!local) return { ok: false, status: 599, json: async () => ({}), text: async () => "" };
       const file = path.join(ROOT, "data", local[1] + ".json");
       if (!fs.existsSync(file)) return { ok: false, status: 404 };
@@ -170,6 +172,14 @@ const CASES = [
     query: "?s=utilities&q=ZZQQ",
     check: (r) => /isn't in the/.test(text(r.resultHTML))
       || "expected the miss state" },
+
+  // Guards the v0.039 fix. A stale cached dictionary logged ITOM as a miss two
+  // days after it shipped, which costs an API call and poisons the miss log.
+  // Nothing else here fails if the cache-buster is dropped, so this watches it.
+  { name: "dictionary fetch is cache-busted",
+    query: "?s=utilities&q=ADMS",
+    check: (r) => (r.fetched[0] || "").includes("?v=v0.")
+      || "expected data/*.json to be fetched with ?v=APP_VERSION, got: " + r.fetched[0] },
 ];
 
 if (process.env.TEST_QUERY !== undefined) {

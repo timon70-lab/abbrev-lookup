@@ -35,7 +35,7 @@ Sectors so far: `utilities`, `energy`, `information-technology`, `health-care`.
 ## Hard conventions
 
 **Bump `APP_VERSION` in `index.html` on every change to that file.** Format
-`v0.0NN`, increment by one. It renders in the footer. Currently v0.038.
+`v0.0NN`, increment by one. It renders in the footer. Currently v0.039.
 
 **No build step, ever.** The frontend is one self-contained `index.html` served
 as a plain file. No bundler, no framework. `package.json` exists only so Vercel
